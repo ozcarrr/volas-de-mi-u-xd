@@ -136,7 +136,7 @@ determine :
 
 ## 1. Vector tangente unitario a lo largo de $C$ :
 
-## $T(t)=\frac{\vec{r}(t)}{||\frac{d}{dt}\vec{r}(t)||}$ 
+## $T(t)=\frac{\vec{r}'(t)}{||\frac{d}{dt}\vec{r}(t)||}$ 
 
 
 ## 2. Vector normal a lo largo de $C$ :
@@ -184,7 +184,7 @@ determine :
 
 ### Def: sea $C$ una curva suave definida por la función vectorial $\vec{r}(t)=(x(t),y(t),z(t));t\in[a,b]$. Definimos la longitud de arco de $C$ como: 
 
-## $L_C=\int{\vec{r}'(t)}Vdt=\int{\sqrt{(x'(t))²+(y'(t))²+(z'(t))²}}$ 
+## $L_C=\int_{t_0}^{t}{\vec{r}'(t)}Vdt=\int_{t_0}^{t}{\sqrt{(x'(t))²+(y'(t))²+(z'(t))²}}$  
 
 ### Ejemplo: sea $C$ una curva definida por la funcion vectorial $\vec{r}(t)=(\frac{t²}{2},sin(t)-tcos(t),cos(t)+tsin(t));t\in[0,\pi]$, calcule la longitud de curva de $C$:
 
@@ -193,27 +193,27 @@ determine :
 
 ## $||\vec{r}'(t)||=\sqrt{t²+t²sin²(t)+t²cos²(t)}=\sqrt{2t²}=\sqrt{2}|t|=\sqrt{2}t$ 
 
-### Entonces : $L_C=\int{||\vec{r}'(t)}dt=\sqrt{2}\int{t}dt=\frac{\sqrt{2}}{2}\pi²$ 
+### Entonces : $L_C=\int_{t_0}^{t}{||\vec{r}'(t)}dt=\sqrt{2}\int_{t_0}^{t}{t}dt=\frac{\sqrt{2}}{2}\pi²$  
 
 # Función longitud de arco 
 
 ### Def: Sea $C$ una curva suave dada por la función vectorial $\vec{r}:I\subseteq{R}->R³$ ; $\vec{r}(t)=(x(t),y(t),z(t))$ 
 ### Supongamos que $\vec{r}$ es diferenciable; $t_0\in{I}$, se define la longitud de arco $\vec{r}(C)$, relativa a $t_0$, como: 
 
-## $s(t)=\int{||\vec{r}'(u)||}du$ entrega la longitud de la curva, desde el punto inicial $\vec{r}(t_0)$ hastael punto variable $\vec{r}(t)$ 
+## $s(t)=\int_{t_0}^{t}{||\vec{r}'(u)||}du$ entrega la longitud de la curva, desde el punto inicial $\vec{r}(t_0)$ hasta el punto variable $\vec{r}(t)$ 
 ### OBS: Por el teorema fundamental del calculo (TFC) se tiene lo siguiente: 
 
 ## Si $F(u)$ es una primitiva de la $||\vec{r}'(u)||$, entonces:
 
 ## $s(t)=\int{||\vec{r}'(u)||}du=F(u)=F(t)-F(t_0)$ donde $F(t_0)$ es constante, entonces :
 
-## $s'(t)=\frac{ds}{dt}=\frac{d}{dt}(\int{||\vec{r}'(u)}du)=||\vec{r}'(t)$ Por lo tanto, $s$ es una función diferenciable, y $s'(t)=\frac{ds}{dt}=||\vec{r}'(t)||$, además :
+## $s'(t)=\frac{ds}{dt}=\frac{d}{dt}(\int{||\vec{r}'(u)}du)=||\vec{r}'(t)||$ Por lo tanto, $s$ es una función diferenciable, y $s'(t)=\frac{ds}{dt}=||\vec{r}'(t)||$, además :
 
 ## $ds=||\vec{r}'(t)||dt$ 
 
 ### Def: Una curva $C$ dada por $\vec{r}(t)=(x(t),y(t)z(t))$ se dice "parametrizada por la longitud de arco si y solo si $||\vec{r}'(t)||=1,\forall{t}$ "
 
-### obs: Sea $C$ una curva suave, dada por $\vec{r}(t)=(x(t),y(t),z(t))$ ; suponga que $\vec{r}'(t)!=0,\forall{t}$. 
+### obs: Sea $C$ una curva suave, dada por $\vec{r}(t)=(x(t),y(t),z(t))$ ; suponga que $\vec{r}'(t)\not=0,\forall{t}$. 
 
 ## Como $s'(t)=\frac{ds}{dt}=||\vec{r}'(t)||>0,\forall{t}$, entonces $s$ es una función creciente de $t$, y por lo tanto invertible, con inversa $t=t(s)$, entonces:
 
@@ -221,7 +221,7 @@ determine :
 
 ### Cuando sustituimos $t$ por $t(s)$ en las ecuaciones originales de $C$, obtenemos la reparametrización por la longitud de arco de la curva $C$: 
 
-## $\beta(s)=x(s)i+y(s)j+z(z)k=(x(s),y(s)z(s))$  
+## $\beta(s)=x(s)i+y(s)j+z(z)k=(x(s),y(s),z(s))$  
 
 ## donde $||\beta'(s)||=1$ 
 
@@ -239,20 +239,20 @@ determine :
 
 ### El punto $(5,0,0)$ corresponde a $t=0$, por lo tanto la función longitud de arco relativa a $t=0$ es:
 
-## $s(t)=\int{||\vec{r}'(u)||du}=\int{\sqrt{169}du}=\int{13}du=13t$ 
+## $s(t)=\int_{0}^{t}{||\vec{r}'(u)||du}=\int_{0}^{t}{\sqrt{169}du}=\int_{0}^{t}{13}du=13t$ 
 
 ## entonces: $s(t)=13t$, donde su inversa es $t(s)=\frac{s}{13}$ 
 ## Sustituyendo en las ecuaciones originales de $C$, $t$ por $\frac{s}{13}$, obtenemos: 
 
 ## $C: \vec{\beta}(s)=(x(\frac{s}{13}),y(\frac{s}{13}),z(\frac{s}{13}))=(5cos(\frac{s}{13}),5sin(\frac{s}{13}),12\frac{s}{13})$  
 
-#### Note que $||\vec{\beta}(s)||=1$, Verificar. 
+#### Note que $||\vec{\beta}'(s)||=1$, Verificar. 
 
 ## Ejercicio :
 
 ### Considere la curva $C$, dad por $\vec{r}(t)=(e^tcos(t),e^tsin(t),e^t),t\in[0,+\inf]$ 
 
-### a) Determine $\vec{T},\vec{N},\vec{B} en el punto $P(0,e^{\frac{\pi}{2}},e^{\frac{\pi}{2}})$ 
+### a) Determine $\vec{T},\vec{N},\vec{B}$ en el punto $P(0,e^{\frac{\pi}{2}},e^{\frac{\pi}{2}})$ 
 
 ### b) Parametrice $C$ con respecto al parametro longitud de arco. 
 
@@ -268,7 +268,267 @@ determine :
 ## $\vec{r}'(\frac{\pi}{2})=e^{\frac{\pi}{2}}(-1,1,1)$ 
 ## $\vec{r}''(\frac{\pi}{2})=e^{\frac{\pi}{2}}(-2,0,1)$  
 
-## Por lo tanto $\vec{T}(t)=\frac{\vec{r}'(t)}{||\vec{r}'(t)||}->\vec{T}(\frac{\pi}{2})=\frac{e^{\frac{\pi}{2}}{\sqrt{3}e^{\pi}{2}}=\frac{(-1,1,1)}{\sqrt{3}}$ 
+## Por lo tanto $\vec{T}(t)= \frac{ \vec{r}'(t)}{||\vec{r}'(t)||}->\vec{T}(\frac{\pi}{2})=\frac{\vec{r}'(\frac{\pi}{2})}{||\vec{r}'(\frac{\pi}{2})||}=\frac{e^{\frac{\pi}{2}}(-1,1,1)}{e^{\frac{\pi}{2}}\sqrt{3}}=\frac{1}{\sqrt{3}}(-1,1,1)$ 
+
+# 20/08 
+
+# Plano osculador, normal y rectificante por un pounto de una curva. 
+
+### Sea $C$ una curva dada por la función vectorial $\vec{r}(t)=(x(t),y(t),z(t))$; $t\in{I}$ y un punto $P=\vec{r}(t_0)$ 
+
+## 1. Plano Osculador:  
+### Este plano está dirigido (o generado) por los vectores $\vec{T}$ y $\vec{N}$ es ortogonal al vector $\vec{B}$. 
+
+### $\vec{B}(t_0)=(b_1(t_0), b_2(t_0), b_3(t_0))$ 
+
+### Luego, la ecuación del plano osculador de la curva $C$ en el punto $P=\vec{r}(t_0)$ esta dada por: 
+
+# $\vec{B}(t_0)\cdot{(x-x(t_0),y-y(t_0),z-z(t_0))}=0$ 
+# <-> $b_1(t_0)(x-x(t_0))+b_2(t_0)(y-y(t_0))+b_3(t_0)(z-z(t_0))=0$ 
+
+## Plano Normal: 
+
+### Este plano esta dirigido (o generado) por los vectores $\vec{N}$ y $\vec{B}$, por lo tanto, e es ortogonal al vector $\vec{T}$ (vector tangente).
+
+# $\vec{r}'(t_0)=(x'(t_0),y'(t_0),z'(t_0))$ (Vector normal al plano Normal)
+
+### Por lo tanto la ecuación del plano normal esta dada por. 
+
+# $\vec{r}'(t_0)\cdot{(x-x(t_0),y-y(t_0),z-z(t_0))}=0$ <-> $x'(t_0)(x-x(t_0)) + y'(t_0)(y-y(t_0)) +z'(t_0) (z-z(t_0))=0$ 
+# Plano Rectificante 
+
+### Este plano esta dirigido (o generado) por los vectores $\vec{T}$ y el $\vec{B}$, entonces el es ortogonal al vector $\vec{N}$ (vector normal). 
+
+# $\vec{N}(t_0)=(n_1(t_0),n_2(t_0),n_3(t_0))$ (Vector normal al plano rectificante) 
+
+### Por lo tanto, la ecuación del plano rectificante a $C$ en el punto $P=\vec{r}(t_0)$ esta dada por:
+
+# $n_1(t_0)\cdot{(x-x(t_0))}+n_2(t_0)\cdot{(y-y(t_0))}+n_3(t_0)\cdot{(z-z(t_0))}=0$ 
+
+## Ejercicio :
+
+### Determine las ecuaciones de los planos normal, osculador y rectificante de la helice $\vec{r}(t)=(2cos(t),2sin(t),t)$ ;$t\in{R}$ en el punto $P(0,2,\frac{\pi}{2})$ 
+
+## Respuesta:
+### Sea $t_0\in{R}$ tal que:
+
+## $\vec{r}(t_0)=(0,2,\frac{\pi}{2})$ 
+
+## -> $2cos(t_0)=0 ; 2sin(t_0)=2 ; t = \frac{\pi}{2}$ -> $t_0=\frac{\pi}{2}$ 
+
+
+## luego, $P=\vec{r}(\frac{\pi}{2})$ 
+
+## Tenemos: 
+
+# $\vec{r}'(t)=(-2sin(t),2cos(t),1) ; \vec{r}''(t)=(-2cos(t),-2sin(t),0)$ 
+# -> $\vec{r}'(\frac{\pi}{2})=(-2,0,1) ; \vec{r}''(\frac{ \pi}{2})=(0,-2,0)$ 
+
+
+### Como el vector tangente es ortogonal al plano normal a la curva $C$ en $P$, entonces $\vec{r}'(\frac{\pi}{2})$ es ortogonal al plano normal, por lo tanto su ecuación es: 
+
+# $\vec{r}'(\frac{\pi}{2})\cdot{(x-0,y-2,z-\frac{\pi}{2})}=0$ 
+# -> $-2(x-0)+0(y-2)+1(z-\frac{\pi}{2})$ <-> $-2x+z-\frac{\pi}{2}=0$ (ecuación plano normal)
+
+
+## luego, calculamos el vector $\vec{B}$ :
+
+# $\vec{r}'(\frac{\pi}{2})\times\vec{r}''(\frac{\pi}{2})=(-2,0,1)\times(0,-2,0)=(2,0,4)$ 
+
+# -> $\vec{B}(t_0)=\vec{r}'(\frac{\pi}{2})\times{\vec{r}''(\frac{\pi}{2})}$ / norma de $\vec{B}'(t_0)=\vec{r}'(\frac{\pi}{2})\times{\vec{r}''(\frac{\pi}{2})}$ = $\frac{1}{\sqrt{20}}\cdot(2,0,4)$ 
+
+
+## La ecuación del plano osculador a $C$$ es en l punto $P$ es : 
+
+# $\vec{B}(\frac{\pi}{2})\cdot(x-0,y-2,z-\frac{\pi}{2})=0$ 
+# <-> $\frac{2}{sqrt{20}}x+0(y-2)+\frac{4}{\sqrt{20}}(z-\frac{\pi}{2})=0$ 
+
+# <-> $2x+4z-2\pi=0$  (ecuación plano osculador)
+
+## 3. calcular plano rectificante lol oye mira tu
+
+
+
+# Curvatura y torsión 
+
+### def: La curvatura de una curva $C$ esta dada por: 
+
+# $k=||\frac{dT}{ds}||$ 
+
+### donde $T$ es el vector tangente unitario. 
+
+#### Nota: Curvatura en terminos del parametro $t$ : 
+
+# $\frac{dT}{dt}=\frac{DT}{ds}\cdot{\frac{ds}{dt}}$ -> $\frac{dT}{ds}=\frac{\frac{Dt}{dt}}{\frac{ds}{dt}}$ 
+
+
+### Luego $k=||\frac{dT}{ds}||=||\frac{\frac{dT}{ds}}{\frac{ds}{dt}}||=\frac{||\frac{dT}{dt}||}{|| || \vec{r}(t) || ||}= \frac{||T'(t)||}{||\vec{r}'(t)||};\vec{r}(t)\not=\vec{0}$ 
+
+### se supone que $C$ esta dada por la función vectorial $r'(t)=(x(t),y(t),z(t))$ 
+
+# Teorema: La curvatura de una curva $C$ dad por la función vectorial $\vec{r}(t)$, esta dada por: 
+
+# $k(t)=\frac{||\vec{r}'(t)\times\vec{r}''(t)||}{||\vec{r}'(t)||³}$ 
+
+
+### Definición (Torsión) : Se define la torisón de una curva $C$, dada por la función vectorial $\vec{r}(t)=(x(t),y(t),z(t));t\in{I}$ como:
+
+# $\tau(t)=\frac{(\vec{r}'(t)\times\vec{r}''(t))\cdot\vec{r}'''(t)}{|| \vec{r}'(t)\times\vec{r}''(t)||²}$ 
+
+
+### Nota: La torsión mide el grado de torcedura de la curva $C$. 
+
+### La torsión mide el desvio de la curva  respecto del plano oscular. 
+
+
+# Componente tangencial y normal de la aceleración 
+
+## Sea $C$ definida por $\vec{r}(t)=(x(t),y(t),z(t))$ 
+
+### definición :
+
+### Si el parametro $t$ es el tiempo entonces $\vec{r}''(t)$ es la aceleración de una particula con posición instantanea $\vec{r}(t)$. los coeficientes de los vectores $T$ y $N$ son respectivamente las componentes tangencial y normal de la aceleración
+
+### De hecho :
+
+# $T(t)=\frac{\vec{r}'(t)}{||\vec{r}'(t)}$ -> $\vec{r}'(t)=||\vec{r}'(t)||\cdot{T(t)}$ 
+
+
+# -> $\vec{r}''(t)=\frac{d}{dt}(||\vec{r}'(t)||)\cdot{T(t)}+||\vec{r}'(t)||\cdot{T'(t)}$ 
+
+## sabemos que $s'(t)=\frac{ds}{dt}=||\vec{r}'(t)||$ 
+
+## -> $s''(t)=\frac{d}{dt}(||\vec{r}'(t)||)$ 
+
+## $=s''(t)\cdot{T(t)}+||\vec{r}'(t)||\cdot{T'(t)}$ 
+
+### además $N(t)=\frac{T'(t)}{||T'(t)||}$ 
+
+## entonces : 
+
+# $s''(t)\cdot{T(t)}+||\vec{r}'(t)||\cdot||T'(t)||\cdot{N(t)}$ 
+
+
+## sabemos que $k(t)=\frac{||T'(t)||}{||\vec{r}'(t)||}$ (curvatura) y $s'(t)=||\vec{r}'(t)||$ 
+## entonces :
+
+# $=s''(t)\cdot{T(t)}+s'(t)\cdot||T'(t)||\cdot{N(t)}$ 
+
+# $=s''(t)\cdot{T(t)}+s'(t)\cdot{k(t)\cdot||\vec{r}'(t)||}\cdot{N(t)}$ 
+
+# -> $\vec{r}''(t)=s''(t)\cdot{T(t)}+(s'(t))²\cdot{k(t)}N(t)$ 
+
+## obs: $s''(t)$ es la componente tangencial de la aceleración
+### obs: $(s'(t))²\cdot{k(t)}$ es la componente normal de la aceleración
+
+
+## Notación: 
+
+# $a_T=s''(t)$  (componente tangencial)$a_N=(s'(t))²\cdot{k(t)}$ (componente normal)
+
+
+## obs: Geometricamente si se proyecta $\vec{r}''(t)$ sobre los vectores $T$ y $N$, se puede concluir lo siguiente :
+
+# $\vec{r}''(t)=[\vec{r}''\cdot{\vec{T}(t)}]+[\vec{r}''(t)\cdot{N(t)}]$ donde $\vec{r}''(t)\cdot{T(t)}$ y $\vec{r}''(t)\cdot{N(t)}$ son respectivamente las componentes tangencial y normal de la aceleración. 
+
+
+## Proposición: Sean a_T y a_N las componentes tangencial y normal de la aceleración. Se tiene: 
+
+# $a_T=\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ 
+
+# $a_N=\frac{||\vec{r}'(t)\times\vec{r}''(t)}{||\vec{r}''(t)||}$ 
+
+
+## Bosquejo de demostración: 
+
+### Sabemos que : 
+
+# $a_T(t)=s''(t)=\vec{r}''(t)\cdot{T(t)}=\vec{r}''(t)\cdot{\frac{\vec{r}'(t)}{||\vec{r}'(t)||}}$ 
+
+# $=\frac{\vec{r}''(t)\cdot{\vec{r}'(t)}}{||\vec{r}'(t)||}$ 
+
+# = $\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ 
+# $a_N = (s'(t))²\cdot{k(t)}=||\vec{r}'(t)||²\cdot{\frac{||\vec{r}'(t)\times\vec{r}''(t)||{||\vec{r}'(t)||³}}}$ 
+
+## FInalemtne : $\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||}=a_N$ 
+
+
+## Ejercicio considere la curva: $\vec{r}(t)=ti+cos²(t)j+sin²(t)k$ ; $t\geq{0}$ 
+## Función vectorial que describe el movimiento de una particula en el espacio. 
+
+### Calcule las componentes tangencial y normal de la aceleración 
+
+# RESPUESTA :
+
+### $\vec{r}(t)=(t,cos²(t),sin²(t));t\geq{0}$ 
+
+### $\vec{r}'(t)=(1,-2sin(t)cos(t),2sin(t)cos(t))=(1,-sin(2t),sin(2t))$ 
+### $\vec{r}''(t)=(0,-2cos(2t),2cos(2t))=2cos(2t)(0,-1,1)$ 
+
+
+
+## Por otro lado: 
+
+### Sea $s$ la función longitud de arco se tiene:
+
+# $\frac{ds}{dt}=s'(t)=||\vec{r}'(t)||=\sqrt{1+2sin²(2t)}$ 
+
+# -> $s''(t)=\frac{1}{2\sqrt{1+2sin²(2t)}}\cdot{4sin(2t)2cos(2t)}$ 
+
+# $=\frac{4sin(2t)cos(2t)}{\sqrt{1+2sin²(2t)}}$ 
+
+# = $2[\frac{2sin(2t)cos(2t)}{\sqrt{1+2sin²(2t)}}]$ 
+
+# $=\frac{2sin(4t)}{\sqrt{1+2sin²(2t)}}$ 
+
+## entonces, $a_T=s''(t)=\frac{2sin(4t)}{\sqrt{1+2sin²(2t)}}$ 
+
+## Por otro lado $a_N=?$ 
+
+# $a_N=s'(t)²\cdot{k(t)}$ 
+
+# $\vec{r}'(t)\times{\vec{r}''(t)}=(1,-2sin(2t),2sin(2t))\times{(0,-2cos(2t),2cos(2t))}=(0,-2cos(2t),-2cos(2t))$ 
+# $||\vec{r}'(t)\times{\vec{r}''(t)||}=2\sqrt{2}|cos(2t)|$ 
+
+## Luego, $k(t)=\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||³}=\frac{2 \sqrt{2}|cos(2t)}{(1+sin²(2t))^{\frac{3}{2}}}$ 
+
+
+## Asi: 
+
+# $a_N=(s''(t))^2\cdot{k(t)}=(1+2sin²(2t))\cdot{\frac{2\sqrt{2}|cos(2t)}{(1+sin²(2t))^{\frac{3}{2}}}}$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
