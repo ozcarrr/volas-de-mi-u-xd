@@ -434,9 +434,9 @@ determine :
 
 ## Proposición: Sean a_T y a_N las componentes tangencial y normal de la aceleración. Se tiene: 
 
-# $a_T=\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ 
+# $a_T=\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ (Escalar)
 
-# $a_N=\frac{||\vec{r}'(t)\times\vec{r}''(t)}{||\vec{r}''(t)||}$ 
+# $a_N=\frac{||\vec{r}'(t)\times\vec{r}''(t)||}{||\vec{r}''(t)||}$ (Escalar)
 
 
 ## Bosquejo de demostración: 
@@ -447,8 +447,8 @@ determine :
 
 # $=\frac{\vec{r}''(t)\cdot{\vec{r}'(t)}}{||\vec{r}'(t)||}$ 
 
-# = $\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ 
-# $a_N = (s'(t))²\cdot{k(t)}=||\vec{r}'(t)||²\cdot{\frac{||\vec{r}'(t)\times\vec{r}''(t)||{||\vec{r}'(t)||³}}}$ 
+# = $\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ (Escalar (Numero real))
+# $a_N = (s'(t))²\cdot{k(t)}=||\vec{r}'(t)||²\cdot{\frac{||\vec{r}'(t)\times\vec{r}''(t)||||\vec{r}'(t)||³}}$ 
 
 ## FInalemtne : $\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||}=a_N$ 
 
@@ -488,7 +488,7 @@ determine :
 # $a_N=s'(t)²\cdot{k(t)}$ 
 
 # $\vec{r}'(t)\times{\vec{r}''(t)}=(1,-2sin(2t),2sin(2t))\times{(0,-2cos(2t),2cos(2t))}=(0,-2cos(2t),-2cos(2t))$ 
-# $||\vec{r}'(t)\times{\vec{r}''(t)||}=2\sqrt{2}|cos(2t)|$ 
+# $u$ 
 
 ## Luego, $k(t)=\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||³}=\frac{2 \sqrt{2}|cos(2t)}{(1+sin²(2t))^{\frac{3}{2}}}$ 
 
@@ -497,26 +497,225 @@ determine :
 
 # $a_N=(s''(t))^2\cdot{k(t)}=(1+2sin²(2t))\cdot{\frac{2\sqrt{2}|cos(2t)}{(1+sin²(2t))^{\frac{3}{2}}}}$ 
 
+# Funciones de varias variables 
+
+### def: Llamaremos función real o escalar de varias variables a toda función del tipo: 
+
+# $f: u\subseteq{R^{n}}->R$ ; $u=dom(f)$ 
+
+#### $x~~~~~~~~~~->f(x)$ 
+
+### aqui:
+
+## $x=(x_1,x_2,...,x_n)$ 
+## $f(x)=f(x_1,...,x_n)$ 
+
+
+### Ejemplos: 
+
+### $f(x,y)=x²+y²$ 
+
+### $f(x,y)=\sqrt{9-x²-y²}$
+
+### $f(x,y,z)=\frac{\sqrt{49-z²}}{25+\sqrt{16-x²-y²}}$ 
+
+### OBS: Dada la función $f: U\subseteq{R^{n}}->R$ 
+
+### 1. Se entendera como dominio de $f$ al mayor subconjunto de $R^n$ , tal que $f(x)$ tenga sentido en $R$, esto es:
+
+# $dom(f)={(x_1,x_2,x_n)}\in{R^{n}} | f(x)\in{R}$} 
+
+### 2. Se entendera como recorrido de $f$ al siguiente conjunto: 
+
+## $Rec(f)=$ conjunto de todos los valores que toma $f(x)$, para $x\in{dom(f)}$.
+
+### Ejemplo:  Sea $f(x,y)=\sqrt{1-x²-y²}$. Tenemos: 
+
+### $dom(f)=(x,y)\in{R²} | f(x,y)\in{R}=(x,y)\in{R²} | \sqrt{1-x²-y²}\in{R}$ 
+
+### -> $dom(f)=(x,y)\in{R²} | x²+y²\leq{1}$ 
+
+### -> $Rec(f(x,y)): f(x,y)=\sqrt{1-x²-y²}\geq{0}$ 
+
+### -> $x²+y²+z²=1$ ; $z\geq{0}$ (Hemisferio norte de la esfera $x^2+y²+z²=1$ centrada en $(0,0,0)$ de radio $1$).
+
+### -> $Rec(f)=[0,1]$ 
+
+### Ejemplo : sea $f(x,y)=\frac{1}{\sqrt{x²-4y²}}$. en este caso: 
+
+## $dom(f) = (x,y)\in{R²} | x²-4y²>0$ 
+
+### -> $2|y|<|x|$ -> $-\frac{1}{2}|x|<y<\frac{1}{2}|x|$ 
+
+### -> $dom(f)=(x,y)\in{R²} | -\frac{1}{2}|x|<y<\frac{1}{2}|x|$ 
+
+### $Rec(f)=]0,+\infty[$ 
+
+### ejercicio: Sea $f(x,y,z)=\frac{\sqrt{49-z²}}{25+\sqrt{16-x²-y²}}$. Determine el dominio y recorrido de $f$. 
+
+# Grafico de una función de varias variables 
+
+### sea $f:U\subseteq{R^n}->R$ una función escalar, se define el grafico de $f$, que anotamos $gra(f)$ como el conjunto; 
+
+# $gra(f)=$ {$(x_1,x_2,...,x_n),f(x_1,x_2,..,x_n))$ | $(x_1,x_2,...,x_n)\in{dom(f)}$  } 
+
+### Note que: $gra(f)\subseteq{R^{n+1}}$ 
+#### Para el caso $n=1$ ; $f:U\subseteq{R²}->R$ ; $f(x,y)=z$ 
+
+
+### Tenemos: 
+
+# $gra(f)=$ {$(x,y,f(x,y))\in{R³}$ | $z=f(x,y) , (x,y)\in{dom(f)}$}
+
+# = $gra(f)=$ {$(x,y,z)\in{R³} | z=f(x,y),(x,y)\in{dom(f)}$ }
+
+
+![[Screenshot from 2025-08-30 17-07-43 1.png]]
+
+
+### ejemplo: $f(x,y)=\sqrt{1-x²-y²}$ 
+
+### $dom(f)=${$(x,y)\in{R²}$ | $x²+y²\leq{1},z\geq{0}$ } (disco unitario :O)
+
+### $x=\sqrt{1-x²-y²}\geq{0}$ -> $x²+y²+z²=1$ 
+
+
+![[Screenshot from 2025-08-30 17-09-06.png]]
+
+
+# Conjuntos de nivel 
+
+### def: Sea $f:U\subseteq{R^n}->R$ una función escalar. sea $C\in{R}$, el conjunto de nivel o valor $C$ en $f$ se define:
+
+# $N_C(f)=$ {$(x_1,x_2,..,x_n)\in{dom(f)}$ | $f(x_1,x_2,...,x_n)=c$}
+
+### note que $N_C\subseteq{dom(f)}$ 
+
+### - Si $n=2$, nos referimos a "curvas de nivel"
+### - Si $n=3$, nos referimos "Superficies de nivel" 
+### - Si $n>3$, nos referimos a "Hiper-superficies de nivel"
+
+
+## Ejemplo: Sea $f(x,y)=x²+y²$. Determine los conjuntos de nivel de $f$ (o curvas de nivel de $f$). Ademas, bosqueje la grafica de $f$ 
+### Respuesta: $f(x,y)=z=x²+y²$ y $dom(f)=R²$ 
+
+## $N_C=$ {$(x,y)\in{R²}$ | $f(x,y)=C$ }= {$(x,y)\in{R²}$ | $x²+y²=C$ }
+
+### Tenemos:
+
+### - Si $c<0$ -> $N_C(f)=\emptyset$ 
+### - SI $c=0$ -> $N_C={(0,0)}$
+### - Si $c>0$ -> $N_C(f)=$ {$(x,y)\in{R} | x²+y²=(\sqrt{c})²$}
+
+
+### Si $c>0$, los conjuntos (o curvas) de nivel de $f$ son circunferencias centradas en el origen y radio $r=\sqrt{c}$ 
+
+### Curvas de nivel  de $f$:
+
+### insertar imagen lol
+
+### Traza de una superficie: 
+#### Son las secciones transversales que se generan cuando la superficie intersecta un plano paralelo a los planos cordenados.
+
+#### Ejemplo: $T_{R_{X_Y}}:x²+y^2 = 0 -> (x,y=(0,0))$ 
+### $T_{R_{x_z}}:x²=z$ (Parabola en el plano xz)
+### $T_{R_{y_z}}:y²=z$ (Parabola en el plano yz)
+
+![[Screenshot from 2025-08-30 17-10-42.png]]
+
+
+# Ejercicio: Determine los conjuntos (superficies) de nivel de la función:
+
+# $f(x,y,z)=ln(\frac{1+\sqrt{x²+y²+z²}}{1-\sqrt{x²+y²+z²}})$ 
+
+### OBS (Integración de funciónes vectoriales): 
+
+### Sea $\vec{r}(t)=(f_1(t),f_2(t),...,f_n(t))$ una función vectorial con $t\in{[a,b]}$, Entonces: 
+
+
+# $\int_{a}^{b}\vec{r}(t)dt=\int_{a}^{b}f_1(t)dt+...+\int_{a}^{b}f_n(t)dt$ 
+
+### La integral indefinida de $\vec{r}(t)$, queda:
+
+# $\int{\vec{r}(t)}dt=\int{f_1(t)dt}+...+\int{f_n(t)dt}$ = $(\int{f_1(t)dt},...,\int{f_n(t)dt})$ ; donde las constantes de cada integral se anotan de manera $c_1,c_2,...,c_n$ 
+
+
+### Ejercicio (aplicación): Determine los vectores velocidad y de posición de una particula que tiene aceleración $\vec{a}(t)=(0,0,-10)[\frac{m}{s²}]$, velocidad inicial $v(0)=(1,1,0)[\frac{m}{s}]$ y posición inicial $\vec{r}(0)=(0,0,0)$ 
 
 
 
+# Derivadas Parciales 
+
+### Sea $f:A\subseteq{R^n}->R$ una función; $A\not=\emptyset$ . $a=(a_1,a_2,...,a_n)$ ; $a\in{A}$ , la expresión 
+
+
+## $\lim_{h_{k}->0}\frac{f(a_1,...,a_{k-1},a_k+h_k,a_{k+1},...,a_n)-f(a_1,...,a_n)}{h_k}$ 
+
+#### Si existe, se denomina "derivada parcial de $f$, con respecto a la $k$-esima variable en el punto $a$"
+
+#### SI el limite existe, lo denotariamos como: 
+
+# $\frac{\delta f}{\delta x_k},f_k(a),f_{x_k}(a),D_kf(a)$ 
 
 
 
+## Caso particular: $n=2$ 
+
+### Sea $f:A\subseteq{R²}->R$ , $a=(x_0,y_0)\in{A}$, entonces: 
+
+### 1. $\frac{\delta f}{\delta x}(x_0)(y_0)=\lim_{h->0}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}$ 
+
+### $\frac{\delta f}{\delta y}(x_0,y_0)=\lim_{h->0}\frac{f(x_0,y_0+h)-f(x_0,y_0)}{h}$ 
+
+### En general, para $(x,y)\in{A}$, las derivadas de $f$ quedan escritas como: 
+
+# $\frac{\delta f}{\delta x}(x,y)=\lim_{h->0}\frac{f(x+h,y)-f(x,y)}{h}$ 
+
+# $\frac{\delta f}{\delta y}(x,y)=\lim_{h->0}\frac{f(x,y+h)-f(x,y)}{h}$ 
+
+## Para fines de calculo: 
+
+### Para encontrar $\frac{\delta f}{\delta x}(x,y)$, se considera la variable y constante, y se deriva $f(x,y)$ con respecto a $x$.
+
+### Para encontrar $\frac{\delta f}{\delta y}(x,y)$, se procede de forma analoga. 
+
+### Ejemplo: Sea $f(x,y)=sin(\frac{x}{1+y})$, encuentre $\frac{\delta f}{\delta x}(x,y)$ y $\frac{\delta f}{\delta y}(x,y)$ 
+
+### -> $\frac{\delta f}{\delta x}(x,y)=cos(\frac{x}{1+y})\frac{1}{1+y}$ 
+### -> $\frac{\delta f}{\delta y}(x,y)=cos(\frac{x}{1+y})\cdot{-\frac{x}{(1+y)²}}$ 
+
+# Interpretación geometrica:
+
+![[Screenshot from 2025-08-30 17-12-21.png]]
+
+# Derivadas parciales de orden superior
+
+### Si $f$ es una función de las variables $x$ e $y$, entonces sus derivadas parciales $\frac{\delta f}{\delta x}$ y $\frac{\delta f}{\delta y}$, también son funciones de las variables $x$ e $y$, de modo que podemos considerar sus derivadas parciales con respecto a $x$ y con respecto a $y$. 
+
+### Estas derivadas reciben el nombre de "derivadas parciales de segundo orden de $f$". 
+
+## Notaciones: 
+
+### $\frac{\delta f}{\delta x}(\frac{\delta f}{\delta x})=\frac{\delta²f}{\delta x²}$ ~~~~~ > $f_{xx}$ 
+### $\frac{\delta f}{\delta y}(\frac{\delta f}{\delta y})=\frac{\delta²f}{\delta y²}$ ~~~~ > $f_{yy}$ 
+### $\frac{\delta }{\delta x}(\frac{\delta f}{\delta y})=\frac{\delta²f}{\delta x \delta y}$ ~~~~~ > $\frac{\delta z}{\delta x \delta y}$ ; $f_{yx}$ 
+### $\frac{\delta }{\delta y}(\frac{\delta f}{\delta x})=\frac{\delta²f}{\delta y \delta x}$ ~~~~ > $\frac{\delta² z}{\delta y \delta x}$ ; $f_{xy}$ 
 
 
+# Teorema de Schwarz
 
+### Sea >$f$ una función de las variables $x$ e $y$ tal que las derivadas parciales de segundo orden de son continuas en $D$. Entonces: 
 
+# $\frac{\delta² f}{\delta x \delta y}(x,y)=\frac{\delta² f}{\delta y \delta x}(x,y)$ ; $(x,y)\in{D}$ 
 
+### Ejemplo: 
 
+### Sea $f(x,y)=x³+x²y²-2y²$, calcule $\frac{\delta² f}{\delta x\delta y}$ y $\frac{\delta² f}{\delta y \delta x}$ 
+# Ejercicio Propuesto: 
 
+### Pruebe que la función $f(x,y)=cos(x^2+y²)$ satisface la ecuación:
 
-
-
-
-
-
-
+# $y\frac{\delta² z}{\delta x²}-x\frac{\delta² z}{\delta y \delta x}-\frac{\delta z}{\delta y}=0$ 
 
 
 

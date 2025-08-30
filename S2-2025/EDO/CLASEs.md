@@ -482,7 +482,7 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 
 ## SI $frac{1}{m}(\frac{\delta N}{\delta x}+\frac{\delta M}{\delta y})$ solo depende de y, la ecuación (B)es de variables separadas (se resuelve la ecuación), y en este caso el factor integrante es: 
 
-# $p(y)=e^{\int{\frac{1}{M}(\frac{\delta N}{\delta x}+\frac{\delta M}{\delta y})dy}$ 
+# $p(y)=e^{\int{\frac{1}{M}(\frac{\delta N}{\delta x}+\frac{\delta M}{\delta y})dy}}$ 
 
 ## Ejercicio: Resuelva la ecuación:
 
@@ -603,18 +603,173 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 
 ### donde $v$ es una nueva variable. 
 
+### obs: Cualquiera de las dos sustituciones anteriores reducen una ecuación homogénea a una de variables separadas. Se sugiere usar :
 
-# COntrol martes: 
-
-## ecuaciones separables y lineales
-
-
+### - $y=vx$ si $N$ tiene una estructura más simple que $n$ 
+### - $x=vy$ si $M$ tiene una estructura más simple que $n$ 
 
 
+## Ejemplo: Resolver la ecuación siguiente:
+
+# $(x³+y³)dx-xy²dy=0$ 
+
+### Respuesta: Aquí el $M(x,y)=x³+y³$ y $N(x,y)=-xy²$ 
+### Como $M$ y $N$ son funciones homogeneas de grado $3$ (Verificar), la ecuación dada es homogénea. Además $N$ tiene una estructura algebraica más sencilla que $M$, por lo tanto hacemos la susttución $y=vx$. de donde se obtiene. 
+
+# $\frac{dy}{dx}=v+x\frac{dv}{dx}$ -> $dy=vdx+xdv$ 
+### Sustituyendo en la ecuación queda: 
+
+# $(x³+y³)dx-xy²dy=0$ 
+
+# <-> $x³+(vx)³dx-x(vx)²\cdot{(vdx+xdv)}=0$ 
+# -> $(x³+v³x³)dx-x³v²(xdv+vdx)=0$
+# -> $x³(1+v³)dx-x³v²(xdv+vdx)=0$ 
+# -> $(1+v³)dx-v²(xdv+vdx)=0$ 
+# -> $dx+v³dx-xv²dv-v³dx=0$ 
+# -> $dx-xv²dv=0$ (EDO de variables separadas)
+# -> $\frac{dx}{x}=v²dv$ / $\int()$ 
+# -> $ln|x|+ln|c|=\frac{v³}{3}$ 
+# -> $ln|cx| =\frac{v³}{3}$ -> $v^3=3ln|cx|$ ; $c$ cte.
+# -> $(\frac{y}{x})³=3ln|cx|$ -> $y=x\sqrt[3]{3ln|cx|}$ ; $c$ constante
+
+
+### Ejemplo : Resolver la ecuación $2xydx+(y²-3x^2)dy=0$ 
+
+## Respuesta: Aqui $M(x,y)=2xy$ ; $y³-3x²=N(x,y)$ 
+
+### Note que $M$ tiene una estructura más simple que $N$. hacemos la sustitución $v=\frac{x}{y}$ -> $x=vy$ -> $\frac{dx}{dy}=v+y\frac{dv}{dy}$ -> $dx=vdy+ydv$ 
+
+### Sustituyendo en la ED: 
+
+### $2yvy(vdy+ydv)+(y²-3(yv)²)dy=0$ 
+## -> $2y²v(vdy+ydv)+(y²-3y²v^2)dy=0$ 
+## -> $2v^{2}y²dy+2y³vdv+y²dy-3y²v²dy=0$ 
+# -> $2y³vdv+y^{2}dy-y²v²dy=0$ 
+# -> $2vdv+dy-v²dy=0$ 
+# -> $2vydv+(1-v^2)dy=0$ 
+# -> $(1-v^2)dy=-2vydv$ (Variables separables)
+# -> $\frac{dy}{y}=-\frac{2v}{1-v^2}dv/\int()$ 
+# -> $ln|y|=ln|1-v^{2}|+ln|c1|$ 
+### sustituyendo devuelta:
+# -> $ln|y|=ln|1-\frac{x²}{y^2}|+ln|c1|$ 
+# -> $ln|\frac{y³}{y²-x²}|=ln|C1|$ -> $|\frac{y^3}{y^2-x²}|=|c1|$ -> $|y³|=|c1(y²-x²)|$ 
+
+### o bien $y³=c1(y^2-x^2)$ (solución implicita)
+
+### OBS: nose lol
 
 
 
 
+
+
+
+### Ejercicio: Resolver la ecuación: 
+
+# $\frac{dy}{dx}=\frac{x+y+4}{x-y-6}$ (pista: buscar sustitución para convertirla en homogénea)
+
+### Respuesta: Hacemos la sustitución:
+
+### $x=z+h$ e $y=w+k$ donde $(h,k)$ es la solución del sistema: $x+y+4=0$ y $x-y-6=0$ <-> $x+y=-4$ y $x-y=6$ 
+
+### -> $x=1$ y $y=-5$ 
+
+### luego, $(h,k)=(1,-5)$ 
+### entonces, $x=z+1$ , y $y=w-5$ -> $dx=dz$ y $dy=dv$ 
+
+
+### luego, la ecuación queda: 
+
+### $\frac{dw}{dz}=\frac{z+w}{z-w}=\frac{1+\frac{w}{z}}{1-\frac{w}{z}}=f(\frac{w}{z})$ (Ecuación homogenea) (1)
+
+### Sea $v=\frac{w}{z}$ entonces, $w=vz$ -> $dw=vdz+zdv$ 
+
+### Sustituyendo en (1):
+
+### -> $\frac{dw}{dz}=\frac{z+w}{z-w}$
+### <-> $\frac{vdz+zdv}{dz}=\frac{z+vz}{z-vz}$ 
+### <-> $v+z\frac{dv}{dz}=\frac{z(1+v)}{z(1-v)}$ 
+### <-> $v+z\frac{dv}{dz}=\frac{1+v}{1-v}$ 
+### <-> $z\frac{dv}{dz}=\frac{1+v}{1-v}-v$ 
+### <-> $z\frac{dv}{dz}=\frac{1+v²}{1-v}$ (Variables separables :0)
+
+### -> $\int\frac{1-v}{1+v²}dv=\int\frac{dz}{z}+C$ 
+### -> $\int\frac{1}{1+v²}dv-\int\frac{v}{1+v²}dv=\int\frac{dz}{z}+C$ 
+### <-> $artan(v)-\frac{1}{2}ln|1+v²|=ln|z|+C$ 
+### -> $arctan(\frac{w}{z})-\frac{1}{2}ln|1+(\frac{w}{z})²|=ln|z|+C$ 
+### -> $arctan(\frac{y+5}{x-1})-\frac{1}{2}ln(1+(\frac{y+5}{x-1})²)=ln|x-1|+C$ (Solución general en su forma implicita)
+
+### OBS: Si las rectas son paralelas, el metodo anterior no se puede aplicar. En este caso hacemos la sustitución $u=ax+by$ ; $du=adx+bdy$, dá origen a una EDO de variables separables. 
+
+### Por ejemplo: Resolver la EDO: 
+# $\frac{dy}{dx}=\frac{2x+3y+9}{4x+6y-7}$ (2)
+
+### respuesta: Note que las rectas $2x+3y+9=0$ y $4x+6y-7=0$ son paralelas, entoncees hacemos la sustitución $u=ax+by=2x+3y$ 
+
+# -> $du=2dx+3dy$ 
+# -> $\frac{du}{dx}=2+3\frac{dy}{dx}$ 
+
+# -> $\frac{dy}{dx}=(\frac{du}{dx}-2)\frac{1}{3}$ o bien 
+
+# sustituyendo en (2):
+
+# -> $\frac{dy}{dx}=\frac{u+9}{2u-7}=\frac{1}{3}(\frac{du}{dx}-2)$ 
+# -> $\frac{du}{dx}=\frac{3u+2y}{2u-7}+2=\frac{7u+13}{2u-7}$ 
+# -> $\frac{du}{dx}=\frac{7u+13}{2u-7}$ (Variables Separables)
+# -> $\frac{2u-7}{7u+12}du=dx$ (Resolver)
+
+# Ecuación de bernuli 
+### Ejercicio: Considere la E.D no lineal: 
+# $\frac{dy}{dx}+p(x)y=f(x)y^x$ ; $n\not=0$ y $n\not=1$ ; $n\in{R}$ (3)
+
+### Muestre que el cambio de variable $z=y^{1-n}$ transforma la ecuación dada en una ecuación lineal.
+
+### Respuesta: Sea $z=y^{1-n}$, derivando respecto a $x$:
+
+# $\frac{dz}{dx}=(1-n)y^{-n}\frac{dy}{dx}$ 
+
+### Remplazo en (3):
+# -> $\frac{dz}{dx}=(1-n)y^{-n}\frac{dy}{dx}$ 
+# -> $\frac{dz}{dx}=(1-n)y^{-n}[f(x)y^n-p(x)y]$ 
+# $=(1-n)f(x)-(1-n)p(x)y^{1-n}$ 
+# $=(1-n)f(x)-(1-n)p(x)z$ 
+### luego: 
+# $\frac{dz}{dx}=(1-n)f(x)-(1-n)p(x)z$ 
+# -> $\frac{dz}{dx}+(1-n)p(x)z=(1-n)f(x)$ (EDO lineal de primer orden)
+## La EDO (3), se llama ecuación de Bernulli:
+
+# $\frac{dy}{dx}+p(x)y=f(x)y^{n};n\not=0;n\not=1;n\in{R}$ 
+### $z=y^{1-n}$ 
+
+## Ejercicio: 
+
+### Encuentre la solución general de la EDO.:
+
+# $x\frac{dy}{dx}+y+xy²=0$ 
+
+### Respuesta : $x\frac{dy}{dx}+y+xy²=0 / \cdot\frac{1}{x};x\not=0$ 
+
+# -> $\frac{dy}{dx}+\frac{1}{x}y=-y^{2}$ (Ecuación de Bernulli)
+
+### Sea $z=y^{-1}$ -> $\frac{dz}{dx}=\frac{-1}{y²}\frac{dy}{dx}$ 
+### -> $\frac{dz}{dx}=\frac{-1}{y²}(-y²-\frac{1}{x}y)$ 
+### -> $\frac{dz}{dx}=1+\frac{1}{x}z$ 
+### -> $\frac{dz}{dx}-\frac{1}{x}z=1$ (Edo lineal)
+### Factor integrante: $\mu(x)=e^{-\int\frac{1}{x}dx}=e^{ln(x^{-1})}=\frac{1}{x}$ 
+### -> $\frac{1}{x}\frac{dz}{dx}-\frac{1}{x²}z=\frac{1}{x}$ 
+### -> $\frac{d}{dx}(\frac{1}{x}z)=\frac{1}{x}/\int$ 
+### -> $\frac{1}{x}z=\int\frac{1}{x}dx+C$ 
+### -> $\frac{1}{x}z=ln|x|+C$ (Solución en su forma implicita) ; $x\in{]0,+\infty[}$ 
+### -> $z(x)=xln(x)+Cx$ 
+### -> $\frac{1}{y}=xln(x)+Cx$ 
+### -> $y(x)=\frac{1}{xln(x)+Cx}$ ; $C$ constante.
+
+
+
+### Aplicaciones de las edos importantes: 
+- Población
+- Temperatura
+- Estanques
 
 
 

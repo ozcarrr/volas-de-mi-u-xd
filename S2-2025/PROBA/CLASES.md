@@ -404,7 +404,7 @@ Entonces:
 
 #### X = {1: Exito ; 0: Fracaso}
 
-#### $P(X...)=$ {P x=1; 1-P=q x=0}
+#### $P(X=x)=$ $p$ si $x=1$ o $1-p=q$ si $x=0$ 
 
 
 ### Possiar : Eventos que se repiten cada cuanto tiempo independientemente  (Taza promedio de repetición: $P_0:(\lambda))$ 
@@ -416,6 +416,9 @@ Entonces:
 
 # $P(X=k)=\binom{n}{k}p^{k}q^{n-k}$ 
 
+### Geometrica: Repetir n veces hasta el 1er exito
+
+### Negativa: Repetir n veces hasta el exito numero k
 
 ## Propiedades de la esperanza: 
 
@@ -425,21 +428,181 @@ Entonces:
 
 # $E(xy)=E(x)E(y)$ 
 
-
+\
 ## Propiedades Variante:
 
-# 1.$Var(ax)=a²Var(x)$ 
-# 2. $Var(x+b)=Var(x)$ 
+# 1.$Var(ax)=a²Var(x)$ ; $a\in{R}$ 
+# 2. $Var(x+b)=Var(x)$ ;$b\in{R}$ 
 # 3. Si $x$ e $y$ son independientes: 
 
 # $Var(x+-y)=Var(x)+-Var(y)$ 
 
+# Control miercoles: Hasta varianza
+
+### Ejercicio Binomial: se tiene una muestra aleatoria de 10 bicicletas en una fabrica cuya probbabilidad de generar una bicileta mala es 0.3. ¿Cual es la probabilidad de encontrar entre 2 y 4 bicis malas? 
+### Sean X: C°de bicis malas ; n: muestra aleatoria ; 
+
+### Se nota que $X~Bin(10;0.3)$ 
+
+### entonces, nos piden $P(2\leq{X}\leq{4})=P(X=2)+P(X=3)+P(X=4)$ 
+### Entonces, se aplica la formula para cada uno ($P(X=x)=\binom{n}{k}p^{k}q^{n-k})$
+
+### en este caso, para $P(X=2)$ se tiene $k=2;n=10$ y $p=0.3$ y $q=1-p=0.7$ 
+
+### resolviendo, queda $P(2\leq{X}\leq{4})=0.7$ 
+
+### Geométrica: 'N° de fracasos hasta un exito' (Notación: $X~Geom(x)$):
+
+# $P(X=n)=pq^{n-1}$ 
+# $P(X\leq{n})=\sum_{i=1}^{n}pq^{i-1}=1-q^{n}$  
+# $P(x\geq{n})=q^{n-1}$ 
+
+# $E(X)=\frac{1}{p}$
+
+
+### en el contexto del ejercicio anterior: 
+
+### X: N° de bicis que se examinan hasta la 1° mala
+
+### $x$ ~ $geom(0.3)$ 
 
 
 
 
+### Binomial Negativa: 'N° intentos hasta exito k'
 
 
+
+## Ejercicios control
+
+### Se apuestan 3$ una ruleta europea tiene los siguientes huecos, si cae en el bloque apostado, se gana 3$:
+
+### 18 Negras (N); 18 Rojas (R); 1 Verde (V)
+### a) Calcule la esperanza y varianza de ganancia 
+### $P(R)=P(N)=\frac{18}{37}$ 
+
+#### Luego X = {3 : Ganar ; -3 Pierdo}
+
+#### Ademas, $P(X=x)$ = $\frac{18}{37};x=3$ o $\frac{19}{37};x=-3$ 
+
+### Luego; #$E(X)=3\cdot{\frac{18}{37}}+(-3)\cdot{\frac{19}{37}}=-\frac{3}{37}$   
+
+### Luego, $Var(x)=E(x^{2})-(E(x))^{2}$ 
+
+### $E(X^{2})=3²\frac{18}{37}+(-3)²\frac{19}{37}=9$ 
+### $(E(X))²=(-\frac{3}{37})²=0.006$
+
+### -> $Var(x)\approx{9}$ 
+
+
+
+## b) Si apostamos 1$ , 1$ y 1$, separadamente, cual es la esperanza y varianza? 
+
+### Sea $z= y_1+y_2+y_3\not=3y$ 
+
+### $E(z)=E(y_1)+E(y_2)+E(y_3)=-\frac{1}{37}-\frac{1}{37}-\frac{1}{37}=-\frac{3}{37}$ 
+
+### Sin embargo: 
+
+## $Var(z)=Var(y_1)+Var(y_2)+Var(y_3)=1+1+1=3$ 
+
+
+### 2. Sean A,B,C eventos en un espacio $\Omega$ tales que: 
+
+### - La probabilidad de que pase al menos alguno de los eventos es 0.9 ($P(A\cup{B}\cup{C})=0.9)$ 
+### - La suma de de las probabilidades de que pase cada uno es 1.3 ($P(A)+P(B)+P(C)=1.3$) 
+
+### - La suma de probabilidad de que pasen dos de los eventos es 0.45 ($P(A\cap{B})+P(A\cap{C})+P(B\cap{C})-2P(A\cap{B}\cap{C})$ =0.45)
+
+### a) Determine la probabilidad de que pasen los 3 eventos
+
+### Por propiedades de conjunto:
+
+# $P(A\cup{B}\cup{C})=P(A)+P(B)+P(C)-(P(A\cap{B})+P(A\cap{C})+P(B\cap{C}))+P(A\cap{B}\cap{C}))$ 
+### Se sabe que $P(A\cup{B}\cup{C})=0.9$ ; $P(A)+P(B)P(C)=1.3$ 
+
+### ; $P(A\cap{B})+P(A\cap{C})+P(B\cap{C})=0.45 + 2P(A\cap{B}\cap{C})$ 
+
+### entonces :
+
+### -> $0.9=1.3-(0.45+3P(A\cap{B}\cap{C}))$ -> $P(A\cap{B}\cap{C})=0.05$ 
+
+
+## 3. Se tienen 3 urnas con las siguientes caracteristicas
+
+### - La urna 1 tiene 1 bola roja y 2 bolas blancas
+### - La urna 2 tiene un número desconocido tanto de bolas rojas como de bolas blancas
+### - La urna 3 tiene 2 bolas rojas y 2 bolas blancas
+
+
+### Se elige una urna y se extrae una bola. Se sabe que la prob. de que la urna 1 haya sido escogida, dado que se extrajo una bola roja es $\frac{2}{9}$ y que hay 10 bolas entre las $3$ urnas. 
+
+## R: Sacar bola roja ; B: Sacar bola blanca ; 1,2,3 : Esocger urna 1,2,3
+
+### se tiene que: 
+
+## $P(1|R)=\frac{2}{9}$ 
+
+### a) Muestre que la cantidad de bolas rojas y blancas en la urna 2 es 2 y 1, respectivamente. 
+
+### Se sabe que $P(1)=P(2)=P(3)=\frac{1}{3}$, ademas $P(R|1)=\frac{1}{3}$, 
+### $P(B|1)=\frac{2}{3}$ , $P(R|3)=P(B|3)=\frac{1}{2}$ 
+
+### Luego, por bayes:
+
+### $P(1|R)=\frac{P(1)P(R|1)}{P(R)}$ -> $P(R)=\frac{1}{2}$ 
+
+### Entonces, usando los datos entrgados, usamos Probabilidad total para calcular $P(R)$ y demostrar que son equivalentes
+
+### 
+
+### b) $P(2|R)=\frac{P(2)P(R|2)}{P(R)}=\frac{4}{9}$ dado que conocemos todos los datos 
+
+
+## 3. Un restaurante con una estrella Michelin (un certificado de categoría a   nivel mundial) tiene un menú de 7 tiempos: 1 bebestible, 2 entradas, 2 fondos y 2   postres. Estos ítemes tienen que elegirse desde el menú del restaurant, el cual cuenta   con 4 bebestibles, 6 entradas, 7 fondos y 5 postres. ¿De cu ́antas maneras se pueden  colocar los 7 ́ıtemes del menú sobre la mesa de un cliente?
+
+### $B$ ; $E:\binom{6}{2}$ ; $F:\binom{7}{2}$ ; $P:\binom{5}{4}$ (todos divididos por $2$)
+
+### Entonces: $C=\frac{\binom{6}{2}\binom{7}{2}\binom{5}{2}}{8}=12.600$ 
+
+
+# Discretar: 
+
+### Sea $p$ la probabilidad de que suceda un evento y $q=1-p$ :
+
+### - Binomial 
+#### $X$ ~ $Bin(n,p)$ 
+#### $P(X=k)=\binom{n}{k}p^{k}q^{n-k}$ ; $E(X)=np$ , $V(x)=npq$ 
+### - Geométrica (intentar n veces hasta el 1er exito)
+#### $P(X=n)=pq^{n-1}$ ; $E(X)=\frac{1}{p}$ ;$Var(x)=\frac{q}{{p²}}$ 
+### - Binomial Negativa :ooo (intentar n veces hasta el k-esimo exito)
+#### $X$ ~ $NBin(k,p)$ 
+#### $P(X=n)=\binom{n-1}{k-1}p^{k}q^{n-k}$ 
+#### $E(X)=k\frac{1}{p}$ ; $Var(X)=k\frac{q}{p²}$ 
+
+### Ejemplo: Se quieren completar 20 encuestas, la probabilidad de que se complete $1$ encuesta es $0.2$, Si se llama a 50 personas ¿Se llegaria a la meta? 
+
+## X: C°de intentos para tener 20 exitos
+
+### -> $X$ ~ $NBin(20;0.2)$ 
+## -> $E(X)=20\frac{1}{0.2}=20\cdot{5}=100$ 
+### Luego, si queremos saber la probabilidad de que se alcanze la meta en 50 llamadas: 
+
+## -> $P(X=50)=\binom{49}{19}0.2^{20}\cdot{0.8^{30}}=0.0002447$  
+
+
+### - Hipergeométrica:
+#### Esta discreción asume que NO hay independecia 
+## $P(X=k)=\frac{\binom{r}{k}\binom{N-r}{n-k}}{\binom{N}{n}}$ 
+### Donde N : Tamaño total (Espacio Muestral), r: "exitos" dentro de N, n: Tamaño que tomo eventos de una vez
+
+### Ejemplo: De 10 dulces, se tienen 4 frugeles, si solo podemos sacar 3, ¿Cual es la prob. de sacar 2 frugeles? 
+
+### $P(X=2) = \frac{\binom{4}{2}\binom{6}{1}}{\binom{10}{3}}$ ; $X$ : Sacar 2 frugele :0
+ 
+## $X$ ~ $Hip(10;4;3)$ 
+
+## $E(X)=
 
 
 
