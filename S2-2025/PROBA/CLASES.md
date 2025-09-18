@@ -407,7 +407,7 @@ Entonces:
 #### $P(X=x)=$ $p$ si $x=1$ o $1-p=q$ si $x=0$ 
 
 
-### Possiar : Eventos que se repiten cada cuanto tiempo independientemente  (Taza promedio de repetición: $P_0:(\lambda))$ 
+### Poisson : Eventos que se repiten cada cuanto tiempo independientemente  (Taza promedio de repetición: $P_0:(\lambda))$ 
 
 ### Binomial: Repetir n veces experimentos independientes, bernally con p fija. 
 
@@ -592,7 +592,7 @@ Entonces:
 
 
 ### - Hipergeométrica:
-#### Esta discreción asume que NO hay independecia 
+#### Esta discreción asume que NO hay independecia (Como caja sin reposición)
 ## $P(X=k)=\frac{\binom{r}{k}\binom{N-r}{n-k}}{\binom{N}{n}}$ 
 ### Donde N : Tamaño total (Espacio Muestral), r: "exitos" dentro de N, n: Tamaño que tomo eventos de una vez
 
@@ -602,10 +602,124 @@ Entonces:
  
 ## $X$ ~ $Hip(10;4;3)$ 
 
-## $E(X)=
+## $\Rightarrow{P(X=x)}=\frac{\binom{r}{x}\binom{N-r}{n-x}}{\binom{N}{n}}$
+donde, N es el total, r son los exitos iniciales y n es el 'tamaño' del grupo.
+
+### Ejemplo: De 37 estudiantes, hay 5 mujeres, ¿Cual es la probabilidad de que, al sacar 3 estudiantes, 1 sea mujer?
+
+#####  X: Numero de muejeres escogidas de un curso de 37 alumnos de los cuales 5 son mujeres y se seleccionan 3 estudiantes.
+
+### $\Rightarrow{p(X=1)}=\frac{\binom{5}{1}\binom{32}{2}}{\binom{37}{3}}$
+## $E(X)=r\frac{n}{N}$ 
+### $V(X)=r\frac{n}{N}\frac{N-r}{N-1}$ 
 
 
 
+# Proceso de Poisson:
+
+### Sea $x(t);t\in{[0,+\infty[}$, se define como "El N°de 'cosas' que ocurren entre 0 y t"
+
+-  Cada ocurrencia es independiente de la demas
+- El promedio de ocurrencias es constante en el tiempo
+- No pueden ocurrir dos eventos en un t
+- $x(0)=0$
+
+### Dist. de Poisson (discreta) :
+Cuenta el numero de eventos en un intervalo
+### Exponencial (continua):
+Mide el tiempo entre eventos
+
+### Notación: 
+
+# $X$~$Poi( \lambda)$ 
+donde $\lambda$ es el promedio de ocurrencias en un intervalo
+
+# $P(X=x)=\frac{\lambda^x}{x!}e^{-\lambda}$ 
+
+# $E(X)=\sum_{x=0}^{\infty}x\frac{\lambda^x}{x!}e^{-\lambda}=\lambda$ 
+# $Var(X)=\lambda$ 
+
+
+## Ejercicios de distribuciones de prob.
+
+Llegan 120 botellas/hora, cada botella tiene un 0.02 de estar mala.
+Se toma muestras de 50 botellas cada 30 min. 
+#### a) ¿Cual es la probabilidad de encontrar exactamente 3 botellas malas? 
+
+Note que, esta es una distribución binomial, entonces:
+sea $X$: el numero de botellas malas en 50 botellas $\rightarrow$$x$~$Bin(50;0,02)$
+entonces: 
+#### $P(X=3)=\binom{50}{3}0.02³\cdot{0.98^{47}}$ 
+
+### b) $P(x\leq{2})=0.9216$
+
+### c) ¿Cual es el numero esperado y la desviación estandar de defectuosas en una muestra de 50? 
+
+### $E(X)=50\cdot{0.02}=1$ 
+### $\Rightarrow{V(x)}=50\cdot{0.02}\cdot{0.98}=0.98$ 
+### $\Rightarrow{\sigma}=\sqrt{0.98}$ 
+
+### d) Las botellas llegan a inspección a razon de $\lambda=120$ por hora ¿Cual es la probabilidad de que en 5 minutos lleguen al menos 12 botellas? 
+
+$X$:Cantidad de botellas que lleguan en 5 min.
+$X$~$Poi(\lambda_1)$ ; $\lambda_1=10$ 
+
+$P(x\geq{12})=1-P(X<12)$ = $h
+
+### Contexto: 
+- Llegan 120 botellas por hora auna inspección
+- Cada botella tiene 0.02 de prob de estar mala
+- Control de calidad toma muestras de 50 botellas cada 30 minutos
+### e) Las botellas se revisan una hasta encontrar la primera defectuosa ¿Cual es la probabilidad de que la primera defectuosa aparezca en la $7^{ma}$ inspección?
+
+### Geometrica (buscamos primer exito): 
+### $X$: N° de botellas revisadas hasta la $1^{ra}$ defectuosa. 
+
+#### donde $P(X=7)=0.02\cdot{0.98⁶}\approx{0.0117}$ 
+
+
+### f) ¿Cual es la probabilidad de que se necesiten al menos 15 inspecciones para hallar la primera defecutosa? 
+
+### Misma variable y distribución, pero dado que pide 'al menos 15', nos piden por: 
+
+### $P(X\geq{15})=\sum_{x=15}^{\infty}pq^{x-1}=0.02\sum_{x=14}^{\infty}0.98^{x}=\frac{0.02}{1-0.98}$ 
+### o tambien $P(X\geq{15})=1-\sum_{x=1}^{14}pq^{x-1}=1-0.02\sum_{x=0}^{13}0.98^x=1-0.02\frac{1-0.98^{13}}{1-0.98}=0.76$
+### g) El turno de control necesita encontrar 4 defectuosas para calibrar un equipo ¿Cuál es la probabilidad de que esto ocurra exactamente al revisar la botella numero 25? 
+
+### $Y$: N° de botellas revisadas para encontrar 4 malas
+### $Y$~$BinNeg(4;0.02)$ 
+### $P(Y=25)=\binom{24}{3}\cdot{0.02⁴}\cdot{0.98^{21}}\approx{0.000212}$ 
+
+### h) En un bloque de 40 inspecciones consecutivas ¿Cual es la probabilidad de identificar exactamente 6 defectuosas? 
+
+### $X$:N° de botellas defectuosas en 40 insepcciones
+
+#### $X$:~$Bin(40;0.02)$ $\Rightarrow{P(X=6)}=\binom{40}{6}0.02⁶\cdot{0.98^{34}}$ 
+
+### i) En una hora, el promedio de defectos detectados por sensores en linea es 2.4 ¿Cual es la probabilidad de registrar cero defectos de sensor en la proxima hora? 
+
+### $Z$ : N° de defectos detectados ; $Z$:~$Poi(2.4)$ 
+
+### $\Rightarrow{P(Z=0)}=\frac{2.4⁰}{0!}e^{-2.4}\approx{0.091}$ 
+
+### j) Durante un intervalo de 30 minutos, ¿Cual es la probabilidad de registrar al menos 4 defectos por sensor? 
+
+### $Z_2$ : N° de defectos detectados en media hora ; $Z_2$~$Poi(1.2)$ 
+
+### $\Rightarrow{P(Z_2\geq{4})}=1-P(Z_2<4)=1-P(Z_2\leq{3})=1-(\frac{1.2⁰}{0!}e^{-1.2}+\frac{1.2¹}{1!}e^{-1.2}+\frac{1.2²}{2!}e^{-1.2}+\frac{1.2³}{3!}e^{-1.2})\approx{0.91}$ 
+### k) En una jornada de 8 horas: 
+
+- ¿Cual es el número esperado de defectos resgistrados por sensor? 
+- ¿Cual es la probabilidad de observar $\geq{25}$ defectos? 
+
+### $Y_2$ : N° de defectos en 8 horas ; $Y_2$~$Poi(19.2)$ 
+
+### $\Rightarrow{E[Y_2]}=2.4\cdot{8}$ 
+### luego, $P(Y_2\geq{25})=\sum_{i=25}^{\infty}\frac{19.2^{i}}{i!}e^{-19.2}$ 
+
+
+### PRUEBA: 
+- Hasta Poisson
 
 
 

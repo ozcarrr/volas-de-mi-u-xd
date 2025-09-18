@@ -53,7 +53,7 @@ Def: Sea $\vec{r}(t)=(f_1(t), f_2(t),..., f_n(t))$ una función vectorial ; $t_0
 
 Se define la derivada de $\vec{r}$ en $t_0$ como:
 
-## $\vec{r}'(t) = \lim{t\to{t_0}}\frac{\vec{r}(t-\vec{r}(t))}{t-t_0}$ 
+## $\vec{r}'(t) = \lim_{t\to{t_0}}\frac{\vec{r}(t-\vec{r}(t))}{t-t_0}$ 
 
 
 ### Entonces, si $h=t-t_0$, se tiene que $t=t_0+h$ y si $t\to{t_0}->h\to{0}$ 
@@ -250,7 +250,7 @@ determine :
 
 ## Ejercicio :
 
-### Considere la curva $C$, dad por $\vec{r}(t)=(e^tcos(t),e^tsin(t),e^t),t\in[0,+\inf]$ 
+### Considere la curva $C$, dad por $\vec{r}(t)=(e^tcos(t),e^tsin(t),e^t),t\in[0,+\infty]$ 
 
 ### a) Determine $\vec{T},\vec{N},\vec{B}$ en el punto $P(0,e^{\frac{\pi}{2}},e^{\frac{\pi}{2}})$ 
 
@@ -338,7 +338,7 @@ determine :
 # -> $\vec{B}(t_0)=\vec{r}'(\frac{\pi}{2})\times{\vec{r}''(\frac{\pi}{2})}$ / norma de $\vec{B}'(t_0)=\vec{r}'(\frac{\pi}{2})\times{\vec{r}''(\frac{\pi}{2})}$ = $\frac{1}{\sqrt{20}}\cdot(2,0,4)$ 
 
 
-## La ecuación del plano osculador a $C$$ es en l punto $P$ es : 
+## La ecuación del plano osculador a $C$ es en el punto $P$ es : 
 
 # $\vec{B}(\frac{\pi}{2})\cdot(x-0,y-2,z-\frac{\pi}{2})=0$ 
 # <-> $\frac{2}{sqrt{20}}x+0(y-2)+\frac{4}{\sqrt{20}}(z-\frac{\pi}{2})=0$ 
@@ -364,9 +364,9 @@ determine :
 
 ### Luego $k=||\frac{dT}{ds}||=||\frac{\frac{dT}{ds}}{\frac{ds}{dt}}||=\frac{||\frac{dT}{dt}||}{|| || \vec{r}(t) || ||}= \frac{||T'(t)||}{||\vec{r}'(t)||};\vec{r}(t)\not=\vec{0}$ 
 
-### se supone que $C$ esta dada por la función vectorial $r'(t)=(x(t),y(t),z(t))$ 
+### se supone que $C$ esta dada por la función vectorial $\vec{r}(t)=(x(t),y(t),z(t))$ 
 
-# Teorema: La curvatura de una curva $C$ dad por la función vectorial $\vec{r}(t)$, esta dada por: 
+# Teorema: La curvatura de una curva $C$ dada por la función vectorial $\vec{r}(t)$, esta dada por: 
 
 # $k(t)=\frac{||\vec{r}'(t)\times\vec{r}''(t)||}{||\vec{r}'(t)||³}$ 
 
@@ -376,9 +376,8 @@ determine :
 # $\tau(t)=\frac{(\vec{r}'(t)\times\vec{r}''(t))\cdot\vec{r}'''(t)}{|| \vec{r}'(t)\times\vec{r}''(t)||²}$ 
 
 
-### Nota: La torsión mide el grado de torcedura de la curva $C$. 
-
-### La torsión mide el desvio de la curva  respecto del plano oscular. 
+### Notas: "La torsión mide el grado de torcedura de la curva $C$". 
+### "La torsión mide el desvio de la curva  respecto del plano oscular". 
 
 
 # Componente tangencial y normal de la aceleración 
@@ -394,7 +393,7 @@ determine :
 # $T(t)=\frac{\vec{r}'(t)}{||\vec{r}'(t)}$ -> $\vec{r}'(t)=||\vec{r}'(t)||\cdot{T(t)}$ 
 
 
-# -> $\vec{r}''(t)=\frac{d}{dt}(||\vec{r}'(t)||)\cdot{T(t)}+||\vec{r}'(t)||\cdot{T'(t)}$ 
+# $\Rightarrow$ $\vec{r}''(t)=\frac{d}{dt}(||\vec{r}'(t)||)\cdot{T(t)}+||\vec{r}'(t)||\cdot{T'(t)}$ 
 
 ## sabemos que $s'(t)=\frac{ds}{dt}=||\vec{r}'(t)||$ 
 
@@ -432,11 +431,11 @@ determine :
 # $\vec{r}''(t)=[\vec{r}''\cdot{\vec{T}(t)}]+[\vec{r}''(t)\cdot{N(t)}]$ donde $\vec{r}''(t)\cdot{T(t)}$ y $\vec{r}''(t)\cdot{N(t)}$ son respectivamente las componentes tangencial y normal de la aceleración. 
 
 
-## Proposición: Sean a_T y a_N las componentes tangencial y normal de la aceleración. Se tiene: 
+## Proposición: Sean $a_T$ y $a_N$ las componentes tangencial y normal de la aceleración. Se tiene: 
 
 # $a_T=\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ (Escalar)
 
-# $a_N=\frac{||\vec{r}'(t)\times\vec{r}''(t)||}{||\vec{r}''(t)||}$ (Escalar)
+# $a_N=\frac{||\vec{r}'(t)\times\vec{r}''(t)||}{||\vec{r}'(t)||}$ (Escalar)
 
 
 ## Bosquejo de demostración: 
@@ -448,9 +447,9 @@ determine :
 # $=\frac{\vec{r}''(t)\cdot{\vec{r}'(t)}}{||\vec{r}'(t)||}$ 
 
 # = $\frac{\vec{r}'(t)\cdot{\vec{r}''(t)}}{||\vec{r}'(t)||}$ (Escalar (Numero real))
-# $a_N = (s'(t))²\cdot{k(t)}=||\vec{r}'(t)||²\cdot{\frac{||\vec{r}'(t)\times\vec{r}''(t)||||\vec{r}'(t)||³}}$ 
+# $a_N = (s'(t))²\cdot{k(t)}=||\vec{r}'(t)||²\cdot{\frac{||\vec{r}'(t)\times\vec{r}''(t)|}{||\vec{r}'(t)||³}}$ 
 
-## FInalemtne : $\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||}=a_N$ 
+## Finalmente : $\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||}=a_N$ 
 
 
 ## Ejercicio considere la curva: $\vec{r}(t)=ti+cos²(t)j+sin²(t)k$ ; $t\geq{0}$ 
@@ -490,10 +489,10 @@ determine :
 # $\vec{r}'(t)\times{\vec{r}''(t)}=(1,-2sin(2t),2sin(2t))\times{(0,-2cos(2t),2cos(2t))}=(0,-2cos(2t),-2cos(2t))$ 
 # $u$ 
 
-## Luego, $k(t)=\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||³}=\frac{2 \sqrt{2}|cos(2t)}{(1+sin²(2t))^{\frac{3}{2}}}$ 
+## Luego, $k(t)=\frac{||\vec{r}'(t)\times{\vec{r}''(t)}||}{||\vec{r}'(t)||³}=\frac{2 \sqrt{2}cos(2t)}{(1+sin²(2t))^{\frac{3}{2}}}$ 
 
 
-## Asi: 
+## Así: 
 
 # $a_N=(s''(t))^2\cdot{k(t)}=(1+2sin²(2t))\cdot{\frac{2\sqrt{2}|cos(2t)}{(1+sin²(2t))^{\frac{3}{2}}}}$ 
 
@@ -501,9 +500,9 @@ determine :
 
 ### def: Llamaremos función real o escalar de varias variables a toda función del tipo: 
 
-# $f: u\subseteq{R^{n}}->R$ ; $u=dom(f)$ 
+# $f: u\subseteq{R^{n}}\Rightarrow{R}$ ; $u=dom(f)$ 
 
-#### $x~~~~~~~~~~->f(x)$ 
+#### $x\rightarrow{f(x)}$ 
 
 ### aqui:
 
@@ -644,7 +643,7 @@ determine :
 
 
 
-# Derivadas Parciales 
+# *Derivadas Parciales* 
 
 ### Sea $f:A\subseteq{R^n}->R$ una función; $A\not=\emptyset$ . $a=(a_1,a_2,...,a_n)$ ; $a\in{A}$ , la expresión 
 
@@ -688,7 +687,7 @@ determine :
 
 ![[Screenshot from 2025-08-30 17-12-21.png]]
 
-# Derivadas parciales de orden superior
+# *Derivadas parciales de orden superior*
 
 ### Si $f$ es una función de las variables $x$ e $y$, entonces sus derivadas parciales $\frac{\delta f}{\delta x}$ y $\frac{\delta f}{\delta y}$, también son funciones de las variables $x$ e $y$, de modo que podemos considerar sus derivadas parciales con respecto a $x$ y con respecto a $y$. 
 
@@ -702,9 +701,9 @@ determine :
 ### $\frac{\delta }{\delta y}(\frac{\delta f}{\delta x})=\frac{\delta²f}{\delta y \delta x}$ ~~~~ > $\frac{\delta² z}{\delta y \delta x}$ ; $f_{xy}$ 
 
 
-# Teorema de Schwarz
+# *Teorema de Schwarz*
 
-### Sea >$f$ una función de las variables $x$ e $y$ tal que las derivadas parciales de segundo orden de son continuas en $D$. Entonces: 
+### Sea $f$ una función de las variables $x$ e $y$ tal que las derivadas parciales de segundo orden de son continuas en $D$. Entonces: 
 
 # $\frac{\delta² f}{\delta x \delta y}(x,y)=\frac{\delta² f}{\delta y \delta x}(x,y)$ ; $(x,y)\in{D}$ 
 
@@ -716,6 +715,116 @@ determine :
 ### Pruebe que la función $f(x,y)=cos(x^2+y²)$ satisface la ecuación:
 
 # $y\frac{\delta² z}{\delta x²}-x\frac{\delta² z}{\delta y \delta x}-\frac{\delta z}{\delta y}=0$ 
+
+
+# *Plano Tangente a la gráfica de una función de dos variables* 
+
+Sea $z=f(x,y)$ una función de dos variables y $P_0(x_0,y_0,z_0)$ un punto de la grafica de $f(f(x_0,y_0)=z_0),(x_0,y_0)\in{dom(f)}$ 
+
+SI existe el plano tangente a la grafica de $f$ (que es una superficie en $R³$), en el punto $P_0$, entonces su ecuación, esta dada por:
+
+### $P_t: z-z_0=\frac{\delta f}{\delta x}(x_0,y_0)(x-x_0)+\frac{\delta f}{\delta y}(x_0,y_0)(y-y_0)=0$ 
+### <-> $\frac{\delta f}{\delta x}(x_0,y_0)(x-x_0)+\frac{\delta f}{\delta y}(x_0,y_0)(y-y_0)-(z-z_0)=0$ 
+
+### obs: El vector normal a este plano es $(\frac{\delta f}{\delta x}(x_0,y_0),\frac{\delta f}{\delta y}(x_0,y_0),-1)$ 
+
+# Interpretación Grafica: 
+### *insertar dibujo rossel lol
+
+
+# *Ejercicio*: 
+
+Sea $f(x,y)=3x²y+2xy²$ determine la ecuación del plano tangente a la  superficie $S:z=f(x,y)$, en el punto $P_0(1,1,5)$.
+
+SOlUCIÓN: $dom(f)=R²$ ; $f(1,1)=5$ 
+
+$\Rightarrow{P_0(1,1,5)}\in{gra(f)}$ 
+
+$\Rightarrow\frac{\delta f}{\delta y}=3x²+4xy$ y $\frac{\delta f}{\delta x}=6xy + 2y²$ 
+
+$\Rightarrow{\frac{\delta f}{\delta x}(1,1)}=8$ y $\Rightarrow{\frac{\delta f}{\delta y}(1,1)}=7$ 
+
+Entonces, la ecuación del plano tangenete a $S$ en $P_0$ es: 
+
+# $P_T:8(x-1)+7(y-1)-(z-5)=0$ 
+
+
+# *Ejercicio*: 
+Determine los puntos en el paraboloide $z=4x²+y^2=f(x,y)$, en los cuales el plano tangente es paralelo al plano $\Pi$: $x+2y+z=6$ 
+
+$\Rightarrow{\frac{\delta z}{\delta x}}=8x$ y $\frac{\delta f}{\delta y}=2y$ 
+$\Rightarrow{(8x,2y,-1)}$ es un vector normal al paraboloide
+$\Rightarrow{(1,2,1)}=\alpha(8x,2y,-1)$ ; $\alpha\in{R}$ ; dado $P_1=(1,2,1)$ es un vector normal al plano $\Pi$ y 
+$(1,2,1)\parallel{(8x,2y,-1)}$  (son paralelos)
+
+$\Rightarrow{\alpha}=-1; y_0=-1,x_0=-\frac{1}{8}$ 
+
+$\Rightarrow$ el punto donde el plano tangente de la paraboloide es paralelo al plano $\Pi$ es  $(-\frac{1}{8},-1,f(-\frac{1}{8},-1))=(-\frac{1}{8},-1,\frac{1}{16}+1)$ 
+
+
+# La diferencial 
+
+### Recuerdo :
+Sea $y=f(x)$ una función derivable. La diferencial de $y=f(x)$ esta dada por: 
+# $\frac{dy}{dx}=f'(x)\Rightarrow{dy}=f'(x)dx$ 
+
+donde $\Delta y=f(x_0+\Delta_x)-f(x_0)\approx{dy}$ 
+$\Rightarrow{f(x_0+\Delta_x)}\approx{f(x_0)+dy}$ 
+
+# Diferencial Total
+
+Para funciones de dos variables $z=f(x,y)$, se usa una terminología similar al caso de una función de una sola variable. Esto es, si $\Delta x$ y $\Delta y$ son los incrementos de $x$ y de $y$, el incremento de $z$, esto es $\Delta z$ esta dado por:
+
+# $\Delta z=f(x+\Delta x,y+\Delta y)-f(x,y)$ 
+
+si $z=f(x,y)$ es una función de las variables $x$ e $y$, $\Delta z$ y $\Delta y$ son los incrementos de $x$ y de $y$, entonces la diferencial total de la variable dependiente $z$, es: 
+
+# $dz=\frac{\delta f}{\delta x}dx+\frac{\delta f}{\delta y}dy$ 
+
+Para funciones de tres variables, $w=f(x,y,z)$ y $\Delta x$, $\Delta y$ y $\Delta z$ son los incrementos de $x$,$y$ y $z$ respectivamente, se tiene: 
+
+# $dw=\frac{\delta f}{\delta x}dx+\frac{\delta f}{\delta y}dy+\frac{\delta f}{\delta z}dz$ 
+
+# Calculos aproximados:
+- Si $z=f(x,y)$ es una función diferenciable, la diferencial de $z$, se puede usar, como aproximación para el incremento de $z$, es decir :
+
+# $\Delta z\approx{dz}$
+
+$\Rightarrow{f(x+\Delta x,y+\Delta y)}-f(x,y)\approx{dz}$ 
+$\Rightarrow{f(x+\Delta x,y+\Delta y)\approx{f(x,y)+dz}}$ 
+
+para el caso de $w=f(x,y,z)$ se tendra: 
+
+# $f(x+\Delta x, y+\Delta y, z+\Delta z)\approx{f(x,y,z)+dw}$ 
+
+# *Ejercicio:*
+
+Estimar el valor de $\sqrt{(2.10)²+(1.98)²+(1.05)²}$ 
+
+
+# Ejercicios Certamen 1(hacer control 1)
+
+### 1. Considere la curva definida por $\vec{r}(t)=(e^{-t}cos(t),e^{-t}sin(t),e^{-t})$ ; $t\in{[0,2\pi]}$ 
+
+a) Demuestre que la esta contenida en el caso de ecuación $x^{2}+y^{2}=z²$ 
+b) Calcule el triedio $\vec{T},\vec{N},\vec{B}$ 
+
+### 2. La posición de una cierta particula en el plano esta dada por $\vec{r}(t)=(cos(t²),sin(t²)) [cm]$ 
+
+Determine para $t=\frac{\sqrt{\pi}}{2}[s]$, las componentes escalares tangencial y normal de la aceleración.
+
+### 3. 
+a) Dibuje las curvas de nivel $z=k$ para las siguientes funciones, para los valores especificados de $k$:
+- $z=x²+y²;k=0,1,2,3$
+- $z=\frac{y}{x};k=-2,-1,0,1$ 
+
+b) Dibuje e identifique las trazas en los planos coordenados de la superficie $x²+\frac{y²}{4}=\frac{z}{5}$ 
+
+
+### 4. Verificar si la función $u(x,t)=sin(Cwt)\cdot{sin(wx)}$;$C\in{R}$  satisface la ecuación de la onda: 
+
+#### $\frac{\delta² u}{\delta t²}=C²\frac{\delta²u}{\delta x²}$ 
+
 
 
 

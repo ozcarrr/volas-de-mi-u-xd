@@ -480,9 +480,9 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 
 # ->$\frac{dp}{p}=\frac{1}{M}(\frac{\delta N}{\delta x}-\frac{\delta M}{\delta y})dy$ (B)
 
-## SI $frac{1}{m}(\frac{\delta N}{\delta x}+\frac{\delta M}{\delta y})$ solo depende de y, la ecuación (B)es de variables separadas (se resuelve la ecuación), y en este caso el factor integrante es: 
+## SI $-\frac{1}{M}(\frac{\delta M}{\delta y}-\frac{\delta N}{\delta x})$ solo depende de y, la ecuación (B)es de variables separadas (se resuelve la ecuación), y en este caso el factor integrante es: 
 
-# $p(y)=e^{\int{\frac{1}{M}(\frac{\delta N}{\delta x}+\frac{\delta M}{\delta y})dy}}$ 
+# $p(y)=e^{\int{\frac{1}{M}(\frac{\delta N}{\delta x}-\frac{\delta M}{\delta y})dy}}$ 
 
 ## Ejercicio: Resuelva la ecuación:
 
@@ -504,7 +504,7 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 ## i) $p(x)=e ^{\int\frac{1}{N}(\frac{\delta M}{\delta y}-\frac{\delta N}{\delta x})dx}$ 
 
 ## $\frac{1}{n}(\frac{\delta M}{\delta y}-\frac{\delta N}{\delta x})=\frac{1}{x²+y²\sqrt{y²+1}}[2xln(y)+2x-2x]$ 
-## $=\frac{2xln(y)}{x²+y²\sqrt{y²+1}}$ (Expresión que no depende solo de $x$ ) (No existe factor integrante)
+## $=\frac{2xln(y)}{x²+y²\sqrt{y²+1}}$ (Expresión que no depende solo de $x$ ) (No es factor integrante)
 
 # ii) $\frac{1}{M}(\frac{\delta N}{\delta y}-\frac{\delta M}{\delta x})=\frac{1}{2xyln(y)}\cdot{(2x-2xlny-2x)}$ 
 ## $=\frac{1}{2xyln(y)}\cdot[-2xln(y)]$ 
@@ -605,8 +605,8 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 
 ### obs: Cualquiera de las dos sustituciones anteriores reducen una ecuación homogénea a una de variables separadas. Se sugiere usar :
 
-### - $y=vx$ si $N$ tiene una estructura más simple que $n$ 
-### - $x=vy$ si $M$ tiene una estructura más simple que $n$ 
+### - $y=vx$ si $N$ tiene una estructura más simple que $M$ 
+### - $x=vy$ si $M$ tiene una estructura más simple que $N$ 
 
 
 ## Ejemplo: Resolver la ecuación siguiente:
@@ -689,7 +689,7 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 ### -> $\frac{dw}{dz}=\frac{z+w}{z-w}$
 ### <-> $\frac{vdz+zdv}{dz}=\frac{z+vz}{z-vz}$ 
 ### <-> $v+z\frac{dv}{dz}=\frac{z(1+v)}{z(1-v)}$ 
-### <-> $v+z\frac{dv}{dz}=\frac{1+v}{1-v}$ 
+### <-> $v+z\frac{dv}{dz}=\frac{1+v}{1-v}$ y
 ### <-> $z\frac{dv}{dz}=\frac{1+v}{1-v}-v$ 
 ### <-> $z\frac{dv}{dz}=\frac{1+v²}{1-v}$ (Variables separables :0)
 
@@ -764,17 +764,152 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 ### -> $\frac{1}{y}=xln(x)+Cx$ 
 ### -> $y(x)=\frac{1}{xln(x)+Cx}$ ; $C$ constante.
 
+# Ecuaciones diferenciales lineales de orden n
+
+Forma General:  $a_n(x)y^{(n)}+a_{n-1}(x)y^{(n-1)}+...+a_1(x)y'+a_0(x)y=R(x)$ 
+Si las funciones $a_i(x)$ son constantes $\forall{i}$, la ecuación diferencial lineal de orden $n$, se llama de "coeficientes constantes", caso contrario de "coeficientes variables".
+
+### Ejemplo : 
+1. $5y'''+3y''-7y'+4=2e^{-x}+7x²$ (EDO lineal de coeficientes constantes de orden 3)
+2. $xy''+3y'+x²y=x²-7$ (EDO lineal de orden 2 de coeficientes variables)
+
+# Ecuación diferencial lineal de segundo orden
+
+Forma General: $\frac{d²y}{dx²}+P(x)\frac{dy}{dx}+Q(x)y=R(x)$ (1)
+Esta ecuación se llama "Ecuación lineal de segundo orden" en la variable $y$. 
+
+Si $R(x)=0$, la ecuación se llama homogénea de segundo orden de coeficientes variables, caso contario no homogénea. 
+
+### Teorema: 
+Sean $P(x),Q(x)$ y $R(x)$ funciones continuas en el intervalo $[a,b]$. SI $x_0$ es cualquier punto de $[a,b]$ e $y_0$, $y'_0\in{R}$ son constantes arbitrarias, la ecuación (1) tiene una unica solución $y(x)$ en $[a,b]$, que satisface la condiciones iniciales: 
+# $y(x_0)=y_0$ ; $y'(x_0)=y'_0$ 
+
+# Ecuación diferencial lineal de segundo orden homogénea 
+
+Forma General: $\frac{d²y}{dx²}+P(x)\frac{dy}{dx}+Q(x)y=0$ (2)
+### Teorema: 
+Si $y_1(x)$ e $y_2(x)$ son soluciones de (2), entonces $c_1y_1(x)+c_2y_2(x)$ tambien es solución de (2), para $c_1,c_2\in{R}$. 
+### Teorema. 
+Si $y_1(x)$ e $y_2(x)$ son soluciones linealmente independientes de (2) en un intervalo $[a,b]$, entonces la solución general de (2) es:
+# $y_G(x)=c_1y_1+c_2y_2$ ; $c_1,c_2\in{R}$ 
+
+### Def: 
+Si $y_1,y_2$ son soluciones de la ecuación (2) ;  Se define el "Wronkiano" de $y_1$ e $y_2$, como:
+# $W(y_1,y_2)=`\begin{vmatrix}   y_1 & y_2\\   y'_1 & y'_2    \end{vmatrix}`$ $=y_1y'_2-y_2y'_1$ 
+
+### Teorema: Dos soluciones $y_1$ e $y_2$de la ecuación (2), son linealmente independientes si y solo si $W(y_1,y_2)\not=0$ 
+
+### Ejemplo: Muestre que la ecuaciín $y''+y=0$ tiene solución general $y(x)=C_1sin(x)+C_2cos(x)$. Encuentre ademas la solución particular para la cual $y(0)=2$ y $y'(0)=3$ 
+
+### Teorema: 
+Si $y_1(x)$ es una solución de la ecuación homogenea: 
+# $y''+P(x)y++Q(x)y=0$ 
+
+entonces, una segunda solcuión linealmente independiente con $y_1(x)$, esta dada por:
+# $y_2(x)=y_1\int\frac{1}{y_1²(x)}e^{\int{-p(x)dx}}dx$ 
+
+### Demostración
+Supongamos que podemos encontrar una función $v(x)$, tal que $y_2(x)=v(x)y_1(x)$, sea otra solución de la ecuación homogénea, tal que $y_1(x)$ e $y_2(x)$ sean linealmente independientes (l.i), tenemos:
+
+## $y_2(x)=v(x)y_1(x)\rightarrow{y'_2(x)=v'y_1+vy_1' }$ 
+## $\Rightarrow{y_2''(x)}=v''y_1+2v'y_1'+vy_1''$ 
+
+Sustituyendo en la ecuación queda:
+
+### $\Rightarrow{(v''y_1+2v'y_1'+vy_1'')+P(v'y_1+vy_1')+Q(vy_1)}=0$ 
+### $\Rightarrow{v(y_1''+Py_1'+Qy_1)+v''y_1+v'(2y_1'+Py_1)}=0$ ; $y_1''+Py_1'+Qy_1=0$ (solución de (2)) 
+### $\Rightarrow{v''y_1+v'(2y_1'+Py_1)}=0$ 
+### $\Rightarrow{v''y_1}=-v'(2y_1'+Py_1)$ 
+### $\Rightarrow{\frac{v''}{v'}}=-\frac{2y_1'+Py_1}{y_1}$ 
+### $\Rightarrow\frac{v''}{v'}=-\frac{2y'}{y_1}-P$ / $\int()$ 
+### $\Rightarrow{ln(v')}=-2ln(y_1)-\int{Pdx}$ / $e^{()}$
+### $\Rightarrow{v'}=e^{-2ln(y_1)}e^{-\int{Pdx}}$ 
+### $\Rightarrow{v'}=\frac{e^{-\int{Pdx}}}{y_1²}$ $\Rightarrow{v}=\int{\frac{e^{-\int{Pdx}}}{y_1²}dx}$ $\Rightarrow{y_2}=y_1\cdot{\int{\frac{e^{-\int{Pdx}}}{y_1²}}}$ 
+
+### Falta demostrar que $y_1,y_2$ son l.i, esto es $W(y_1,y_2)\not=0$ 
+
+### $\Rightarrow{W(y_1,y_2)}=e^{-\int{Pdx}}\not=0;\forall{x}$ 
+
+# Ejercicio Propuesto: 
+
+Para $x>-1$, resuelva la ecuación diferencial: 
+# $(x+1)³y''+3(x+1)²y'+(x+1)y=0$
+
+Sabiendo que $y_1(x)=\frac{1}{x+1}$ es solución de la ecuación.
+
+### Respuesta: 
+
+$(x+1)³y''+3(x+1)²y'+(x+1)y=0$ / $\frac{1}{(x+1)³}$ 
+$\Rightarrow{y''}\frac{3}{x+1}y'+\frac{1}{(x+1)²}y=0$ 
+como $y_1(x)=\frac{1}{x+1}$ es solución, entonces usando la formuma de Abel, determinemos $y_2(x)$.
+
+### $y_2(x)=y_1\int\frac{1}{y_1²}e^{-\int{Pdx}}=\frac{1}{x+1}\int{e^{-\int{\frac{3}{x+1}dx}}}\frac{1}{\frac{1}{(x+1)²}}dx$ 
+### $=\frac{1}{x+1}\int{(x+1)²}\frac{1}{(x+1)³}dx=\frac{1}{x+1}\int{\frac{1}{x+1}dx}=\frac{ln(x+1)}{x+1}=y_2(x)$ 
+
+### faltaria probar que $y_1(x)$ e $y_2(x)$ $\forall{x}>-1$   son l.i :oo
+
+### $W(y_1,y_2)=\frac{1}{(x+1)³}>0 ; \forall{x>-1}$
 
 
 ### Aplicaciones de las edos importantes: 
-- Población
-- Temperatura
-- Estanques
+- Población (Variables separadas)
+- Temperatura (Bernoulli)
+- Estanques (Lineales de orden 1)
 
 
+# Ejercicios Certamen 1
+
+### 1. La ED $y'=y(1-y)$ modela el crecimiento de una población con restricción de recursos. Asuma que existe un limite al tamaño maximo de la población que el medio ambiente puede soportar, el cual es igual a 1 en nuestro modelo. Sea $y(t)$ el tamaño de ña población en el tiempo $t$, y la razón de cambio de la población $y'(t)$ es proporcional al tamaño existente de la población $y$ , y a la diferencia respecto de la población limite $1-y$ 
+
+#### a) Obtenga la solución general de la EDO dada
+#### b) Asuma $y(0)=\frac{1}{2}$. obtenga la solución particular a este P.V.I, y describa el comportamiento de la població cuando $t\to{\infty}$ 
+
+### Solución (a):
+
+$y'=y(1-y)$ $\Rightarrow{\frac{dy}{dx}}=y(1-y)\Rightarrow{\frac{dy}{y(1-y)}}=dt$ / $\int($ ) ; $y\not=1$ 
+$\Rightarrow{\int{\frac{1}{y}+\frac{1}{1-y}}}dy=t+C$ 
+$\Rightarrow{ln(y)-ln(1-y)}=t+C_1\Rightarrow{ln|\frac{y}{1-y}|}=t+C_1\Rightarrow{\frac{y}{1-y}}=Ce^{t}$ 
+$\Rightarrow{y}=\frac{Ce^t}{1+Ce^t}$ (Solución General)
+Note que, se tienen dos soluciones:
+- $y=0$ (que se puede obtener de la solución general para $C=0$ )
+- $y=1$ (Solución singular, no se obtiene a partir de la solución general)
+### Solución (b):
+
+si $y(0)=\frac{1}{2}$ $\Rightarrow{\frac{C}{1+C}}=\frac{1}{2}\Rightarrow{C=1}$
+$\Rightarrow{y(t)}=\frac{e^t}{1+e^t}$, Así $t\to{\infty}\Rightarrow{y\to{1}}$ 
+### 2. Resuelva la ecuación $y'=\frac{e^{\sqrt{x}}+x}{\sqrt{x}}$ 
+Se tiene $\frac{dy}{dx}=\frac{e^{\sqrt{x}}+x}{\sqrt{x}}$ (de variables separables)
+$\Rightarrow{dy}=\frac{e^{sqrt{x}}+x}{x}dx$ / $\int()$ 
+$\Rightarrow{\int dy}=\int{\frac{e^{\sqrt{x}}+x}{\sqrt{x}}}dx+C$ ; Sea $z=\sqrt{x}$ $\Rightarrow{dz}=\frac{1}{2\sqrt{x}}dx$
+$\Rightarrow{y}=\int{(e^{z}+z²)}dz$ $\Rightarrow{y}=2(e^{z}+\frac{z³}{3})+C$ (Remplazando z a la variable original, queda la solución en su forma general)
 
 
+### 3. Resolver la EDO $\frac{dx}{dy}+\frac{2(1-y)}{y}x=\frac{e^{y}}{y}$ ; $P(y)=\frac{2(1-y)}{y}$ y $Q(y)=\frac{e^{y}}{y}$ 
+Esta es una EDO lineal de primer orden, donde su factor integrante $\mu$ es:
+$\mu(y)=e^{\int P(y)}dy=e^{\int\frac{2}{y}-2dy}=e^{2ln|y|-2y}=y²e^{-2y}$ 
+$\Rightarrow{\frac{dx}{dy}+\frac{2(1-y)}{y}x=\frac{e^{y}}{y}}$ / $\mu(y)$ 
+$\Rightarrow{\frac{d}{dy}(\mu(y)x)}=ye^{-y}$ / $\int()$ 
+$\Rightarrow{\mu(y)x=}\int ye^{-y}dy+C$
+$\Rightarrow y²e^{-2y}x=-e^{-y}(y+1)+C$ 
+$\Rightarrow{x}=\frac{e^{y}(y+1)}{y²}+C_1$ (Solución General en forma explicita)
 
+### 4. Resolver la EDO $(\frac{y}{x²}+2)dx+\frac{1}{x}(1+ln(xy))dy=0$ 
+
+Note que $M(x,y)=(\frac{y}{x²}+2)$ y $N(x,y)=\frac{1}{x}(1+ln(xy))$ 
+$\Rightarrow{\frac{\delta M}{\delta y}}=\frac{1}{x²}$ y $\frac{\delta N}{\delta x}=-\frac{ln(xy)}{x²}$ 
+dado $\frac{\delta M}{\delta y}\not=\frac{\delta N}{\delta x}$ la ecuación no es exacta.
+entonces, tenemos $\frac{\frac{\delta M}{\delta y}-\frac{\delta N}{\delta x}}{N}$ = $\frac{1}{x}$, entonces el factor integrante es $\mu(x)=e^{\int \frac{1}{x}dx}=ln|x|$  que solo depende de $x$. 
+
+$(\frac{y}{x²}+2)dx+\frac{1}{x}(1+ln(xy))dy=0$ / $x$
+$\Rightarrow$ $(\frac{y}{x}+2x)dx+(1+ln(xy))dy=0$ (exacta :0) ; $M(x,y)=\frac{y}{x}+2x$ y $N(x,y)=1+ln(xy)$ 
+donde $\frac{\delta M}{\delta y}=\frac{1}{x}=\frac{\delta N}{\delta x}$ 
+$\Rightarrow$ existe un $\phi(x,y)=C$ tal que:
+$\frac{\delta \phi}{\delta x}=\frac{y}{x}+2x$ y $\frac{\delta\phi}{\delta y}=1+ln(xy)$ donde la más sencilla es $M(x,y)$ 
+
+
+### 5. Resolver $\frac{dy}{dx}=\frac{xy+2y-x-2}{xy-3y+x-3}$ 
+
+### 6. Resolver $(2xy+y⁴)dx+(3x²+6xy³)dy=0$ 
 
 
 
