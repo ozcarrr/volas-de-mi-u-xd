@@ -79,9 +79,35 @@ $\tau(t)=\frac{(\vec{r}'(t)\vec{r}''(t))\cdot{\vec{r}'''(t)}}{||\vec{r}'(t)\time
 # Funciones de varias variables
 
 ## Conjuntos de nivel
+ Se denotan como: 
+$N_C=(f)=$ {${(x_1,x_2,...,x_n)\in{dom(f)}| f(x_1,x_2,...,x_n)=C ; C\in{R}}$} 
+Donde $dom(f)=R^n$ 
+
+### Observación: 
+Si $n=2\Rightarrow$ nos referimos a $N_C$ como las "curvas de nivel de $f$ " 
+Si $n=3\Rightarrow$ nos referimos a $N_C$ como las "Superficies de nivel de $f$ " 
+Si $n>{3}\Rightarrow$ nos referimos a $N_C$ como las "Hiper-superficies de nivel de $f$ " 
+
+#### Trazas de una superifice 
+
+Si $\vec{r}$ es una función vectorial en $R³$, las trazas de $\vec{r}$ son secciones transversales (las cuales normalmente se piden ser graficadas en el plano cartesiano)
 
 
+# Derivadas parciales 
 
+Cuando derivamos parcialmente una función de varias variables respecto a una de sus variables, se deriva solo respecto a esa variable, tomando las demas variables como constantes, es decir: 
 
+Sea un $f(x,y)=x^2+y^2$ , se define la derivada parcial de $f$ con respecto a $x$ como: 
 
+$\frac{\delta f}{\delta x}=2x$ 
+
+Se define la derivada parcial de $f$ con respecto a $y$ como: 
+
+$\frac{\delta f}{\delta y}=2y$ 
+
+### Observación
+
+$\frac{\delta f}{\delta x \delta y}$ ; significa la derivada parcial de f respecto a $x$ respecto a $y$ (derivamos parcialmente primero a $x$)
+
+# Diferencial Total 
 

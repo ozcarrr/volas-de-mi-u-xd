@@ -723,7 +723,7 @@ Sea $z=f(x,y)$ una función de dos variables y $P_0(x_0,y_0,z_0)$ un punto de la
 
 SI existe el plano tangente a la grafica de $f$ (que es una superficie en $R³$), en el punto $P_0$, entonces su ecuación, esta dada por:
 
-### $P_t: z-z_0=\frac{\delta f}{\delta x}(x_0,y_0)(x-x_0)+\frac{\delta f}{\delta y}(x_0,y_0)(y-y_0)=0$ 
+### $P_t: z-z_0=\frac{\delta f}{\delta x}(x_0,y_0)(x-x_0)+\frac{\delta f}{\delta y}(x_0,y_0)(y-y_0)$ 
 ### <-> $\frac{\delta f}{\delta x}(x_0,y_0)(x-x_0)+\frac{\delta f}{\delta y}(x_0,y_0)(y-y_0)-(z-z_0)=0$ 
 
 ### obs: El vector normal a este plano es $(\frac{\delta f}{\delta x}(x_0,y_0),\frac{\delta f}{\delta y}(x_0,y_0),-1)$ 
@@ -759,12 +759,6 @@ $(1,2,1)\parallel{(8x,2y,-1)}$  (son paralelos)
 
 $\Rightarrow{\alpha}=-1; y_0=-1,x_0=-\frac{1}{8}$ 
 
-$\Rightarrow$ el punto donde el plano tangente de la paraboloide es paralelo al plano $\Pi$ es  $(-\frac{1}{8},-1,f(-\frac{1}{8},-1))=(-\frac{1}{8},-1,\frac{1}{16}+1)$ 
-
-
-# La diferencial 
-
-### Recuerdo :
 Sea $y=f(x)$ una función derivable. La diferencial de $y=f(x)$ esta dada por: 
 # $\frac{dy}{dx}=f'(x)\Rightarrow{dy}=f'(x)dx$ 
 
@@ -795,12 +789,16 @@ $\Rightarrow{f(x+\Delta x,y+\Delta y)\approx{f(x,y)+dz}}$
 
 para el caso de $w=f(x,y,z)$ se tendra: 
 
-# $f(x+\Delta x, y+\Delta y, z+\Delta z)\approx{f(x,y,z)+dw}$ 
+# $f(x+\Delta x, y+\Delta y, z+\Delta z)\approx{f(x,y,z)+dw}\approx f(x,y,z)+\nabla f(x,y,z)\cdot(\Delta x, \Delta y, \Delta z)$  
 
 # *Ejercicio:*
 
 Estimar el valor de $\sqrt{(2.10)²+(1.98)²+(1.05)²}$ 
 
+Sea $w=f(x,y,z)=\sqrt{x^2+y²+z^2}$ ; $x_0=2, y_0=2,z_0=1$ $\Rightarrow \Delta x=0.1;\Delta y=-0.02;\Delta z=0.05$ 
+$\Rightarrow{f_x}=\frac{x}{\sqrt{x²+y²+z²}}$ ; $f_y=\frac{y}{\sqrt{x²+y^2+z²}}$ ; $f_z=\frac{z}{\sqrt{x^2+y²+z²}}$ 
+$\Rightarrow{f_x(2,2,1)}=\frac{2}{\sqrt{5}}$ ; $f_y(2,2,1)=\frac{2}{\sqrt{5}}$ ; $f_z(2,2,1)=\frac{1}{\sqrt{5}}$
+$\Rightarrow \Delta w \approx\frac{2}{\sqrt{5}}0.1+\frac{2}{\sqrt{5}}(-0.02)+\frac{1}{\sqrt{5}}0.05$ 
 
 # Ejercicios Certamen 1(hacer control 1)
 
@@ -825,35 +823,765 @@ b) Dibuje e identifique las trazas en los planos coordenados de la superficie $x
 
 #### $\frac{\delta² u}{\delta t²}=C²\frac{\delta²u}{\delta x²}$ 
 
+# Gradiente: 
+
+### Definición: 
+Sea $f:A\subseteq{R^n}\rightarrow{R}$ ; $P\in{A}$ ; A conjunto abierto de $R^n$ . El vector gradiente de $f$ en $P$ , que detonamos $\nabla f(P)$, se define como: 
+
+$\nabla f(P)=(\frac{\delta f}{\delta x_1}(P),\frac{\delta f}{\delta x_2}(P),...,\frac{\delta f}{\delta x_n})$ , Siempre que $\frac{\delta f}{\delta x_i}(p)$ existan, $\forall{i}=1,...,n$ 
+característica
+Ejemplo: Sea $f(x,y,z)=3x³y²z$ , $dom(f)=R³$ Calcule $\nabla f(1,2,3)$ 
+
+SOlución: 
+
+tenemos $\nabla f(x,y,z)=(9x²y²z,6x³yz,3x³y²)$ 
+
+$\Rightarrow{\nabla f(1,2,3)}=\nabla f_{x=1,y=2,z=3}=(108,36,12)=12(9,3,1)$ 
+
+### Propiedades
+
+Sean $f$ y $g$ funciones de $n$ variables a valores en $R$, tal que $\frac{\delta f}{\delta x_i}$ y $\frac{\delta g}{\delta x_i}$ existen $\forall{i}=1,...,n$: 
+
+- $\nabla (f\cdot{g})=f\nabla g + g\nabla f$ 
+- $\nabla(\frac{f}{g})=\frac{g\nabla f-f\nabla g}{g²}$ 
+
+### Interpretación Geométrica
+
+Ejemplo: Sea $f(x,y)=x²+y²$ ; $dom(f)=R²$ ; $\nabla f(x,y)=(\frac{\delta f}{\delta x}(x,y),\frac{\delta f}{\delta y}(x,y))=(2x,2y)$ 
+
+entonces $\nabla f(1,1)=(2,2)$ 
+
+insertar imagen ola
+
+Note que: $\nabla f(1,1)$ es un vector ortogonal a la curva de nivel de $f$ que pasa por el punto $(1,1)$ y posicionado en ese punto. 
+
+En general, si $f$ es una función de $n$ variables a valores en $R$, el vector $\nabla f(x_1,x_2,...,x_n)$, es un vector ortogonal al conjunto de nivel de $f$ (o hipersuperficie de nivel de $f$) que pasa por el punto $P(x_1,x_2,...,x_n)\in{dom(f)}$ 
+
+# Plano tangente a una superficie de nivel
+
+Suponga que $S$ es una superficie con ecuación $F(x,y,z)=k$ ; $k\in{rec(f)}$ ; $k$ constante, donde $F$ es una función diferenciable. Suponga que $P(x_0,y_0,z_0)\in{S}$, esto es $F(x_0,y_0,z_0)=k$, si $\nabla F(x_0,y_0,z_0)\not=\vec{0}$, entonces el plano tangente a la superficie $S$ en $P$, tiene por ecuacion:
+
+$\frac{\delta F}{\delta x}(x_0,y_0,z_0)(x-x_0)+\frac{\delta F}{\delta y}(x_0,y_0,z_0)(y-y_0)+\frac{\delta F }{\delta z}(x_0,y_0,z_0)(z-z_0)=0$ 
+
+tambien se puede expresar como:
+
+$\nabla F(x_0,y_0,z_0)\cdot (x-x_0,y-y_0,z-z_0)=0$
+
+Recuerdo: $S$: $z=f(x,y)$ ; $(x,y)\in{dom(f)}$ , donde se mira a $S$ como la grafica de la fucnión $z=f(x,y)$ 
+
+$\Rightarrow{F(x,y,z)}=f(x,y)-z=0$ 
+
+Tambien podemos mirar la superficie $S$ como la superficie de nivel $0$ de la función $F(x,y,z)=f(x,y)-z$ 
+
+Entonces una ecuación de un plano tangente a $S$ en el punto $(x_0,y_0,f(x_0,y_0))$ 
+
+$\frac{\delta f}{\delta x}(x_0,y_0)(x-x_0)+\frac{\delta f}{\delta y}(x_0,y_0)(y-y_0)-(z-z_0)=0$ 
+
+Además, la recta normal a la superficie $S$ en el punto $P(x_0,y_0,z_0)$, tiene como vector director $\nabla F(x_0,y_0,z_0)$. Por lo tanto las ecuaciones parametricas de la ==recta normal== a la superficie $S$ en el punto $P(x_0,y_0,z_0)$ son: 
+
+$R_N$ : $x(t)=x_0+t\frac{\delta F}{\delta x}(x_0,y_0,z_0)$ ; $y(t)=y_0+t\frac{\delta F}{\delta y}(x_0,y_0,z_0)$ ; $z(t)=z_0+t\frac{\delta F}{\delta z}(x_0,y_0,z_0)$ 
+
+Notación: $F_{p_0}$ es equivalente a decir "$F$ evaluado en en punto $p_0$"
+### Ejemplo:
+
+Encuentre la ecuación del plano tangente a la superficie de ecuación:
+
+$S$ : $sin(xy)+sin(yz)+sin(xz)=1$ en el punto $P_0(1,\frac{\pi}{2},0)$. 
+
+Además determine un conjunto de ecuaciónes parametricas de la ecuación de la recta normal a la superficie $S$ en $P_0$ 
+
+Solución: Note que la superficie $S$, puede ser mirada como la superficie de nivel $0$ de la función: 
+
+$F(x,y,z)=sin(xy)+sin(yz)+sin(xz)-1$ 
+
+Así la ecuación del plano tangente a $S$ en el punto $P_0(1,\frac{\pi}{2},0)$ es: 
+
+$\nabla F(1,\frac{\pi}{2},0)(x-1,y-\frac{\pi}{2},z)=0$ 
+
+como: 
+
+$\frac{\delta F}{\delta x}|_{p_0}=(ycos(xy)+zcos(xz)) _{P_0}=0$ 
+
+$\frac{\delta F}{\delta y}|_{P_0}=(xcos(xy)+zcos(yz)) _{P_0}=0$ 
+
+$\frac{\delta F }{\delta z}|_{P_0}=(ycos(yz)+xcos(xz)) _{P_0}=\frac{\pi}{2}+1$ 
+
+Entonces la ecuación del plano tangente a $S$ en el punto $P_0$ es: 
+
+$(0,0,\frac{\pi}{2}+1)(x-1,y-\frac{\pi}{2},z)=0$ <-> $z=0$ 
+
+Además un conjunto de ecuaciones de parametrcias para la recta normal a la superficie $S$ en el punto $(1,\frac{\pi}{2},0)$ es:
+
+
+$R_N$ : $x=1 ; y=\frac{\pi}{2}; z = (\frac{\pi}{2}+1)t$ ; $t\in{R}$ 
+
+# Diferencibilidad 
+
+Teorema: Sea $z=f(x,y)$ una funición de las variables $x$ e $y$. Sea $(x_0,y_0)\in{dom(f)}$. 
+Si las derivadas parciales $\frac{\delta f}{\delta x}$ y $\frac{\delta f}{\delta y}$ existen en una vecindad (abierta) de $(x_0,y_0)$ y son continuas en $(x_0,y_0)$, entonces $f$ es diferenciable en $(x_0,y_0)$. 
+
+# Regla de la cadena
+
+- $(I)$ Sea $z=f(x,y)$ una función diferenciable. Si $x=f(t)$ y $y=g(t)$, son funciones derivables de $t$, entonces $z$ también es una función derivable de $t$, y: 
+$$\frac{dz}{dt}=\frac{\delta z}{\delta x}\frac{dx}{dt}+\frac{\delta z}{\delta y}\frac{dy}{dt}$$
+
+- $(II)$ Sea $z=f(x,y)$ una función diferenciable de las varibales $x$ e $y$. Si $x=g(s,t)$ e $y=h(s,t)$, son funciones diferenciables tales que $\frac{\delta x}{\delta s}, \frac{\delta x}{\delta t}$ y $\frac{\delta y}{\delta s},\frac{\delta y}{\delta t}$ existen, entonces $\frac{\delta z}{\delta s}$ y $\frac{\delta z}{\delta t}$ tambien existen, y ademas (Verificar esto en clases de rossel): 
+$$\frac{\delta z}{\delta s}=\frac{\delta z}{\delta x}\frac{\delta x}{\delta s}+\frac{\delta z}{\delta y}\frac{\delta y}{\delta s}$$
+$$\frac{\delta z}{\delta t}=\frac{\delta z}{\delta x}\frac{\delta x}{\delta t}+\frac{\delta z}{\delta y}\frac{\delta y}{\delta t}$$ En general: 
+
+Si $w=f(x_1,...,x_n)$ y $x_i=g(t_1,t_2,...,t_n)$ con $i=1,...,n$, entonces: 
+
+$$\frac{\delta w}{\delta t_1}=\frac{\delta w}{\delta x_1}\frac{\delta x_1}{\delta t_1}+\frac{\delta w}{\delta x_2}\frac{\delta x_2}{\delta t_1}+...+\frac{\delta w}{\delta x_n}\frac{\delta x_n}{\delta t_1}$$ entonces : 
+$$\frac{\delta w}{\delta t_m}=\frac{\delta w}{\delta x_1}\frac{\delta x_1}{\delta t_m}+\frac{\delta w}{\delta x_2}\frac{\delta x_2}{\delta t_m}+...+\frac{\delta w}{\delta x_n}\frac{\delta x_n}{\delta t_m}$$
+Entonces se forma una matriz (de m filas y n columnas): 
+
+$$\Rightarrow \begin{pmatrix}   \frac{\delta x_1}{\delta t_1} & \frac{\delta x_2}{\delta t_1} & ... & \frac{\delta x_n}{\delta t_1}\\  .  & . & . & .\\ \frac{\delta x_1}{\delta t_m} & \frac{\delta x_2}{\delta t_m} & ... & \frac{\delta x_n}{\delta t_m}  \end{pmatrix} \begin{pmatrix}  \frac{\delta w}{\delta x_1} \\ \frac{\delta w}{\delta x_2} \\ ... \\ \frac{\delta 2}{\delta x_n}   \end{pmatrix} = \begin{pmatrix} \frac{\delta w}{\delta t_1}  \\ \frac{\delta w}{\delta t_2} \\ ... \\ \frac{\delta w}{\delta t_m}  \end{pmatrix}$$
+
+### Ejercicio: Sea $w=f(x,y)$ una función que admite derivadas parciales de 2do orden continuas. Suponga que $x=u+v$ , $y=u-v$.Demuestre que: 
+$$\frac{\delta² w}{\delta u \delta v}=\frac{\delta² w}{\delta x²}-\frac{\delta² w}{\delta y²}$$  Respuesta: 
+
+$w=w(x(u,v),y(u,v))$ ; $x=u+v$ y $y=u-v$ 
+$\frac{\delta² w}{\delta u \delta v}=\frac{\delta² w}{\delta x²}-\frac{\delta² w}{\delta y²}$ 
+
+primero, $\frac{\delta w}{\delta v}=\frac{\delta w}{\delta x}\frac{\delta x}{\delta v}+\frac{\delta w}{\delta y}\frac{\delta y}{\delta v}=\frac{\delta w}{\delta x}-\frac{\delta w}{\delta y}$ 
+$\Rightarrow =\frac{\delta² w}{\delta u \delta v}=\frac{\delta}{\delta u}(\frac{\delta w}{\delta v})=\frac{\delta }{\delta u}(\frac{\delta w}{\delta x}-\frac{\delta w}{\delta y})$ 
+Pero: 
+$\frac{\delta w}{\delta x}=\frac{\delta w}{\delta x}(x(u,v),y,(u,v))$ 
+analogamente: 
+$\frac{\delta w}{\delta y}=\frac{\delta w}{\delta y}(x(u,v),y(u,v))$ 
+photo
+
+Luego: 
+
+(1) $\frac{\delta}{\delta u}(\frac{\delta w}{\delta x})=\frac{\delta² w}{\delta x²}\frac{\delta x}{\delta u}+\frac{\delta² w}{\delta y \delta x}\frac{\delta y}{\delta u}=\frac{\delta² w}{\delta x²}\frac{\delta² w}{\delta y \delta x}$ 
+
+(2) $\frac{\delta}{\delta u}(\frac{\delta w}{\delta y})=\frac{\delta² w}{\delta x \delta y}\frac{\delta x}{\delta u}+\frac{\delta² w}{\delta y²}\frac{\delta y}{\delta u}=\frac{\delta² w}{\delta x \delta y}+\frac{\delta² w}{\delta y²}$ 
+
+entonces, (1)-(2) = $\frac{\delta^2 w}{\delta x²}+\frac{\delta² w}{\delta y \delta x}-\frac{\delta² w}{\delta x \delta y}-\frac{\delta² w}{\delta y²}=\frac{\delta² w}{\delta x²}-\frac{\delta² w}{\delta y²}$ 
+
+# Derivación implicita
+
+### $I)$ Suponga que $y$ esta dada de forma implicita por la relacuón $F(x,y)=0$, como función diferenciable de las variables $x$ (se supone que $y=f(x)$). Entonces: 
+
+$\frac{dy}{dx}=-\frac{\frac{\delta F}{\delta x}}{\frac{\delta F}{\delta y}}; \frac{\delta F}{\delta y}\not=0$ 
+
+#### Demostración :  $F(x,y)=0$ 
+
+$\Rightarrow dF=\frac{\delta F}{\delta x}dx+\frac{\delta F}{\delta y}dy=0$ 
+Se supone que $y=f(x)$, entonces: 
+
+$\frac{dy}{dx}=f'(x)\Rightarrow dy=f'(x)dx$ 
+
+$\Rightarrow \frac{\delta F}{\delta x}dx+\frac{\delta F}{\delta y}(\frac{dy}{dx}dx)=0$ 
+$\Rightarrow \frac{\delta F}{\delta x}dx+\frac{\delta F}{\delta y}(\frac{dy}{dx})dx=0$ 
+$\Rightarrow \frac{\delta F }{\delta x}+\frac{\delta F}{\delta y}\frac{dy}{dx})dx=0$ 
+$\Rightarrow \frac{\delta F}{\delta x}+\frac{\delta F}{\delta y}\frac{dy}{dx}=0 \Rightarrow \frac{dy}{dx}=-\frac{\frac{\delta F}{\delta x}}{\frac{\delta F}{\delta y}}; \frac{\delta F}{\delta y}\not=0$ 
+
+
+### $II)$ Suponga que $z$ esta dada en forma implicita, por la relación $F(x,y,z)=0$ como función diferenciable de $x$ e $y$, (se supone que $z=f(x,y)$). Entonces: 
+
+$$\frac{\delta z}{\delta x}=-\frac{\frac{\delta F}{\delta x}}{\frac{\delta F}{\delta z}}$$ $$\frac{\delta z}{\delta y}=-\frac{\frac{\delta F}{\delta y}}{\frac{\delta F}{\delta z}}$$
+
+### Ejercicio: Sea $z=z(x,y)$ una función de $x$ e $y$, definida implicitamente por la ecuación: 
+
+$$z²+\frac{2}{x}=\sqrt{y^2-z²}$$
+Demuestre la igualdad siguiente: 
+
+$$x²\frac{\delta z}{\delta x}+\frac{1}{y}\frac{\delta z}{\delta y}=\frac{1}{z}$$
+
+## Control miercoles
+- aproximación lineal
+- plano tangente (a una función de dos variables o superficie de nivel) (recta normal)
+
+
+# Clase 01/10 
+
+# Derivada direccional 
+
+Definición: Sea $z=f(x,y)$ una función ; $(x_0,y_0)\in{dom(f)}$. Sea $\vec{u}=(a,b)$ un vector unitario. La derivada direccional de $f$ en $(x_0,y_0)$ en la dirección del vector unitario $\vec{u}$, se define como: 
+
+$$\lim_{h\to{0}} \frac{f(x_0+ha,y_0+hb)-f(x_0,y_0)}{h}$$
+desde que este limite exista.
+
+Notación: 
+$$\frac{\delta f}{\delta \vec{u}}(x_0,y_0)=\lim_{t\to{0}} \frac{f(x_0+ta,y_0+tb)-f(x_0,y_0)}{t}=D_{\vec{u}}f(x_0,y_0)$$
+
+GRAFICA ROSSEL INSERTAR 
+
+La derivada direccional $\frac{\delta f}{\delta \vec{u}}(x_0,y_0)$es la razón de cambio de $z$, cuando $(x,y)$ se mueve desde el punto $(x_0,y_0)$ en la dirección del vector unitario $\vec{u}$ 
+
+#### Observación: 
+- La derivada direccional $\frac{\delta f}{\delta \vec{u}}(x_0,y_0)$, se denomina tambien "tasa de variación" de $f$ en el punto $(x_0,y_0)$.
+-  Las derivadas parciales de $f$ en $(x_0,y_0)$, son casos particulares de derivadas direccionales. Esto es:
+$$\frac{\delta f}{\delta \vec{i}}(x_0,y_0)=\lim_{t\to{0}} \frac{f(x_0+t,y_0)-f(x_0,y_0)}{t}=\frac{\delta f}{\delta x}(x_0,y_0)$$
+$$\frac{\delta f}{\delta \vec{j}}(x_0,y_0)=\lim_{t\to{0}} \frac{f(x_0,y_0+t)-f(x_0,y_0)}{t}=\frac{\delta f}{\delta y}(x_0,y_0)$$
+- Si $\frac{\delta f}{\delta \vec{u}}(x_0,y_0)<0$ , entonces la función $f$ es localmente decreciente desde el punto $(x_0,y_0)$, en la dirección del vector unitario $\vec{u}$ 
+- Si $\frac{\delta f}{\delta \vec{u}}(x_0,y_0)>0$, entonces la fucnión $f$ es localmente creciente, desde el punto (x_0,y_0)$ en la dirección del vector unitario $\vec{u}$. 
+
+### Teorema: 
+
+Sea $f:A\subseteq{R²}\to{R}$ una función, donde $A$ es un conjunto abierto, ($x_0,y_0)\in{A};\vec{u}=(a,b)$ unitario.
+
+a) Si $f$ es diferenciable en $(x_0,y_0)$, entonces:
+- $f$ admite derivada direccional en $(x_0,y_0)$, en la dirección de $\vec{u}$ ; y además: 
+$$\frac{\delta f}{\delta \vec{u}}(x_0,y_0)=\nabla f(x_0,y_0)\cdot{\vec{u}}$$
+
+b) si $f$ es diferenciable en $(x_0,y_0)$ y además $\nabla f(x_0,y_0)\not=\vec{0}$, entonces, el valor máximo de $\frac{\delta f}{\delta \vec{u}}(x_0,y_0)$, ocurre cuando $\vec{u}=\frac{\nabla f(x_0,y_0)}{||\nabla f(x_0,y_0)||}$, y el valor máximo de $\frac{\delta f}{\delta \vec{u}}(x_0,y_0)$ es $||\nabla f(x_0,y_0)||$, de hecho:
+
+$$|\frac{\delta f}{\delta \vec{u}}(x_0,y_0)|=|\nabla f(x_0,y_0)\cdot{\vec{u}}|\leq ||\nabla f(x_0,y_0||\cdot ||\vec{u}||$$
+$\Rightarrow |\frac{\delta f}{\delta \vec{u}}(x_0,y_0)| \leq ||\nabla f(x_0,y_0)||$
+$\Rightarrow -||\nabla f(x_0,y_0)|| \leq \frac{\delta f}{\delta \vec{u}}(x_0,y_0)\leq ||\nabla f(x_0,y_0)||$ (valores minimos y maximos de la derivada direccional de $f$)
+
+
+
+#### ¿Cuando ocurre el valor máximo? 
+
+Respuesta: Cuando $\vec{u}=\frac{\nabla f(x_0,y_0)}{||\nabla f(x_0,y_0)||}$ 
+
+analogamente: 
+
+$\frac{\delta f}{\delta \vec{u}}(x_0,y_0)=\nabla f(x_0,y_0)\frac{\nabla f(x_0,y_0)}{||\nabla f(x_0,y_0)||}$ 
+$=\frac{1}{||\nabla f(x_0,y_0)||}(\nabla f(x_0,y_0)\nabla f(x_0,y_0))=||\nabla f(x_0,y_0)||$
+
+entonces, como formula, el valor máximo de la derivada direccional $\frac{\partial f}{\partial \vec{u}}$ ocurre cuando: 
+$$\frac{\partial f}{\partial \vec{u}}=||\nabla f(x_0,y_0)||$$
+
+Esto es, $\frac{\delta f}{\delta \vec{u}}(x_0,y_0)$, asume su valor máximo cuando $\vec{u}$ tiene la dirección y sentido de el gradiente de $f$ ($\nabla f(x_0,y_0)$)
+
+#### ¿Cuando ocurre el valor mínimo? 
+
+Respuesta: Cuando $\vec{u}=-\frac{\nabla f(x_0,y_0)}{||\nabla f(x_0,y_0)||}$ 
+
+analogamente: 
+
+$\frac{\delta f}{\delta \vec{u}}(x_0,y_0)=-\nabla f(x_0,y_0)\frac{\nabla f(x_0,y_0)}{||\nabla f(x_0,y_0)||}$ 
+$=-\frac{1}{||\nabla f(x_0,y_0)||}(\nabla f(x_0,y_0)\nabla f(x_0,y_0))=-||\nabla f(x_0,y_0)||$ 
+
+entonces como formula, el valor mínimo de la derivada direccional $\frac{\partial f}{\partial \vec{u}}$ ocurre cuando: 
+$$\frac{\partial f}{\partial \vec{u}}(x_0,y_0)=-||\nabla f(x_0,y_0)||$$
+#### Ejercicio: Sea $V(x,y)=e^{-2x}cos(2y)$, donde $V$ indica el potencial electrico en un punto $(x,y)$ 
+
+a) Encontrar la rapidez de cambio del potencial en el punto $(0,\frac{\pi}{4})$, en la dirección del vector unitario $\vec{u}=(cos(\frac{\pi}{6}),sin(\frac{\pi}{6}))$ 
+b) Encontrar la dirección y magnitud de la máxima rapidez de cambio de $V$ en $(0,\frac{\pi}{4})$.
+
+#### Respuesta:
+
+a) $\frac{\delta V}{\delta \vec{u}}(0,\frac{\pi}{4})=\nabla V(0,\frac{\pi}{4})\vec{u}$ 
+
+$\Rightarrow \nabla V(x,y)=(-2e^{-2x}cos(2y),-2e^{-2x}sin(2y))$ 
+
+$\Rightarrow \nabla V(0,\frac{\pi}{4})=(0,-2)=-2ĵ$ 
+
+luego, $\frac{\delta V}{\delta \vec{u}}(0,\frac{\pi}{4})=(0,-2)\cdot{(cos(\frac{\pi}{6}),sin(\frac{\pi}{6}))}=-1$ 
+
+b) $||\nabla V(0,\frac{\pi}{4})||=||-2ĵ||=\sqrt{4}=2$ 
+donde la dirección es $-ĵ=(0,-1,0)$ 
+
+
+
+# Máximos y Mínimos.
+
+### Puntos críticos:
+
+Definición: Sea $f:U\subseteq{R^n}\to{R}$ una función ; $U$ conjunto abierto de $R^n$; $a\in{U}$. 
+
+$a\in{U}$ se dice punto crítico de $f$, si y solamente si se verifica una de las siguientes afirmaciones: 
+
+- $\frac{\delta f}{\delta x_i}(a)=0$ ; $\forall{i}=1,...,n$ ($ie, \nabla f(a)=\vec{0}$ )
+- $\frac{\delta f}{\delta x_1}(a)$ o $\frac{\delta f}{\delta x_2}(a)$ o ... o $\frac{\delta f}{\delta x_n}(a)$ no existe
+
+#### Ejemplo: Considere la función $f(x,y)=\frac{3x²+1}{2}-x(x²+y^2)$ , determine los puntos críticos de $f$. 
+#### Solución: 
+
+$\nabla f(x,y)=(3x-3x²-y²,-2xy)$ 
+
+Tenemos : $3x-x²-y^2=0$ y $-2xy=0$ 
+
+luego $x=0$ o $y=0$, entonces, si $x=0$:
+
+$\Rightarrow -y²=0 \Rightarrow y=0$, entonces se obtiene el punto $(0,0)$ 
+
+Si $y=0\Rightarrow x-x²=0\Rightarrow x=0$ o $x=1$ (Se obtienen los puntos (0,0) o (1,0))
+
+Luego, los puntos criticos de $f$ son:
+
+$(0,0)$ y $(1,0)$ 
+
+# Matriz hessiana 
+
+Sea $f:U\subseteq{R^n}\rightarrow{R}$ una función; $U$ conjunto abierto de $R^n$ ; $P\in{U}$. 
+Supongamos que todas las derivadas parciales de segundo orden de $f$ existen en $P$. 
+La matriz de orden $n\times n$, que denotamos po $H(P)=(a_{ij})$ ; $i,j=1,2,...,n$,
+donde $a_{ij}=\frac{\delta²f}{\delta x_i \delta y_j}(P)$ se llama la matriz Hessiana de $f$ en $P$. 
+
+### Casos particulares 
+
+- SI $n=2$ ; $f:U\subseteq{R^2}\rightarrow R$ ; $P_0(x_0,y_0)\in U$ 
+La matriz esta dada por
+
+$$H(x_0,y_0)=\begin{pmatrix}   \frac{\delta²f}{\delta x²}(x_0,y_0)  & \frac{\delta² f}{\delta y \delta x}(x_0,y_0)\\   \frac{\delta²f}{\delta x \delta y}(x_0,y_0)  & \frac{\delta²f}{\delta y²}(x_0,y_0)  \end{pmatrix}=H(x_0,y_0)=\begin{pmatrix}   f_{xx}(x_0,y_0)  & f_{xy}(x_0,y_0)\\   f_{yx}(x_0,y_0)  & f_{yy}(x_0,y_0)  \end{pmatrix}$$
+
+- Si $n=3$ 
+$$H(x_0,y_0)=\begin{pmatrix} \frac{\delta²f}{\delta x²}(x_0,y_0) & \frac{\delta²f}{\delta y \delta x}(x_0,y_0)  & \frac{\delta² f}{\delta z \delta x}(x_0,y_0)\\   \frac{\delta²f}{\delta x \delta y}(x_0,y_0)  & \frac{\delta²f}{\delta y²}(x_0,y_0) & \frac{\delta²f}{\delta z \delta y}(x_0,y_0) \\ \frac{\delta²f}{\delta x \delta z}(x_0,y_0) & \frac{\delta²f}{\delta y \delta z}(x_0,y_0) & \frac{\delta²f}{\delta z²}(x_0,y_0) \end{pmatrix}  $$
+
+### Definición: 
+
+$$A_n=\begin{pmatrix}   a_{11} & a_{12} & ...&a_{1n}\\   a_{21} & a_{22} &...& a_{2n} \\.. .\\ ...\\ a_{n1} & a_{n2} & ... & a_{nn}  \end{pmatrix}$$
+Se definen las siguientes submatrices $A_k$ de $A_n$:
+
+$$A_1=a_{11};A_2=\begin{pmatrix}   a_{11} & a_{12} \\   a_{21} & a_{22}    \end{pmatrix};A_n=\begin{pmatrix}   a_{11} & a_{12} & ...&a_{1n}\\   a_{21} & a_{22} &...& a_{2n} \\.. .\\ ...\\ a_{n1} & a_{n2} & ... & a_{nn}  \end{pmatrix}$$
+# Teorema (condición suficiente para la existencia de extremos locales )
+
+Sea $f:U\subseteq{R^n}\rightarrow R$ una función. Sea $P$ un punto critico de $f$. Suponga que además las derivadas parciales de 2do orden de $f$ son continuas en una vecindad de $P$. 
+
+
+### i) Si todas las submatrices de $A_k$ de la matriz Hessiana $H(P)$, definidas en "definición anterior" tienen determinante positivo, entonces $f$ tiene un minimo local en $P$ 
+
+### ii) Si todas las submatrices $A_k$ de la matriz Hessiana $H(P)$, tienen determinante de signos alternados, comenzando con $|A_1| <0$, entonces $f$ alcanza (o tiene) un máximo local en $P$. 
+
+### iii) Si el determinante de las submatrizes no cumplen ninguno de los criterios anteriores, se dice a $P$ un "punto de silla de $f$ "
+
+### iv) Si uno de los determinantes es nulo ($det(A_k)=0$), el criterio no asegura nada
+### Caso particular (para $n=2$ )
+Sea $f:U\subseteq R^n\rightarrow R$ una función y $P(x_0,y_0)$ un punto crítico de $f$. Suponga que además que $f$ admite derivadas parciales de 2do orden continuas en una vecindad de $P(x_0,y_0)$, entonces: 
+
+
+#### i) Si $\frac{\delta^2 f}{\delta x^2}(x_0,y_0)>0$ y $det(H(x_0,y_0))>0$, entonces $f$ tiene un minimo local en $P(x_0,y_0)$ 
+#### ii) Si $\frac{\delta^2 f}{\delta x²}(x_0,y_0)<0$ y $det(H(x_0,y_0))>0$, entonces $f$ tiene (o alcanza) un máximo local en $P(x_0,y_0)$ 
+#### iii) Si $det(H(x_0,y_0))<0$, entonces $P(x_0,y_0)$ es un punto de silla de $f$ 
+#### iv) Si $det(H(x_0,y_0))=0$, el criterio no entrega info 
+
+#### Nota: De acuerdo a enunciado, tenemos: 
+
+$$det(H(x_0,y_0))=\frac{\delta²f}{\delta x²}(x_0,y_0)\frac{\delta²f}{\delta y²}(x_0,y_0) - (\frac{\delta²f}{\delta x \delta y}(x_0,y_0))²$$
+Dado que, como $f$ admite derivadas parciales de segundo orden continuas en una vecindad de $P(x_0,y_0)$, la matriz $H(x_0,y_0)$, resulta ser simetrica. 
+
+### Ejercicio: 
+Sea $f(x,y)=x³+y³-3x-3y+4$. Clasifique los puntos críticos de $f$. 
+
+tenemos que, $\frac{\delta f}{\delta x}=3x²-3=0$ y $\frac{\delta f}{\delta y}=3y²-3=0$ $\Rightarrow x=+-1$ y $y=+-1$
+Entonces, los puntos criticos de $f$ son:
+
+$$P_1(1,1);P_2(1,-1);P_3(-1,1);P_4(-1,-1)$$
+Además: 
+$$H(x,y)=\begin{pmatrix}   \frac{\delta²f}{\delta x²}  & \frac{\delta² f}{\delta y \delta x}\\   \frac{\delta²f}{\delta x \delta y}  & \frac{\delta²f}{\delta y²}  \end{pmatrix}=\begin{pmatrix} 6x & 0 \\ 0 & 6y  \end{pmatrix}$$
+entonces, $det(H(x,y))=36xy$
+
+luego, note que $P_2$ y $P_3$ son puntos de silla, ya que:
+
+$det(H(P_2))=0$ y $det(H(P_3))<0$ 
+
+Luego para, $P_1(1,1)$ :
+$\frac{\delta² f}{\delta x²}(1,1)=6$ , $det(H(1,1))=36>0$, entonces, es un mínimo local de $f$ 
+
+NOTA: Note que $P_1(1,1)$ no es un mínimo global de $f$, ya que la $f(-3,0)=-14<0=f(1,1)$ 
+
+Luego, para $P_4(-1,-1)$ : 
+$\frac{\delta² f}{\delta x²}(-1,-1)=-6<0$  y $det(H(-1,-1))=36>0$ 
+
+por lo tanto, el punto $P_4(-1,-1)$ es un máximo local de $f$. 
+
+Note que $P_4(-1,-1)$ no es un máximo global de $f$, ya que: 
+
+$f(4,0)=56>8=f(-1,-1)$ 
+
+### Ejercicio:
+Encuentre y clasifique los puntos críticos (estacionarios) de la función: 
+
+$$f(x,y,z)=x³-3x^2-4y²-2z²+4yz+z+2$$
+
+# Maxímos y mínimos Globales
+
+Sea $f$:$D\subseteq{R^n}\to R$ una función ; $P_0\in dom(f)=D$ 
+
+i) $f$ tiene un máximo absoluto (o global) en $P_0$, si:
+$$f(P_0)\geq f(x);\forall x\in D$$
+ii) $f$ tiene un minimo absoluto (o global ) en $P_0\in dom(f)$ si:
+$$f(P_0)\leq {f(x);\forall x\in D}$$
+
+# Conjuntos compactos
+
+Definición: $A\subseteq{R^n}$, se dice compacta si y solo si $A$ es un conjunto cerrado y acotado. 
+
+### Ejemplo: 
+
+1. En $R$ al intervalo $[a,b]$ ; $a<b$ es un conjunto compacto.
+
+2. El conjunto $A$={$(x,y)\in{R²}/x²+y²\leq{1}$} es un conjunto compacto.
+
+
+### Teorema (De Weirstrass)
+
+Sea $f:A\subseteq{R^n}\to{R}$ una función continua en $A$; $A$ conjunto compacto de $R^n$, entonces:
+existen $P_1$ y $P_2$ en $A$ tales que:
+$$f(P_1)\geq{f(p)};\forall{P}\in{A}$$
+$$f(P_2)\leq{f(P)};\forall{P\in{A}}$$ esto es, $f$ alcanza sus valores máximos y minimos globales en $A$. 
+
+
+### Teorema: Multiplicadores de Lagrange (Generalizado)
+
+Sean $f,g_2,g_2,...,g_k:U\subseteq{R^n}\to{R}$, funciones que admiten derivadas parciales de primer orden continuas. Sea $a\in{U}$ tal que $g_{j}(a)=0$ ; $j=1,...,k$ ; $k\leq{n}$.
+Sea $S=$ {$x\in{U}|g_{j}(x)=0;j=1,...,k$}.
+Suponga además que $\nabla g_j(a)\not=0$ ; $\forall{j}$.
+
+Si $f|_{S}$ ($f$ restringido a $S$) tiene un extremo relativo en $a$, entonces existen $\lambda_1,...,\lambda_k;\lambda_k\in{R}$ tal que:
+$$\nabla f(a)=\lambda_1\nabla g_1(a)+...\lambda_k\nabla g_k(a)$$
+Las constantes $\lambda_1,...,\lambda_k$ se denominan multiplicadores de Lagrange 
+
+
+#### Observación: 
+
+1) En la practica, para determinar los puntos extremos de $f$, se resuelve el sistema de $n+k$ ecuaciones, formado por las $k$ ecuaciones de las condiciones $g_j(a)=0$, y las $n$ ecuaciones determinadas por la relación: 
+$$\nabla f(x)=\lambda_1\nabla g_1(x)+...+\lambda_k \nabla g_k(x)$$
+2) El sistema se resuelve respecto a las $n+k$ incognitas, $x_1,...,x_n$ y $\lambda_1,...,\lambda_k$ 
+3) Los puntos críticos se encuentran en las soluciones del sistema
+##### Ejemplo: 
+Encuentre los valores máximos y mínimos de la función $f(x,y)=y²-x²$ sobre la elipse de ecuación $\frac{x²}{4}+y²=1$. 
+
+#### Respuesta: 
+Sea $g(x,y)=x²+4y²=4$ (Restricción)
+
+Por teorema anterior, se resuelve el sistema:
+$$\nabla f(x,y)=\lambda\nabla g(x,y)$$
+$$g(x,y)=0$$
+
+$\Rightarrow (-2x,2y)=\lambda(2x,8y)$ ; $x²+4y²=4$ 
+
+$\Rightarrow -2x=2\lambda z$ (1) y $2y= 8\lambda y$ (2) ; $x²+4y²=4$ (3)
+
+En (1), si $x\not=0$ $\Rightarrow \lambda=-1$ , sustituyendo en (2) queda $y=0$. Pero $x²+4y²=4$, de donde $x=+-2$. se obtienen los puntos:
+
+$$P_1(2,0) ; P_2(-2,0)$$
+SI $y\not=0$ en (2), obtenemos $\lambda=\frac{1}{4}$. Sustituyendo en (1), queda $x=0$, y de (3) se obtiene $y=+-1$. Y se obtienen los puntos críticos: 
+
+$$P_3(0,1);P_4(0,-1)$$
+Evaluando obtenemos:
+$f(P_1)=f(2,0)=-4$ 
+$f(P_2)=f(-2,0)=-4$ 
+$f(P_3)=f(0,1)=1$
+$f(P_4)=f(0,-1)=1$ 
+
+Como el conjunto $S=$ {$(x,y)\in{R²}/\frac{x²}{4}+y²=1$} es un conjunto cerrado y acotado (compacto) de $R²$, y además la función $f$ es continua en $R²$, y en particular en $S$, entonces se tiene que:
+
+- En $P_1$ y $P_2$, $f$ alcanza su valor mínimo, a saber $-4$ 
+- En $P_3$ y $P_4$, $f$ alcanza su valor máximo, a saber $1$ 
+
+#### Ejercicio Propuesto:
+Usando multiplicadores de lagrange encuentre el valor máximo y valor mínimo de:
+$$f(x,y,z)=x²+y²+z²$$
+cuando $(x,y,z)$ recorre la curva de intersección entre el cilindro $x²+y²=50$, y el plano $x+y+z=12$.
+
+#### Respuesta: 
+Función adjetivo: $f(x,y,z)=x²+y²+z²$ 
+Restricciones: $x²+y²=50$ y, $g_1(x,y,z)=x²+y²-50$ ; $x+y+z=12,g_2(x,y,z)=x+y+z-12$ 
+
+Usando Teorema anterior, se resuelve el sistema:
+$\nabla f=\lambda_1\nabla g_1+\lambda_2\nabla g_2$ (1)
+$g_1(x,y,z)=0$ (2)
+$g_2(x,y,z)=0$ 
+
+$\Rightarrow (2x,2y,2z)=\lambda_1(2x,2y,0) + \lambda_2(1,1,1)$ (1)
+$x²+y²=50$ (2)
+$x+y+z=12$ (3)
+
+
+$\Rightarrow$ $2x=\lambda_1x+\lambda_2$ ; $2y=2\lambda_1y+\lambda_2$ ; $2z=\lambda_2$ ; $x²+y²=50$ ; $x+y+z=12$ 
+
+(ecuaciones (1), (2), (3), (4) y (5), respectivamente)
+
+
+de (1): $2xy=2\lambda_1 xy+\lambda_2 y$ 
+de (2): $2xy=2\lambda_1 xy+\lambda_2 x$ 
+
+Restando (1) y (2): 
+
+$\Rightarrow 0=\lambda_2(x-y)$ 
+$\Rightarrow$ $\lambda_2=0$ o $x=y$
+
+- SI $\lambda_2=0$, de (3), tenemos $z=0$, sustituyendo en (5), tenemos:
+$x+y=12\Rightarrow{y=12-x}$
+Sustituyendo en (4), se obtiene:
+$x²+(12-x)²=50$ 
+
+$\Rightarrow x²+144-24x +x²=50$ 
+$\Rightarrow 2x²-24x+64=0$ $\Rightarrow x²-12x+47=0$ 
+Note que $\Delta=-44<0$, por lo que no hay solución real.
+
+#### Ejercicio: 
+Sea $w=f(x,y)$ una función que admite derivadas parciales de 2do orden continuas, suponga que $x=u+v$ e $y=u-v$. Determine $\frac{\partial^2w}{\partial x\partial y}$ en terminos de las derivadas parciales con respecto a $u$ y $v$. 
+
+#### Respuesta
+de $x$ e $y$ $\Rightarrow x+y=2u\Rightarrow u=\frac{1}{2}(x+y)$ (sumando las ecuaciones)
+y sacamos $x-y=2v\Rightarrow v=\frac{1}{2}(x-y)$ 
+
+luego, $w=f(u(x,y),v(x,y))$ 
+
+entonces, $\frac{\partial² w}{\partial x\partial y}=\frac{\partial}{\partial x}(\frac{\partial w}{\partial y})$ 
+
+donde $\frac{\partial w}{\partial y}=g(x(u,v),y(u,v))$ 
+
+luego sale más facil calcular la derivada parcial.
+
+#### Ejercicio: Determine y clasifique los puntos criticos de la función:
+$$f(x,y)=x³+2y³-27x-54y+4$$
+#### Ejercicio: 
+Sea $G=f(x+3y,2x-y)$, donde $f:R²\to{R}$ es una función diferenciable. Si $\nabla f(0,0)=(4,-3)$, determine la derivada direccional de $G$ en el origen en la dirección del vector $\vec{v}=(1,1)$ 
+
+
+
+# Sub-superficies de una superficie
 
 
 
 
+# Integrales dobles
+
+### Definición:
+Sea $z=f(x,y)$ una función integrable sobre el rectangulo $R=[a,b]\times{[c,d]}$ se define la integral doble de $f$ sobre el recangulo $R$ como:
+$$\iint_{R}f(x,y)dA=\sum_{i=1}^{n}\sum_{j=1}^{m}f(x_{ij}^{*},y_{ij}^{*})\Delta A$$
+Siempre que el limite exista
+
+
+### Observavción
+
+#### i) 
+Cuando $f(x,y)\geq{0};\forall(x,y)\in{R}$, entonces, la inegral donle de $f$ sobre el rectangulo $R$, nos proprciona el volumen del solido que está por encima de $R$, y por debajo de la superficie $S:z=f(x,y)$ 
+
+Esto es:
+$$V=\iint_{R}f(x,y)dA$$
+#### ii) 
+Si $f(x,y)\equiv{1}$ en $R$, la integral $\iint_{R}dA$, nos proporciona el área de $R$.
+
+## Teorema de Fubini
+
+Si $z=f(x,y)$ es continua sobre el rectangulo $R=[a,b]\times[c,d]$, entonces:
+
+$$\iint_R f(x,y)dA=\int_{a}^{b}[\int_{c}^{d}f(x,y)dy]dx=\int_{c}^{d}[\int_{a}^{b}f(x,y)dx]dy$$
+
+#### Ejercicio propuesto
+
+Calcular $\iint_R (4x³+6xy²)dA$ donde $R=[1,3]\times[-2,1]$ 
+
+
+
+### Ejercicios
+
+#### 1) 
+Una polilla es atraida por la luminosidad de una ampolleta, lo que aumenta en proporción inversa a la en proporción inversa a la distancia del insecto al centro de la fuente de luz, que se considera el origen. La luminosidad a $30cm$ de la ampolleta es de $900lum$ 
+
+##### a) 
+Demuestre que en cualquier punto la dirección en que la luminosidad aumenta más rapido, apunta hacia la ampolleta
+
+##### b)
+Determine la razón de cambio de la luminosidad en el punto $(1,2,2)$ en la dirección del punto $(5,2,5)$. 
+
+#### Solución:
+
+##### a) 
+Sea $L(x,y,z)$ la función que indicia la luminosidad en un punto $(x,y,z)$ (medido en cm) del espacio. Se tiene:
+$$L(x,y,z)=\frac{k}{\sqrt{x²+y²+z^2}}(lum)$$
+Además, $L(30,0,0)=900\Rightarrow{k=27.000}$,
+por lo tanto $L(x,y,z)=\frac{27.000}{\sqrt{x²+y²+z²}}$ 
+
+La dirección en que la luminosidad aumenta más rápido esta dada por $\nabla L(x,y,z)$ 
+
+como $\frac{\partial L}{\partial x}(x,y,z)=-\frac{27.000x}{(x²+y²+z^2)^{\frac{3}{2}}}$ 
+
+Así por simetria:
+$$\nabla L(x,y,z)=-\frac{27.000}{(x²+y²+z²)^{\frac{3}{2}}}<x,y,z>=\lambda \cdot <x,y,z>$$
+
+Como $<x,y,z>$ es el vector posición del punto $(x,y,z)$, concluimos que el vector, $\lambda<x,y,z>$ , $\lambda<0$; y por lo tanto la dirección de máximo crecimiento de la luminosidad, siempre apunta hacia el origen del espacio (la ampolleta).
+
+##### b)
+$\vec{u}=(5,2,5)-(1,2,2)=(4,0,3)$
+
+entonces $û=\frac{<4,0,3>}{||<4,0,3>||}=\frac{1}{5}<4,0,3>$ 
+
+por lo tanto:
+$$\frac{\partial L}{\partial û}(1,2,2)=\nabla L(1,2,2)û=(-1000,-2000,-2000)=\frac{1}{5}<4,0,3>=-2000 (lum/cm)$$
+# Integrales dobles sobre regiones más generales (Regiones elementales del plano)
+
+
+### $I$) Región verticalmente simple
+
+$f:R\subseteq{\mathbb{R}}\to{\mathbb{R}}$; f integrable. $R=\{(x,y)\in{R}/a\leq{x}\leq{b};g_1(x)\leq y\leq g_2(x)\}$
+donde $g_1$ y $g_2$ son funciones continuas en $[a,b]$.
+
+![[Pasted image 20251026203921.png]]
+
+En este caso:
+$$\iint_Rf(x,y)dA=\int_{x=a}^{x=b}[\int_{y=g_1}^{y=g_2}f(x,y)dy]dx$$
+
+### $II$) Región horizontalmente simple
+Sea $f:R\subseteq{\mathbb{R²}}\to\mathbb{R}$ una función integrable en la región $R=\{(x,y)\in\mathbb{R²}/c\leq{y}\leq{d};h_1(y)\leq x\leq h_2(y)\}$
+donde $h_1$ y $h_2$ son funciones continuas en $[a,b]$ 
+![[Pasted image 20251026204350.png]]
+En este caso:
+$$\iint_Rf(x,y)dA=\int_{y=c}^{y=d}[\int_x={h_1}^{x=h_2}f(x,y)dx]dy$$
+
+### Ejercicio: 
+Calcule el área de la región $R$ del plano $xy$, acotada por la recta $y=x$ y la parábola $y=x²-2x$ 
+
+#### SOlución:
+
+$y=x²-2x=x\Rightarrow x=0$ o $x=3\Rightarrow y=0$ o $y=3$ 
+
+que son los puntos $(0,0),(3,3)$
+
+entonces: $R=${$(x,y)\in\mathbb{R²}|0\leq{x}\leq{3};x²-2x\leq y\leq x$}
+
+
+entonces, por teorema:
+
+$$A(R)=\int_{x=0}^{x=3}[\int_{y=x²-2x}^{y=x}dydx]$$
+
+### Ejercicio: 
+Calcular la integral:
+$$I=\int_{0}^{1}\int_{x²}^{1} 4x³ssin(y³)dydx$$
+cambiando el orden de integración 
+
+#### Solución:
+
+$R:0\leq{x}\leq{1};x²\leq{y}\leq{1}$ que es verticalmente simple
+
+Imagen rossel
+
+La región $R$, mirada como región HORIZONTALMENTE simple es:
+
+$R:0\leq{y}\leq{1};0\leq{x}\leq{\sqrt{y}}$ 
+
+entonces:
+$$I=\int_{y=0}^{y=1}\int_{x=0}^{x=\sqrt{y}} 4x³sin(y³)dxdy$$
+
+
+### Ejercicios propuestos:
+
+1) Determine el volumen del sólido, cuya base es la región del plano $xy$, que limitan la parabola $y=4-x²$ y la recta $y=3x$, mientras que su tejado es el plano $z=x+5$
+
+SOlución 1):
+sacando la intersección de ambos:
+$y=4-x²=3x\Rightarrow x=-4$ o $x=1\Rightarrow y=-12$ o $y=3$ 
+
+lo que da los puntos: $(-4,-12);(1,3)$ 
+![[Pasted image 20251022132108.png]]
+
+donde $f(x,y)=z=x+5$ que, evaluando en el valor minimo de $x$ de la región, tenemos que $f(x,y)=1$, entonces:
+
+$R=${$(x,y)\in\mathbb{R²}|-4\leq{x}\leq{1};3x\leq{y}\leq{4-x²}$ } y $f(x,y)=x+5\geq{0}$ 
+
+finalmente: 
+$$V=\iint_R f(x,y)dA=\int_{-4}^{1}\int_{3x}^{4x²}(x+5)dydx=V(B)$$
+
+podemos definir el volumen como:
+
+$B=${$(x,y,z)\in\mathbb{R³}|0\leq{z}\leq{f(x,y)};(x,y)\in R$}
+### Ejercicio:
+
+Invierta el orden de integración en la siguiente integral doble:
+$$I=\int_{0}^{1}\int_{e^{y-1}}^{e^{y}}f(x,y)dxdy$$
+
+#### Respuesta:
+Región de integración: $R: 0\leq{y}\leq{1};e^{y-1}\leq{x}\leq{e^{y}}$ ![[Screenshot from 2025-10-22 13-34-36.png]]
+
+donde, los puntos "importantes" son: $(\frac{1}{e},0);(1,0)$ y $(e,1);(1,1)$, entonces:
+$$I=\int_{x=\frac{1}{e}}^{x=1}\int_{y=0}^{y=ln(x)+1} f(x,y)dydx+\int_{x=1}^{x=e}\int_{y=ln(x)}^{y=1}f(x,y)dydx$$
+
+# Cambio de variable
+
+### Jacobiano:
+
+Sean $x=g(u,v)$ e $y=h(u,v)$ con $g$ y $h$ funciones con derivadas parciales continuas en una región $S$ del plano. Entonces el Jacobiano de $x$ e $y$ con respecto a $u$ y $v$ se define como:
+
+$$\frac{\partial (x,y)}{\partial (u,v)}=\begin{vmatrix}   \frac{\partial x}{\partial u} &  \frac{\partial x}{\partial v} \\    \frac{\partial y}{\partial u} &  \frac{\partial y}{\partial v}   \end{vmatrix}$$
+
+### Teorema (Cambio de variable en la integral doble):
+Sean $R$ y $S$ regiones de los planos $xy$ y $UV$ respectivamente, relacionados por $x=g(u,v)$ e $y=h(u,v)$, tales que cada punto de $R$ es imagen de un unico punto de $S$. Si $f(x,y)$ es continua en $R$, y $g$ e $h$ tienen derivadas parciales continuas en $S$, y además el Jacobiano no es nulo ($\frac{\partial (x,y)}{\partial (u,v)}\not=0$ )en $S$, entonces:
+$$\iint_Rf(x,y)dA=\iint_Sf(g(u,v),h(u,v))\cdot|\frac{\partial (x,y)}{\partial (u,v)}|dudv$$
+donde $dA=|\frac{\partial (x,y)}{\partial (u,v)}|dudv$ 
+
+### Ejercicio:
+Calcule $\iint_R\frac{cos(x-y){sin(x+y)}}dxdy$ donde $R$ es el trapecio $1\leq x+1\leq2;x\geq0;y\geq0$ 
+
+#### Solución:
+
+La región $R$ es: $1\leq{x+1}\leq2$ con $x$ e $y$ positivos en el plano $xy$ 
+
+(Insertar grafico rossel)
+
+
+##### Cambio de variable
+
+$$\psi:\biggl\{u=x-y;v=x+y\Rightarrow\psi^{-1}:\biggl\{x=\frac{u}{2}+\frac{v}{2};y=\frac{v}{2}-\frac{u}{2}$$
+
+Note que la transformación:
+$$(u,v)=\psi(x,y)=(x-y,x+y)$$ transforma de acuerdo a la siguiente tabla:
+
+
+| Plano $xy$ | Plano $UV$ |
+| ---------- | ---------- |
+| $x+y=1$    | $v=1$      |
+| $x+y=2$    | $v=2$      |
+| $y=0$      | $v=u$      |
+| $x=0$      | $v=-u$     |
+|            |            |
+calculando:
+
+$$\frac{\partial (u,v)}{\partial (x,y)}=\begin{vmatrix}   \frac{\partial u}{\partial x} &  \frac{\partial u}{\partial y} \\    \frac{\partial v}{\partial x} &  \frac{\partial v}{\partial y}   \end{vmatrix}=\begin{vmatrix} 1   &-1   \\  1   &   1  \end{vmatrix}=2$$
+entonces:
+$$\frac{\partial (x,y)}{\partial (u,v)}=\begin{vmatrix}   \frac{\partial x}{\partial u} &  \frac{\partial x}{\partial v} \\    \frac{\partial y}{\partial u} &  \frac{\partial y}{\partial v}   \end{vmatrix}=\begin{vmatrix} 0.5   &-0.5   \\  0.5   &   0.5  \end{vmatrix}=\frac{1}{2}$$
+
+Transforma;
+Plano $UV$ 
+(insertar plano)
+
+
+
+entonces, tenemos;
+
+###### $\iint_{R_{xy}}\frac{cos(x-y)}{sin(x+y)} dA=\iint_{R_{uv}}\frac{cos(u)}{sin(v)}|\frac{1}{2}|dudv$ 
+
+##### $=\frac{1}{2}\iint_{R_{uv}}=\frac{cos(u)}{sin(v)}dudv=\frac{1}{2}\int_{v=1}^{v=2}\int_{u=-v}^{u=v}\frac{cos(u)}{sin(v)}dudv$ 
+##### $=\frac{1}{2}\int_{v=1}^{v=2}\frac{1}{sin(v)}(sin(u))|_{-v}^{v}dv$
+##### $=\frac{1}{2}\int_{1}^{2}\frac{1}{sin(v)}(sin(v)+sin(v))dv$ 
+##### $=\int_{1}^{2}2dv=\int_{1}^{2}dv=1$ 
+
+
+### Ejercicio:
+Calcule:
+$$\iint_R\frac{1}{3x+y}cos(\frac{x-y}{2})dA$$
+donde $R$ es la región del plano $XY$, acotdada por las graficas de las funciones (o rectas):
+$$y=x;y=x-\pi;y=3-3x;y=6-3x$$
+
+#### Respuesta:
+
+note que graficando $R$:
+
+
+![[Pasted image 20251024133110.png]]
+
+![[Pasted image 20251024133134.png]]
+
+
+##### Cambio de variable:
+$$\Phi:\bigg\{ u=x-y;v=3x+y;\frac{\partial (u,v)}{\partial (x,y)}=\begin{vmatrix} 1 & -1   \\  4   &   1  \end{vmatrix}=4$$ 
+entonces, la transformacion se da por:
+
+
+| Plano $XY$ | Plano $UV$ |
+| ---------- | ---------- |
+| $x-y$      | $u=0$      |
+| $x-y=\pi$  | $u=\pi$    |
+| $3x+y=3$   | $v=3$      |
+| $3x+y=6$   | $v=6$      |
+|            |            |
+
+plano $UV$:
+
+(insertar plano ola)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
+entoinces:
+$$\iint_R\frac{1}{3x+y}cos(\frac{x-y}{2})dA=\iint_S\frac{1}{v}cos)(\frac{u}{2})\cdot |\frac{1}{4}|dudv$$
 

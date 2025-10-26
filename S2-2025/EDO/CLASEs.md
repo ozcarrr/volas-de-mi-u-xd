@@ -514,7 +514,7 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 ### luego el factor integrante apropiado es 
 
 
-# $p(y)=e ^{\int\frac{1}{N}(\frac{\delta M}{\delta y}-\frac{\delta N}{\delta x})dy}$
+# $p(y)=e ^{\int\frac{1}{N}(\frac{\delta N}{\delta x}-\frac{\delta M}{\delta y})dy}$
 
 ## $=e^{\int{-\frac{1}{y}}dy}=e^{-ln(y)}=\frac{1}{y}$ 
 
@@ -720,7 +720,7 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 
 # Ecuación de bernuli 
 ### Ejercicio: Considere la E.D no lineal: 
-# $\frac{dy}{dx}+p(x)y=f(x)y^x$ ; $n\not=0$ y $n\not=1$ ; $n\in{R}$ (3)
+# $\frac{dy}{dx}+p(x)y=f(x)y^n$ ; $n\not=0$ y $n\not=1$ ; $n\in{R}$ (3)
 
 ### Muestre que el cambio de variable $z=y^{1-n}$ transforma la ecuación dada en una ecuación lineal.
 
@@ -747,7 +747,7 @@ NOTA : La EDO de orden 1 $\frac{dy}{dx}=f(x,y)$ se puede escribir en la forma $M
 
 # $x\frac{dy}{dx}+y+xy²=0$ 
 
-### Respuesta : $x\frac{dy}{dx}+y+xy²=0 / \cdot\frac{1}{x};x\not=0$ 
+### Respuesta : $x\frac{dy}{dx}+y+xy²=0 / \cdot\frac{1}{x};x>0$ 
 
 # -> $\frac{dy}{dx}+\frac{1}{x}y=-y^{2}$ (Ecuación de Bernulli)
 
@@ -795,15 +795,15 @@ Si $y_1(x)$ e $y_2(x)$ son soluciones linealmente independientes de (2) en un in
 
 ### Def: 
 Si $y_1,y_2$ son soluciones de la ecuación (2) ;  Se define el "Wronkiano" de $y_1$ e $y_2$, como:
-# $W(y_1,y_2)=`\begin{vmatrix}   y_1 & y_2\\   y'_1 & y'_2    \end{vmatrix}`$ $=y_1y'_2-y_2y'_1$ 
+# $W(y_1,y_2)=\begin{vmatrix}   y_1 & y_2\\   y'_1 & y'_2    \end{vmatrix}$ $=y_1y'_2-y_2y'_1$ 
 
 ### Teorema: Dos soluciones $y_1$ e $y_2$de la ecuación (2), son linealmente independientes si y solo si $W(y_1,y_2)\not=0$ 
 
-### Ejemplo: Muestre que la ecuaciín $y''+y=0$ tiene solución general $y(x)=C_1sin(x)+C_2cos(x)$. Encuentre ademas la solución particular para la cual $y(0)=2$ y $y'(0)=3$ 
+### Ejemplo: Muestre que la ecuación $y''+y=0$ tiene solución general $y(x)=C_1sin(x)+C_2cos(x)$. Encuentre ademas la solución particular para la cual $y(0)=2$ y $y'(0)=3$ 
 
 ### Teorema: 
 Si $y_1(x)$ es una solución de la ecuación homogenea: 
-# $y''+P(x)y++Q(x)y=0$ 
+# $y''+P(x)y'+Q(x)y=0$ 
 
 entonces, una segunda solcuión linealmente independiente con $y_1(x)$, esta dada por:
 # $y_2(x)=y_1\int\frac{1}{y_1²(x)}e^{\int{-p(x)dx}}dx$ 
@@ -840,7 +840,7 @@ Sabiendo que $y_1(x)=\frac{1}{x+1}$ es solución de la ecuación.
 ### Respuesta: 
 
 $(x+1)³y''+3(x+1)²y'+(x+1)y=0$ / $\frac{1}{(x+1)³}$ 
-$\Rightarrow{y''}\frac{3}{x+1}y'+\frac{1}{(x+1)²}y=0$ 
+$\Rightarrow{y''}+\frac{3}{x+1}y'+\frac{1}{(x+1)²}y=0$ 
 como $y_1(x)=\frac{1}{x+1}$ es solución, entonces usando la formuma de Abel, determinemos $y_2(x)$.
 
 ### $y_2(x)=y_1\int\frac{1}{y_1²}e^{-\int{Pdx}}=\frac{1}{x+1}\int{e^{-\int{\frac{3}{x+1}dx}}}\frac{1}{\frac{1}{(x+1)²}}dx$ 
@@ -848,7 +848,7 @@ como $y_1(x)=\frac{1}{x+1}$ es solución, entonces usando la formuma de Abel, de
 
 ### faltaria probar que $y_1(x)$ e $y_2(x)$ $\forall{x}>-1$   son l.i :oo
 
-### $W(y_1,y_2)=\frac{1}{(x+1)³}>0 ; \forall{x>-1}$
+### $W(y_1,y_2)=\frac{1}{(x+1)³}\not=0 ; \forall{x>-1}$
 
 
 ### Aplicaciones de las edos importantes: 
@@ -909,16 +909,838 @@ $\frac{\delta \phi}{\delta x}=\frac{y}{x}+2x$ y $\frac{\delta\phi}{\delta y}=1+l
 
 ### 5. Resolver $\frac{dy}{dx}=\frac{xy+2y-x-2}{xy-3y+x-3}$ 
 
-### 6. Resolver $(2xy+y⁴)dx+(3x²+6xy³)dy=0$ 
+
+# Ecuación diferencial lineal de 2do orden homogenea de coeficientes constantes: 
+
+
+### Forma : $y''+Py'+Qy=0$ (1)
+donde $P$ y $Q$ son constantes, recuerde que la solución general de (1) en $[a,b]$, tiene la forma: 
+
+$y_G(x)=C_1y_1+C_2y_2$, $C_1,C_2$ constantes 
+
+donde $y_1$ e $y_2$ son soluciones l.i de la ecuación (1). 
+
+
+OBS : Note  que para encontrar la solución general de (1), solo necesitamos encontrar dos soluciones indpependientes de la ecuación. 
+
+Buscaremos soluciones del tipo exponencial, esto es, de la forma $y=e^{mx}$; $m\in{R}$. Tenemos: 
+
+$y'=me^{mx}$ ; $y''=m²e^{mx}$ 
+
+Por lo tanto, si $y=e^{mx}$ satisface la ecuación (1) ; $y''+Py'+Qy=0$, se tendra: 
+
+$y''+Py'+Qy=m²e^{mx}+Pme^{mx}+Qe^{mx}$ 
+$=e^{mx}(m²+Pm+Q)=0$ ; dado $e^{mx}>0;\forall{x}$ 
+$\Rightarrow m²+Pm+Q=0$ 
+
+Definición: Llamaremos "Ecuación característica" asociada a la edo (1), a la ecuación cuadratica: 
+$$m²+Pm+Q=0$$
+Como la ecuación cuadrática tiene $3$ posibilidades de solución, que dependen de su discriminante: 
+
+$$\Delta = P²-4Q$$
+Se distinguen tres casos: 
+
+- "Raices reales diferentes" $\Delta>0$ 
+Si la ecuación característica tiene dos soluciones reales distintas, digamos $m_1$ y $m_2$ , entonces, la solución general de la EDO (1) es: 
+$$y_G(x)=C_1e^{m_1x}+C_2e^{m_2x}$$
+donde $C_1$ y $C_2$ son constates y: 
+$$y_1=e^{m_1x},y_2=e^{m_2x}$$
+Son soluciones l.i de la edo (1)
+
+- "Raices imaginarias" $\Delta<0$ 
+en este caso, $m_1=a-bi$ y $m_2=a+bi$ 
+$\Rightarrow y_1(x)=e^{(a-bi)x}$ e $y_2(x)=e^{(a+bix)}$ son soluciones complejas de la edo (1)
+Para encontrar las soluciones reales, las expresamos en su forma polar: 
+
+$$y_1(x)=e^{ax}e^{-bi}=e^{ax}(cos(bx)-isin(bx))$$
+$$y_2(x)=e^{ax}e^{bi}=e^{ax}(cos(bx)+isin(bx))$$
+Entonces, la solución general queda de la forma: 
+$$y_G(x)=e^{ax}(C_1cos(bx)+C_2sin(bx))$$
+
+- "Raices iguales" $\Delta=0$ 
+En este caso, hay raiz real de multiplicidad 2, donde $m=-\frac{p}{2}$, entonces: 
+$$y_1(x)=e^{-\frac{p}{2}x}$$
+Para encontrar $y_2$ usamos la formula de abel: 
+$$y_2(x)=y_1(x)\int\frac{e^{-\int p(x)dx}}{y_1²(x)}dx;p(x)=p\in{R}$$
+$$\Rightarrow y_2(x)=xe^{-\frac{p}{2}x}$$
+$$\Rightarrow y_G(x)=e^{-\frac{p}{2}x}(C_1+C_2x)$$
+Donde $C_1$ y $C_2$ son constantes
+Ejercicios :
+
+$I)$ Encuentre la solución del problema de valor inicial: 
+$$y''-6y'+5y=0;y(0)=3;y'(0)=11$$
+$II)$ Encuentre la solución general de: 
+$$2y''-4'+8y=0$$
+$III)$ Resuelva el P.VI:
+$$y''+6y'+9y=0;y(0)=0;y'(0)=6$$
+
+# Ecuación diferencial lineal de 2do orden no homogénea: 
+
+### Forma: $\frac{d²y}{dx²}+P(x)\frac{dy}{dx}+Q(x)y=R(x)$ 
+donde $P(x),Q(x),R(x)$ son funciónes de $x$. 
+### Ecuación lineal de 2do orden no homogénea de coeficientes constantes 
+#### Forma: $y''+py'+qy=r(x)$ ; $p,q$ constantes (1)
+
+#### Solución general de (1): 
+
+$y_G(x)=y_h(x)+y_p(x)$ 
+
+donde $y_H(x)$ es solución general de la edo (1) en un cierto intervalo $[a,b]$, e $y_p(x)$ es una solución particular de la edo (1). 
+
+#### OBS:
+- Para resolver la ecuación homogénea asociada, se estudian las raices de la ecuación caracteristica. 
+- Para encontrar la solución general de (1), solo necesitamos encontrar una solución  particular de ella. 
+### Metodo de los coeficientes indeterminados
+
+Los coeficientes indeterminados Se usan para encontrar una solución particular de la EDO lineal de 2do orden no homogénea de coeficientes constantes: 
+
+$$y''+py'+qy=r(x);p,q\in{R}$$
+#### OBS: 
+Si $r(x)$ es del tipo exponencial, seno, coseno, polinomial o es suma y productos de estas. Es decir, es de la forma: 
+$$r(x)=e^{\alpha x}(p(x)cos(\beta x)+q(x)sin(\beta x))$$
+donde $p(x),q(x)$ son polinomios, entonces podemos suponer que una solución particular tiene la misma forma. 
+
+#### Ejemplo: 
+Para la ecuación de segundo orden:
+$$y''-y'-2y=4x²$$
+es esperable que su solución particular sea un polinomio de grado 2, de la forma:
+$$y_p(x)=A+Bx+Cx²;A,B,C\in{R}$$
+En este caso, basta derivar dos veces $y_p(x)$ y sustituir en la ecuación, obteniendo $y_p(x)=-3+2x-2x²$ (verificar).
+
+#### Casos:
+En el método de coeficientes indeterminados se distiguen 3 casos:
+
+##### Caso 1: $r(x)=ae^{\lambda x}$ 
+- si $\lambda\not=m_1$ y $\lambda\not=m_2$, donde $m_1$ y $m_2$ son las raices del polinomio caracteristico, entonces la solución particular queda de la forma: 
+
+$$y_p(x)=Ae^{\lambda x}$$
+dodne $A$ es una constante a determinar. 
+
+- Si $\lambda =m_1$ y $\lambda\not=m_2$ , entonces la solución particular queda de la forma: 
+$$y_p(x)=Axe^{\lambda x}$$
+donde $A$ es una cte a determinar.
+
+- Si $\lambda=m_1$ y $\lambda=m_2$, entonces la solución particular queda:
+$$y_p(x)=Ax²e^{\lambda x}$$
+donde $A$ es una constate a determinar. 
+
+Nota: si $\lambda=m_1=m_2=...=m_n$, entonces :
+$$y_p(x)=Ax^ne^{\lambda x}$$
+##### Caso 2: $r(x)=A_0+A_1x+A_2x²+...+A_nx^n$ 
+
+- Si $q\not=0\Rightarrow y_p(x)=B_0+B_1x+...+B_nx^n$ 
+donde los $B$ son constates a determinar
+
+- Si $q=0\Rightarrow y_p(x)=x(B_0+B_1x+...+B_nx^n)$ 
+donde los $B$ son constantes a determinar.
+
+##### Caso 3: $r(x)=sin(\lambda x)$ o $r(x)=cos(\lambda x)$ 
+obs: $m=a+bi$ 
+- Si $\lambda\not=b\Rightarrow y_p(x)=Asin(x)+Bcos(x)$ 
+- SI $\lambda=b\Rightarrow y_p(x)=x(Asin(\lambda x)+Bcos(\lambda x))$ 
+donde $A$ y $B$ son constantes a determinar
+
+
+### Ejercicio: 
+Rsolver la ecuación:
+$$y''-y'-2y=4x^2 (1)$$
+Solución: 
+En este caso, $r(x)=4x²$ (polinomio de grado 2)
+
+Ec. característica: $m²-m-2=0$ 
+
+$\Rightarrow (m-2)(m+1)=0\Rightarrow m_1=2;m_2=-1$ 
+entonces, $y_H(x)=C_1e^{2x}+C_2e^{-x}$ ; $C_1$ y $C_2$ constantes  (Solución general de la homogénea asociada)
+
+La solución particular de la no homogénea tiene la forma:
+$$y_p(x)=A+Bx+Cx²;A,B,C\in{R}$$
+Tenemos:
+
+$y_p'=B+2Cx$ ; $y_p''=2C$ 
+Sustituyendo en (1):
+
+$2C-(B+2C)-2(A+Bx+Cx²)=4x²$ 
+$\Rightarrow (2C-B-2A)-(2C+2B)x-2Cx²=4x²$ 
+Por igualdad de polinomios tenemos: 
+
+$2C-B-2A=0$ 
+$-2C-2B=0$ 
+$-2C=4$ 
+
+$\Rightarrow$ $C=-2$ ; $B=2$ ; $A=-3$ 
+
+POr lo tanto: $y_p(x)=-3+2x-2x²$ 
+
+Luego, la solución general de la no homogénea es:
+$$y(x)=y_h(x)+y_p(x)=C_1e^{2x}+C_2e^{-x}+(-3+2x-2x²)$$
+donde $C_1$ y $C_2$ son constantes. 
+
+# Sustitución adecuada (bajar el orden de la EDO)
+
+### Ejercicio: Resolver la EDO: 
+
+$$xy''=y'ln(\frac{y'}{x});x>0$$
+
+#### Solución
+
+$\Rightarrow x\frac{d²y}{dx²}=\frac{dy}{dx}ln(\frac{y'}{x})$ 
+Note que falta la variable dependiente $y$ (tiene que estar 'libre' de otras funciones) por ende hacemos la sustitución $z=y'$ $\Rightarrow z'=y''$ 
+Sustituyendo en la edo queda:
+$$xz'=zln(\frac{z}{x}) (*)$$
+Ecuación de orden 1 homogénea 
+
+Sea $u=\frac{z}{x}\Rightarrow z=ux\Rightarrow z'=u'x+u$ 
+$\Rightarrow \frac{dz}{dx}=u'x+u$ 
+Sustituyendo en $(*)$, queda: 
+
+$u'x+u=uln(u)\Rightarrow u'x=u(ln(u)-1)$ que es de variables separables
+$\Rightarrow \frac{du}{u(ln(u)-1)}=\frac{dx}{x}$ ; $u(ln(u)-1)\not=0$ 
+
+1) si $u(ln(u)-1)=0$ entonces $u=0$ o $u=e$ 
+
+si $u=0$ $\Rightarrow z=0\Rightarrow y(x)=c_1;c_1\in{R}$ 
+si $u=e$ $\Rightarrow z= ex\Rightarrow y'=ex\Rightarrow y(x)=e\frac{x²}{2}+c_2$ ; $c_2\in{R}$ 
+
+2) Si $u(ln(u)-1)\not=0$ separamos variables:
+
+$\Rightarrow \frac{du}{u(ln(u)-1)}=\frac{dx}{x}$ / $\int$ 
+
+
+#### Ejercicio: Resolver la ecuación: 
+$$yy''+(y')²=0$$
+#### Respuesta: 
+
+Notamos que falta la variable independiente $x$, por ende, usamos la sustitución $z=y'$ , tenemos:
+$$y'=z\Rightarrow y''=z'=\frac{dz}{dy}\frac{dy}{dx}=z\frac{dz}{dy}$$
+Sustituyendo: 
+
+$$yz\frac{dz}{dy}+z²=0\Rightarrow z(y\frac{dz}{dy}+z)=0$$
+entonces $z=0$ o $y\frac{dz}{dy}+z=0$ 
+
+1) Si $z=0\Rightarrow \frac{dy}{dx}=0\Rightarrow y=c$ ; $c$ constante
+2) Si $z\not=0$ tenemos:
+$y\frac{dz}{dy}+z=0\Rightarrow y\frac{dz}{dy}=-z$ que es de variables separadas
+$\Rightarrow ln|z|=-ln|y|+C_1$ $\Rightarrow yz=c_2$ ; $C_1=ln(c_2)$ 
+además $z=\frac{dy}{dx}$ $\Rightarrow y\frac{dy}{dx}=C_2$ (variables separadas)
+
+$$\Rightarrow \frac{y²}{2}=C_2x+C_3$$ 
+# Continuación (Materia)
+
+### Teorema (Principio de superposición):
+
+SI $y_1$ e $y_2$ son soluciones l.i de:
+$$y''+py'+qy=R_1(x)$$ y :
+$$y''+py'+qy=R_2(x)$$
+Respectivamente, entonces $y_1+y_2$ es solución de: 
+$$y''+py'+qy=R_1(x)+R_2(x)$$
+
+### Ejercicio: Resolver la edo:
+$$y''-2y'-3y=x-x²+e^{x}$$
+#### Respuesta:
+1) $y''-2y'-3y=x-x²=R_1(x)$ (1)
+2) $y''-2y'-3y=e^{x}=R_2(x)$ (2)
+
+Ec. caracteristica: 
+$$m²-2m-3=0$$ $\Rightarrow m_1=3$ v $m_2=-1$ 
+entonces, la solución general de la edo homogénea es:
+$$y_H(x)=C_1e^{3x}+C_2e^{-x}$$ Solución particular de (1):
+
+- $$y_{p_1}(x)=Ax²+Bx+C\Rightarrow y'_{p_1}=2Ax+B\Rightarrow y''_{p_1}=2A$$
+Sustituyendo en la EDO (1), tenemos:
+
+$$2A-2(2Ax+B)-3(Ax²+Bx+C)=x-x²$$
+$\Rightarrow 2A-2B-3C=0$ ; $-4A-3B=1$ ; $-3A=-1$ 
+
+$\Rightarrow A=\frac{1}{3}$ ; $B=-\frac{7}{9}$ ; $C=\frac{20}{27}$ 
+
+Entonces: 
+$$y_{p_1}(x)=\frac{x²}{3}-\frac{7}{9}x+\frac{20}{27}$$
+Luego, por encontrar $y_{p_2}(x)$, note que $y''-2y'-3y=e^x$ $\Rightarrow \lambda=1\not=-1$ y $\lambda\not=3$  
+
+entonces :
+$$y_{p_2}(x)=Ae^{x}$$ donde $A$ es constante, entonces, sustituyendo en la ecuación, queda:
+$$Ae^x-2Ae^x-3Ae^x=e^x$$
+$\Rightarrow A=-\frac{1}{4}$ 
+entonces $y_{p_2}(x)=-\frac{1}{4}e^x$ 
+
+finalmente: 
+$$y_g(x)=y_{h_1}(x)+y_{p_2}{x}=C_1e^{3x}+C_2e^{-x}+y_{p_1}(x)+y_{p_2}(x)=C_1e^{3x}+C_2e^{-x}+\frac{x²}{3}-\frac{7}{9}x+\frac{20}{27}-\frac{1}{4}e^x$$ 
+
+# Variación de parametros 
+
+Consideremos la ecuación lineal de segundo orden no homogénea de coeficientes variables: 
+$$y''+P(x)y'+Q(x)y=R(x)(*)$$
+Sabemos que ella tiene como solución general:
+$$y_G=y_H+y_P=C_1y_1+C_2y_2+y_P $$
+donde $y_H$ es la general de la homogénea asociada y $y_P$ es la solución particular de la no homogénea
+
+Este método consiste en sustituir las constantes $C_1$ y $C_2$ por funciones $v_1(x)$ y $v_2(x)$ tal que $y(x)_P=v_1y_1+v_2y_2$ sea una solución particular de la ecuación no homogénea. 
+
+tomamos entonces:
+
+$y=v_1y_1+v_2y_2 \Rightarrow y'=v_1'y_1+v_1y_1'+v_2'y_2+v_2y_2'$ 
+entonces, $y'=v_1'y_1+v_2'y_2+(v_1y_1'+v_2y_2')$ 
+
+asumimos $v_1y_1+v_2'y_2=0$ para simplificar (evitar segundas derivadas de $v_1$ y $v_2$ )
+
+$\Rightarrow y'=v_1y_1'+v_2y_2'$ 
+$\Rightarrow y''=v_1'y_1'+v_1y_1''+v_2'y_2'+v_2y_2''$ 
+sustituyendo en $(*)$:
+
+$(v_1'y_1'+v_1y_1''+v_2'y_2'+v_2y_2'')+P(v_1y_1'+v_2y_2')+Q(v_1y_1+v_2y_2)=R$ 
+$\Leftrightarrow v_1(y_1''+Py_1'+Qy_1)+v_2(y_2''+Py_2'+Qy_2)+(v_1'y_1'+v_2'y_2')=R$ 
+luego , $y_1''+Py_1'+Qy_1=0$ y $y_2''+Py_2'+Qy_2=0$ ya que $y_1$ y $y_2$ son soluciones independientes de la EDO homogénea. 
+
+$\Rightarrow v_1'y_1'+v_2'y_2'=R$ 
+
+Asi se obtiene el sistema: 
+
+$v_1'y_1+v_2'y_2=0$ y $v_1'y_1'+v_2'y_2'=R$ 
+
+$$\Rightarrow \begin{pmatrix}   y_1 & y_2 \\   y_1' & y_2'   \end{pmatrix}\cdot \begin{pmatrix}   v_1'\\   v_2'  \end{pmatrix}= \begin{pmatrix}   0\\   R(x)  \end{pmatrix}
+$$
+
+Usando la regla de cramer: 
+
+$$\Rightarrow v_1'=\frac{\begin{vmatrix}   0 & y_2\\   R(x) & y_2  \end{vmatrix}}{\begin{vmatrix}   y_1 & y_2 \\   y_1' & y_2'    \end{vmatrix}}=\frac{-y_2R(x)}{W(y_1,y_2)}$$
+y 
+$$\Rightarrow v_2'=\frac{\begin{vmatrix}   y_1 & 0\\   y_1' & R(x)  \end{vmatrix}}{\begin{vmatrix}   y_1 & y_2 \\   y_1' & y_2'    \end{vmatrix}}=\frac{y_1R(x)}{W(y_1,y_2)}$$
+
+Luego:
+
+$v_1(x)=\int\frac{-y_2R(x)}{W(y_1,y_2)}dx$ 
+$v_2(x)=\int\frac{y_1R(x)}{W(y_1,y_2)}dx$
+
+FInalmente, la solución particular de la no homogénea es:
+
+$y_P=v_1y_1+v_2y_2=y_1\int\frac{-y_2R(x)}{W(y_1,y_2)}dx+y_2\int\frac{y_1R(x)}{W(y_1,y_2)}dx$
+
+
+### Ejercicios 
+
+Resolver: 
+
+a) $y''+2y'+y=e^{-x}ln(x)$
+
+b) Para $x>-1$ :
+$(x+1)³y''+3(x+1)²y'+(x+1)y=6ln(x+1)$, sabiendo que$y_1(x)=\frac{1}{x+1}$ es solución de la EDO homogénea. 
+
+#### Respuesta a)
+
+Ec. característica:
+$m²+2m+1=0\Leftrightarrow (m+1)²=0$ 
+$\Rightarrow m=-1$ 
+entonces, $y_H(x)=C_1e^{-x}+C_2xe^{-x}$ ; $y_1(x)=e^{-x}$ y $y_2(x)=xe^{-x}$ 
+
+Calculando el wronkiano: 
+
+$W(y_1,y_2)=e^{-x}(e^{-x}-xe^{-x})+xe^{-2x}=e{-2x}-xe^{-2x}+xe^{-2x}=e^{-2x}>0\forall x$, por ende, son l.i.
+
+##### Calculo de $v_1(x)$ y $v_2(x)$ :
+
+$v_1=\int\frac{-y_2R(x)}{W}dx=\int\frac{xe^{-x}e^{-x}ln(x)}{e^{-2x}}dx=-\int xln(x)dx=\frac{x²}{4}-\frac{x²}{2}ln(x)$ 
+
+analogamente: 
+
+$v_2=\int\frac{y_1R(x)}{W}dx=\int\frac{e^{-x}e^{-x}ln(x)}{e^{-2x}}dx=\int ln(x)dx=xln(x)-x$ 
+
+Luego: 
+
+$y_P(x)=v_1y_1+v_2y_2=(\frac{x^2}{4}-\frac{x²}{2}ln(x))e^{-x}+(xln(x)-x)xe^{-x}=-\frac{3}{4}e^{-x}+\frac{x^2}{2}ln(x)e^{-x}$ 
+
+entonces, la solución general de la edo queda: 
+
+$$y_G(x)=C_1e^{-x}+C_2xe^{-x}+(-\frac{3}{4}e^{-x}+\frac{x²}{2}ln(x)e^{-x})$$
+Observación: El metodo variación de parámetros puede extenderse a ecuaciones diferenciales de orden arbitraria.
+
+Dada la ecuación diferencial:
+
+$y^{(n)}+a_{n-1}y^{(n-1)}+...+a_1(x)y'+a_0y=R(x)$ , entonces:
+
+$y_P(x)=y_1\int \frac{V_1R(x)}{W}+y_2\int \frac{V_2R(x)}{W}dx+...+y_n\int\frac{V_nR(x)}{W}dx$ 
+
+es la solución particular buscada, donde $V_k$ es el determinante obtenido de $W$ al sustituir la columna $k$ por el vector $\begin{pmatrix}   0\\   0 \\ 0\\ 0\\...\\1   \end{pmatrix}$
+
+### Ejercicio: Resolver la ecuación:
+$$3y'''+5y''-2y'=e^{x}$$
+
+# Ecuación de euler 
+
+### Ejercicio: Considere la EDO: 
+$$a_0x²y''+a_1xy'+a_2y=0$$
+donde los $a_k$ son ctes.
+Pruebe que el cambio de variable $x=e^{t}$, transforma la ecuación dada en una del tipo:
+$$b_0\frac{d²y}{dt²}+b_1\frac{dy}{dt}+b_2y=0$$
+donde los $b_k$ son constantes.
+
+#### Respuesta: 
+Aplicamos sustitución $x=e^t$, donde buscamos $\frac{d²y}{dx²}=?$ y $\frac{dy}{dx}=?$ 
+
+i) Notamos que y esta en función de x y x esta en función de t.
+entonces $\frac{dy}{dt}=\frac{dy}{dx}\frac{dy}{dt}\Rightarrow\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}$, pero $x=e^t$, por lo tanto:
+$\frac{dx}{dt}=e^{t}\Rightarrow\frac{dt}{dx}=e^{-t}$
+notemos que ademas, $\frac{dy}{dx}=\frac{dy}{dt}\frac{dt}{dx}=e^{-t}\frac{dy}{dt}$
+Luego, para la segunda derivada:
+$$\frac{d}{dt}(\frac{dy}{dx})=\frac{d²y}{dx²}\frac{dx}{dt}$$
+$\Rightarrow$  $\frac{d²y}{dx^2}=\frac{\frac{d}{dt}(\frac{dy}{dx})}{\frac{dx}{dt}}=\frac{d}{dt}(\frac{dy}{dx})\cdot\frac{dt}{dx}=\frac{d}{dt}(e^{-t}\frac{dy}{dt})\cdot\frac{dt}{dx}=-e^{-t}(\frac{dy}{dt}+e^{-t}\frac{d²y}{dt²})e^{-t}=e^{-2t}\frac{dy}{dt}+e^{-2t}\frac{d²y}{dt²}=e^{-2t}\frac{d²y}{dt²}-e^{-2t}\frac{dy}{dt}$ 
+Sustituyendo en:
+$a_0x²y''+a_1xy'+a_2y=0$ 
+se obtiene:
+
+$a_0e^{2t}(e^{-2t}\frac{d²y}{dt²}-a_0\frac{dy}{dt}+a_1\frac{dy}{dt}+a_2y=0)$
+
+$\Rightarrow a_0\frac{d²y}{dt²}-a_0\frac{dy}{dt}+a_1\frac{dy}{dt}+a_2y=0$ 
+$\Rightarrow a_0\frac{d²y}{dt²}+(a_1-a_0)\frac{dy}{dt}+a_2y=0$ 
+$\Rightarrow b_0\frac{d^2y}{dt²}+b_1\frac{dy}{dt}+b_2y=0$ donde $b_0=a_0;b_1=a_1-a_0;b_2=a_2$ 
+
+$$a_2x²y+a_1xy'+a_2y=0$$
+Recibe el tipo de nombre "ecuación de euler"
+### Ejercicios:
+
+1. Resuelva la ecuación $x²y''+3xy'+2y=0$ 
+2. Resuelva la ecuación: $x²y''-xy'+y=2x$ 
+
+#### Respuesta 1:
+hacemos la sustitución $x=e^{t}$, y obtenemos:
+$y''(t)+2y'(t)+2y=0$ donde $a_0=1;a_1=3;a_2=2$ 
+
+Resolvemos esta ultima ecuación caracteristica (homogénea de coef constantes):
+
+$m²+2m+2=0$ $\Rightarrow m= \frac{-2\pm\sqrt{4-8}}{\alpha}$ $\Rightarrow m=-1\pm i$ 
+
+La solución general es:
+
+$y(t)=e^{-t}(C_1cos(t)+C_2sin(t))$ 
+
+como $x=e^{t}\Rightarrow t=ln(x)$, sustituyendo queda:
+
+$y(x)=e^{-ln(x)}(C_1cos(ln(x))+C_2sin(ln(x)))=\frac{1}{x}(C_1cos(ln(x))+C_2sin(ln(x)))$ 
+
+### Respuesta 2: $x²y''-xy'+y=2x$ 
+Resolvemos: $x²y''-xy'+y=0$, usando sustitución $x=e^t$
+$\Rightarrow y''(t)+(-1-1)y'(t)+y(t)=0$ 
+$\Rightarrow y''(t)-2y'(t)+y(t)=0$ 
+donde la ec. caracteristica es $m^2+2m+1=0$ $\Rightarrow m=1$ 
+entonces, $y_H(t)=C_1e^{t}+C_2te^{t}$ 
+
+Resolvemos ahora:
+
+$y''(t)-2y'(t)+y(t)=2e^{t}$ 
+
+Usamos variación de parametros:
+
+$W(y_1,y_2)=det(\begin{pmatrix}   e^{t}& te^t \\   e^t & e^t+te^t    \end{pmatrix})$ =$e^{2t}$ 
+
+Calculamos: $v_1(t)$ y $v_2(t)$ 
+
+$\Rightarrow v_1(t)=-\int\frac{2e^{t}te^{t}}{e^{2t}}dt=-2\int{tdt}=-t²$ 
+$\Rightarrow v_2(t)=\int\frac{2e^te^t}{e^{2t}}dt=2\int dt=2t$ 
+
+entonces: $y_p(t)=-t²e^{t}+2t²e^t=t²e^t$ 
+
+Luego, $y_G=C_1e^t+C_2te^t+t²e^t$ 
+
+Volviendo a la variable original:
+
+$\Rightarrow y_G(x)=C_1x+C_2xln(x)+2xln(x)$ (Respuesta final)
+
+
+### Ejercicio Propuesto (materia pasada)
+1) Resolver la ecuación :
+
+$y^{(6)}+2y^{(4)}+y^{(2)}=0$ 
+
+2) Resolver la ecuación:
+
+$y^{(4)}+8y'=4x$ 
+
+3) Considere la ecuación:
+
+$x²y''+xy'-4y=0$. 
+
+Suponga que la ecuación admite solución del tipo $y=x^{n}$. Determine $n$ y resuelva la ecuación.
+
+
+# Transformada de Laplace 
+
+Definición: Sea $f:[0,+\infty[\to{R}$ una función. Se define la transformada de Laplace de $f$ como la función $F$ definida por:  
+$$F(s)=\int_{0}^{\infty}e^{-st}f(t)dt$$ Siempre que la integral impropia sea convergente. Los valores de $s$ para los cuales la integral impropia converge, constituyen el dominio de $F$ .
+
+#### Notación: La transformada de Laplace de una función $f$, la denotaremos por:
+$L${$f(t)$}$(s)$ o $F(s)$ 
+
+##### Ejemplo: Calcule $L${$1$}$(s)$
+
+Respuesta:
+$L${$1$}$(s)$=$\int_{0}^{\infty}e^{-st}\cdot 1dt=lim_{n\to\infty}\int_{0}^{N}e^{-st}dt$ 
+$=\lim_{N\to\infty}(-\frac{1}{s}e^{-st})|_0^{N}=\lim_{N\to\infty}-\frac{1}{s}(e^{-sN}-1)$ 
+$=\frac{1}{s}$ si $s>0$ o diverge si $s\leq{0}$ 
+
+entonces, $L${$1$}$(s)$=$\frac{1}{s}$ ; $s>0$ 
+
+### Ejemplo: Calcule $L${$e^{at}$}$(s)$;$a\in{R}$ ; $a\not=0$ 
+
+#### Solución:
+ $L${$e^{at}$}$(s)=\int_{0}^{\infty}e^{-st}e^{at}dt=\lim_{N\to{\infty}}\int_{0}^{N}e^{-st}e^{at}dt$
+ $=\lim_{N\to\infty}(\frac{1}{a-s}e^{(a-s)t}-1)|_0^{N}$ 
+ note que  $L${$e^{at}$}$(s)=\frac{1}{s-a};a-s<0$ y diverge para $a-s>0$ 
+
+entonces,  $L${$e^{at}$}$(s)=\frac{1}{s-a}$ para $s>a$ 
+
+
+# Transformada de algunas funciones básicas
+
+$f(t)$ y $L${$e^{f(t)}$}$(s)=F(s)$ 
+$1$ y $\frac{1}{s}$ para $s>0$ 
+$t^n$ y $\frac{n!}{s^{n+1}}$ para $s>0$ 
+$e^{at}$ y $\frac{1}{s-a}$ para $s>a$ 
+$cos(at)$ y $\frac{s}{s²+a^2}$ para $s>0$ 
+$sin(at)$ y $\frac{a}{s²+a²}$ para $s>0$ 
+$sinh(at)$ y $\frac{a}{s²-a²}$ para $s>|a|$ 
+$cosh(at)$ y $\frac{s}{s²-a²}$ para $s>|a|$ 
+#### Teorema: 
+La transformada de laplace es un operador lineal, es decir: 
+$L${$\alpha f(t)+\beta g(t)$}$(s)$=$\alpha$$L${$f(t)$}$(s)$+$\beta L${$g(t)$}$(s)$
+
+### Condiciones suficientes para la existencia de la transformada de Laplace: 
+
+
+##### Definición
+
+i) $f$ es una función continua por tramos en un intervalo $I$, si tiene una cantidad finita de discontinuidades, a lo más de tipo salto en $I$.
+
+ii) Se dice que $f$ es de orden exponencial $\alpha$, si existen constantes $M,t_0,\alpha$, tales que:
+$$|f(t)|>Me^{\alpha t}$$ para todo $t>t_0$ 
+
+#### Teorema: Si $f$ es una función continua a tramos en el intervalo $[0,+\infty[$, y de orden exponencial $\alpha$, entonces  $L${$f(t)$}$(s)$ existe $\forall{s>\alpha}$. ádemas, $\lim_{s\to\infty}F(s)=0$
+
+
+#### OBS: 
+Note que las condiciones del teorema anterior son suficientes pero no necesarias, es decir existen funciones que no satisfacen su hipotesis y tienen transformada de Laplace, por ejemplo, la función $f(t)=\frac{1}{\sqrt{t}}$ 
+
+
+# Primer Teorema de traslación
+
+Sea $f$ una función de orden exponencial $\alpha$. Si $F(s)=L${$f(t)$}$(s)$ y $a\in{R}$, entonces:
+
+$L${$e^{at}f(t)$}$(s)=F(s-a)=L${$f(t)$}$_{s\to{s-a}}$ 
+
+
+### Demostración:
+
+$L${$e^{at}f(t)$}$(s)$=$\int_0^{\infty}e^{-st}e^{at}f(t)dt=\int_0^{\infty}e^{-(s-a)t}f(t)dt=F(s-a)$ 
+
+##### Ejemplo: Calcular $L${$e^{at}f(t)$}$(s)$, usando el primer teorema de traslación.
+
+#### Respuesta: 
+Aquí $f(t)=1$, y además sabemaos que $L${$f(t)$}$(s)$=$L${1}$(s)$=$\frac{1}{s}$ 
+
+entonces, por laplace: 
+
+$L${$e^{at}$}$(s)$=$L${$e^{at}\cdot 1$}$(s)=F(s-a)=\frac{1}{s-a}$ 
+
+##### Ejemplo: Calcule $L${$e^{at}sin(bt)$}$(s)$ 
+
+##### Respuesta:
+Aquí $f(t)=sin(bt)$. Además sabemos que $F(s)=L${$f(t)$}$(s)=\frac{b}{s²+b²}$ 
+
+luego, $L${$e^{at}sin(bt)$}$(s)=F(s-a)=\frac{b}{(s-a)²+b²}$ ; $s>a$ 
+
+analogamente, $L${$a^{at}cos(bt)$}$(s)=\frac{s-a}{(s-a)²+b²}$ 
+
+#### Ejercicio: Calcule $L${$e^{5t}t³$}$(s)$ 
+
+#### solución: aquí $f(t)=t³$ 
+entonces, $L${$f(t)$}$(s)$=$L${$t³$}$(s)=\frac{3!}{s^4}=F(s)$ 
+luego, $L${$e^{5t}t³$}$(s)$=$F(s-5)=\frac{3!}{(s-5)⁴}$ para $s>5$ 
+
+
+#### Ejercicio: $L${$2e^{-3t}-4sin(2t)$}$(s)$ (se sacan las constantes como si fueran constantes nomas lol)
+ note que $L${$2e^{-3t}-4sin(2t)$}$(s)=2L${e^{-3t}}
+
+### Función Escalón Unitario 
+
+#### Definición: 
+Se llama función escalón unitario o función de Heauiside, a la función $\mu(t)$, dada por:
+
+$\mu(t)=1$ si $t\geq{0}$ y $0$ si $t<0$ 
+
+Si trasladamos la función escalón a un punto $t=a$, tenemos:
+
+$\mu(t-a)=1$ si $t\geq{a}$ y 0 si $t<a$ 
+
+Insertar graficos rossel lol :OO
+#### Notación: 
+$\mu(t),\mu(t-a),H(t),H(t-a)$ 
+
+
+### Transformada de la función escalón unitario
+
+$L${$\mu(t-a)$}$(s)=\frac{1}{s}e^{-as}$ para $s>0$ 
+##### Nota: $L${$\mu(t-a)$}$(s)=\frac{1}{s}$ para $s>0$ 
+
+#### Demostración:
+$L${$\mu(t-a)$}$(s)=\int_{0}^{\infty}e^{-st}\mu(t-a)dt=\int_{a}^{\infty}e^{-st}dt=\lim_{N\to\infty}\int_a^{\infty}e^{-st}dt=lim_{N\to\infty}-\frac{1}{s}e^{-st}|_a^{N}=\lim_{N\to\infty}-\frac{1}{s}[e^{-sN}-e^{-sa}]$ $=\frac{1}{s}e^{-sa}$ ; $s>0$ 
+
+
+#### Observación: La función escalón unitario nos permite calcular la transformada de laplace de otras funciones definidas por tramos:
+
+### Por ejemplo:
+
+$f(t)=g(t)$ si $0\leq{t}<a$ y $h(t)$ si $t\geq{a}$ 
+
+Se puede expresar en términos de la función escalón, como sigue:
+
+$f(t)=g(t)+$ {$0$ si $0\leq{t}<a$ y $h(t)-g(t)$ si $t\geq{a}$}
+$=g(t)+(h(t)-g(t))\mu(t-a)$ 
+
+### Ejercicio: Calcule la transformada de Laplace de la función: 
+
+$f(t)=3$ si $t<2$ y $-2$ si $2\leq{t}<5$ y $1$ si $t\geq{5}$ 
+
+### Respuesta: 
+
+$f(t)=3-5\mu(t-2)+3\mu(t-5)$ 
+
+luego, $L${$f(t)$}$(s)$=$L${$3-5\mu(t-2)+3\mu(t-5)$}$(s)$
+$=3L${1}$(s)$-$5L${$\mu(t-2)$}$(s)$+$3L${$\mu(t-5)$}$(s)$ 
+
+luego usando la tabla, sacamos el valor
+
+
+### Ejercicio: 
+Calcule la transformada de laplace de la función:
+$$f(t)=3;0\leq{t}<\pi\cos(t);\pi\leq{t}<2\pi v sin(t);t\geq{2\pi}$$
+Respuesta. escribimos $f$ en terminos de la función escalon unitario:
+
+$$f(t)=3+(cos(t)-3)\mu(t-\pi)+)(sin(t)-cos(t))\mu(t-2\pi)$$
+$=3+\mu(t-\pi)cos(t)-3\mu(t-\pi)+\mu(t-2\pi)sin(t)-\mu(t-2\pi)cos(t)$ 
+
+
+entonces:
+$L${$f(t)$}$(s)=3L${$1$}$(s)+L${$cos(t)\mu(t-\pi)$}$(s)-3L${$\mu(t-\pi)$}$(s)+L${$sin(t)\mu(t-2\pi)$}$(s)-L${$cos(t)\mu(t-2\pi)$}$(s)$ 
+
+#### Observación:
+Notemos que para obtener la transformada de laplace de $f(t)$ (ejercicio anterior), necesitamos calcular la transformadada de algunos productos, tales como $L${$cos(t)\mu(t-\pi)$}$(s)$,...
+
+Para ello, necesitamos el siguiente Teorema:
+#### Teorema: Segundo teorema de traslación 
+Si $F(s)=L${$f(t)$}$(s)$ entonces:
+
+$L${$f(t-a)\mu(t-a)$}$(s)=e^{-as}F(s)$ 
+
+##### Observación: 
+Para calcular la transformada de $f(t-a)\mu(t-a)$, procedemos como sigue:
+
+$L${$f(t)\mu(t-a)$}$(s)=L${$f(t+a-a)\mu(t-a)$}$(s)=e^{-as}L${$f(t+a)$}$(s)$ 
+
+##### Ejemplo: 
+$L${$cos(t)\mu(t-\pi)$}$(s)=L${$cos[(t+\pi)-\pi]\mu(t-\pi$}$(s)=e^{-\pi s}L${$cos(t+\pi)$}$(s)=e^{-\pi s}L${$-cos(t)$}$(s)=e^{-\pi s}\cdot -\frac{s}{s²+1}$ 
+
+analogamente:
+
+$L${$cos(t)\mu(t-2\pi)$}$(s)=e^{-2\pi s}L${$cos(t+2\pi)$}$(s)=e^{-2\pi s}L${$cos(t)$}$(s)=e^{-2\pi s}\frac{s}{s²+1}$ 
+
+del mismo modo: 
+
+$L${$sin(t)\mu(t-2\pi)$}$(s)=e^{-2\pi s}L${$sin(t+2\pi)$}$(s)=e^{-2\pi s}L${$sin(t)$}$(s)=e^{-2\pi s}\frac{1}{s²+1}$ 
+
+
+#### Ahora puedes temrinar ejercicios anteriores :O
+
+
+
+
+# Transformada de la derivada
+
+### Teorema: 
+Sea $f:[0,\infty[\to\mathbb{R}$ una función continua y de orden exponencial $\alpha$. Si $f'$ es continua a tramos, entonces $L${$f'(t)$}$(s)$ existe para $s>\alpha$, y:
+
+### $L${$f'(t)$}$(s)$=$sL${$f(t)$}$(s)-f(0)$
+
+es decir, si llamamos $F(s)=L${$f(t)$}$(s)$, se tiene que: 
+
+### $L${$f'(t)$}$(s)=sF(s)-f(0)$ 
+
+
+Si $f'$ es continua y de orden exponencial $\alpha$, y la segunda derivada es continua a tramos, entonces:
+
+### $L${$f''(t)$}$(s)=s²F(s)-sf(0)-f'(0)$ donde $F(s)=L${$f(t)$}$(s)$
+
+en general:
+Si $f\in nose$($[0,+\infty[$) (es decir, $f$ pertenece al conjunto de todas las funciones $f:[0,\infty[\to\mathbb{R}$ que admiten derivada hasta el orden $n-1$, continuas en $[0,+\infty[$)
+
+y además $f,f',f'',...,f^{(n-1)}$ son de orden exponencial $\alpha$, y $f^{(n)}$ es continua a tramos en $[0,+\infty[$ entonces, $L${$f^{(n)}(t)$}$(s)$ existe para $s>\alpha$, y:
+
+### $L${$f^{(n)}(t)$}$(s)=s^{n}F(s)-s^{n-1}f(0)-s^{n-2}f'(0)-...-f^{(n-1)}(0)$ 
+
+
+# Transformada inversa de Laplace
+
+Definición: 
+Si $F(s)=L${$f(t)$}$(s)$ decimos que $f(t)$ es la transformada de Laplace inversa de $F(s)$. La denotamos:
+
+### $L^{-1}${$F(s)$}$(t)=f(t)$ 
+
+#### Teorema: 
+La transformada inversa de Laplace es una transformación lineal, esto es: 
+
+### $L^{-1}${$\alpha F(s)+\beta G(s)$}$(t)=\alpha L^{-1}${$F(s)$}$(t)+\beta L^{-1}${$G(s)$}$(t)$
+
+
+
+| Transformada de Laplace              | Transformada inversa de laplace                   |
+| ------------------------------------ | ------------------------------------------------- |
+| $L${1}$(s)=\frac{1}{s}$              | $L^{-1}${$\frac{1}{s}$}$(t)=1$                    |
+| $L${$t^n$}$(s)=\frac{n!}{s^{n+1}}$   | $L^{-1}${$\frac{1}{s^{n+1}}$}$(t)=\frac{t^n}{n!}$ |
+| $L${$e^{kt}$}$(s)=\frac{1}{s-k}$     | $L${$e^{kt}$}$(s)=\frac{1}{s-k}$                  |
+| $L${$sin(kt)$}$(s)= \frac{s}{s²+k²}$ | $L${$sin(kt)$}$(s)= \frac{s}{s²+k²}$              |
+| $L${$cos(kt)$}$(s)=\frac{s}{s²+k²}$  | $L${$sin(kt)$}$(s)= \frac{s}{s²+k²}$              |
+(cambiar ultimas tres de $L^{-1}$)
+
+
+### Ejemplos: 
+
+$L^{-1}${$\frac{1}{s⁵}$}$(t)=\frac{1}{4!}L^{-1}${$\frac{4!}{s⁵}$}$(t)=\frac{1}{4!}t⁴$ 
+
+$L^{-1}${$\frac{1}{(s²-1)(s²+1)}$}$(t)$
+
+usando fraciones parciales: 
+
+$\frac{1}{(s²-1)(s²+1)}=\frac{A}{s-1}+\frac{B}{s+1}+\frac{Cs+D}{s²+1}$
+
+$=\frac{A(s+1)(s²+1)+B(s-1)(s²+1)+(Cs+D)(s-1)(s+1)}{(s²-1)(s²+1)}$ 
+
+$\Rightarrow{1}=A(s+1)(s²+1)+B(s-1)(s²+1)+(Cs+D)(s-1)(s+1)$ 
+
+$\Rightarrow A=\frac{1}{4};B=-\frac{1}{4};C=0;D=-\frac{1}{2}$ 
+
+entonces, $\frac{1}{(s²-1)(s²+1)}=\frac{1}{4}\frac{1}{s-1}-\frac{1}{4}\frac{1}{s+1}-\frac{1}{2}\frac{1}{s²+1}$ 
+
+finalkmente:
+
+### $L^{-1}${$\frac{1}{(s²-1)(s²+1)}$}$(t)=\frac{1}{4}L^{-1}${$\frac{1}{s-1}$}$(t)-\frac{1}{4}L^{-1}${$frac{1}{s+1}$}$(t)-\frac{1}{2}L^{-1}${$\frac{1}{s²+1}$}$(t)=\frac{1}{4}e^{t}-\frac{1}{4}e{-t}-\frac{1}{2}sin(t)$
+
+
+## $I$) Primer teorema de traslación:
+
+### $L${$a^tf(t)$}$(s)=F(s-a)$ 
+
+### $\Rightarrow L^{-1}${$F(s-a)$}$(t)=e^{at}f(t)$ 
+
+## $II$) Segundo teorema de traslación:
+
+### $L${$f(t-a)\mu(t-a)$}$(s)=e^{-as}F(s)$ 
+
+### $\Rightarrow L^{-1}${$e^{-as}F(s)$}$(t)=f(t-a)\mu(t-a)$ 
+
+
+
+#### Ejemplo:
+Calcule $L^{-1}${$\frac{1}{s-4}e^{-2s}$}$(t)$ 
+
+$=f(t-2)\mu(t-2)$ donde $f(t)=L^{-1}${$\frac{1}{s-4}$}$(t)=e^{4t}$ 
+
+entonces: 
+
+$L^{-1}${$\frac{1}{s-4}e^{-2s}$}$(t)=e^{4(t-2)}\mu(t-2)$ 
+
+
+
+# Derivada de la transformada de la Laplace
+
+#### Teorema:
+SI $F(s)=L${$f(t)$}$(s)$, entonces:
+$L\{t^{n}f(t)\}(s)=(-1)^{n}\frac{d^n}{ds^n}(F(s))$ 
+
+En particular:
+
+- $L\{tf(t)\}(s)=-\frac{dF}{ds}$
+- $L\{t²f(t)\}(s)=\frac{d²F}{ds²}$
+
+#### Ejemplo: Calcule $L\{tsin(t)\}(s)$ 
+
+sea $f(t)=sin(t)$ entonces:
+
+$$F(s)=L\{f(t)\}(s)=L\{sin(t)\}(s)=\frac{1}{s²+1}$$
+luego:
+$$L\{tsin(t)\}(s)=-\frac{d}{ds}(F(s))=-\frac{d}{ds}(\frac{1}{s²+1})=-(-\frac{2s}{(s²+1)²})=\frac{2s}{(s²+1)²}$$
+
+### Ejemplo: Calcule $L^{-1}\{ln(\frac{s²+2}{s²+9})\}(t)$ 
+
+#### Solución: note que $F(s)=ln(\frac{s²+2}{s²+9})=ln(s²+2)-ln(s²+9)$ 
+
+luego, $f(t)=L^{-1}\{ln(\frac{s^2+2}{s²+9})\}(t)$ que lo necesitamos determinar, entonces, recordando que:
+$$L\{t^{n}f(t)\}(s)=(-1)^{n}\frac{d^{n}F}{ds^n}$$
+entonces:
+
+$t^{n}f(t)=(-1)^{n}L^{-1}\{F^{(n)(s)}\}(t)$ 
+
+de donde podemos determinar $f(t)$. En nuestro caso:
+
+#### $F'(s)=\frac{2s}{s²+2}-\frac{2s}{s^2+9}$ 
+#### $\Rightarrow tf(t)=-L^{-1}\{F'(s)\}(t)=-L^{-1}\{\frac{2s}{s²+2}\}(t)+L^{-1}\{\frac{2s}{s²+9}\}(t)$ 
+#### $=2[-cos(\sqrt(2)t)+cos(3t)]$ 
+
+entonces:
+$$f(t)=\frac{2}{t}[cos(3t)-cos(\sqrt{2}t)]$$
 
 
 
 
 
+### Ejercicio: Resuelva la ecuación $y''+3y'+2y=12e^{4t}$ si $y(0)=1$; $y'(0)=0$ usando Laplace.
 
 
+### Respuesta:
+Aplicando laplace a la ecuación:
+$$\Rightarrow L\{y''\}(s)-3L\{y'\}(s)+2L\{y\}(s)=12L\{e^{4t}\}(s)(*)$$
+Sea $Y(s)=L\{f(t)\}(s)$ :
+- $L\{y''\}(s)=s²Y(s)-sy(0)-y'(0)=s²Y(s)-s$ 
+- $L\{y'\}(s)=sY(s)-y(0)=sY(s)-1$ 
+de $(*)$ se tiene:
+
+$$s²y(s)-s-(sY(s)-1)+2Y(s)=12\frac{1}{s-4}$$
+
+##### $\Rightarrow s²Y(s)-s-3sY(s)+3+2Y(s)=\frac{12}{s-4}$ 
+##### $\Rightarrow Y(s)=(s^2-3s+2)-s+3=\frac{1}{s-4}$
+##### $\Rightarrow Y(s)(s²-3s+2)=\frac{12}{s-4}+s-3=\frac{s²-7s+24}{s-4}$ 
+
+##### $\Rightarrow Y(s)=\frac{12}{s-4}+s-3=\frac{s²-7s+24}{(s-4)(s²-3s+2)}=\frac{s²-7s+24}{(s-4)(s-2)(s-1)}$ 
+
+aplicando fracciones parciales:
+
+##### $\Rightarrow A(s-2)(s-1)+B(s-4)(s-1)+C(s-2)(s-4)=s²-7s+24$ 
+
+de esto, sacamos que:
+- $A=2$ 
+- $B=-7$
+- $C=6$ 
+entonces:
+$$\frac{s²-7s+24}{(s-4)(s-2)(s-1)}=Y(s)=\frac{2}{s-4}-\frac{7}{s-2}+\frac{6}{s-1}/L^{-1}$$
+
+#### $\Rightarrow y(t)=2L^{-1}\{\frac{1}{s-4}\}(t)-7L^{-1}\{\frac{1}{s-2}\}(t)+6L^{-1}\{\frac{1}{s-1}\}(t)$ 
+
+##### finalmente: $y(t)=2e^{4t}-7e^{2t}+6e^{t}$ 
 
 
+### Ejercicio propuesto: 
+Resolver el p.v.i:
+$$y''+y'+y=(t-1)\mu(t-1);y(0)=0;y'(0)=1$$
 
 
- 
+# Producto convolución
+
+#### Definición: 
+Sea $f$ y $g$ funciones continuas por tramo en $[0,+\infty[$. Se define el producto convolución de $f$ y $g$, que anotamos $f*g$, como:
+$$(f*g)(t)=\int_{0}^{*}f(t-\tau)g(\tau)d\tau$$
+##### OBS: $(f*g)(t)=(g*f)(t)$, basta hacer el cambio de variable $\tau=t-u$ 
+
+#### Teorema:
+Sean $f$ y $g$ dos funciones continuas por tramos $[0,+\infty[$, y de orden exponencial $\alpha$. Entonces:
+$$L\{f*g\}(s)=F(s)G(s)$$ donde $F(s)=L\{f(t)\}(s);G(s)=L\{g(t)\}(s)$ 
+
+### "Forma reciproca del teorema anterior":
+$$L^{-1}\{F(s)\cdot G(s)\}(t)=(f*g)(t)$$
+donde $F(s)=L\{f(t)\}(s);G(s)=L\{g(t)\}(s)$ 
+

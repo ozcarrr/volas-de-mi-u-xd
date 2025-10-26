@@ -717,12 +717,350 @@ $P(x\geq{12})=1-P(X<12)$ = $h
 ### $\Rightarrow{E[Y_2]}=2.4\cdot{8}$ 
 ### luego, $P(Y_2\geq{25})=\sum_{i=25}^{\infty}\frac{19.2^{i}}{i!}e^{-19.2}$ 
 
+# Distribuciones continuas de probabilidad
+
+### Distribución Uniforme 
+
+![[Pasted image 20250922163808.png]]
+$X$ ~ $Unif(a,b)$ (notación)
+Probabilidad: $P(X)=\frac{1}{b-a}$ 
+Esperanza : $E[X] = \int_{a}^{b}\frac{x}{b-a}dx=\frac{b-a}{2}$ 
+
+### Distribución normal
+
+![[Pasted image 20250922163847.png]]
+$X$~$N(\mu,\sigma²)$ 
+$Z=\frac{x-\mu}{\sigma}$ 
+$P(X\geq{\mu})=P(X\leq{\mu})=0.5$ 
+$P(X>x)=1-P(X\leq{x})=1-P(Z\leq{\frac{x-\mu}{\sigma}})$ 
+$E[X]=Z\cdot{\frac{\sigma}{x}}=Z\cdot{\frac{\sigma}{\sqrt{n}}}$ 
+donde $\mu$ es el promedio, $\sigma$ es la desviación estandar, $X$ es la var. aleatoria, $x$ es el numero dado en el problema, $Z$ es la distribución estandarizada y $n$ es la "muestra deseada"
+ 
+Estandar: $Z$~$N(0,1)$ 
+
+![[Pasted image 20250922164232.png]]
+
+# 23/09
+# Distribución exponencial 
+
+Funciona como Poisson, pero en lugar de medir "cuantas veces paras algo en un intervalo de tiempo o espacio" mide =="cuanto tiempo o espacio pasa entre las ocurrencias de un modelo de Poisson"== 
+- Como poisson, se distribuye en muestras de tasa fijas con ocurrencias independientes. 
+- La probabilidad es mayor en valores cercanos a la esperanza
+
+Sea $\tau$ la tasa de tiempo o espacio en el que ocurre algo:
+Función Probabilidad: 
+$$
+P(X=k)=
+\begin{cases}
+\frac{1}{\tau}e^{-\frac{k}{\tau}},\\
+0 ; c.o.c
+\end{cases}
+$$ 
+Esperanza: $\tau$ 
+Varianza: $\tau²$ 
+Distribución: $\chi²$ donde $\chi^{2}_{k}=[N(0,1)]²+[N(0,1)]²+...+[N(0,1)]²$ hasta el $k$-esimo termino,
+donde $k$ son los grados de libertad.
+$E(\chi_{k}^{2})=k$ ; $Var_{\chi_{k}^{2}}=2k$ 
+
+### Control: 
+- Distribuciones (Binomial, Geometrica, Binomial negativa, Poisson)
 
 ### PRUEBA: 
-- Hasta Poisson
+- Probabilidad / Conjuntos
+- Bayes
+- Variable aleatoria discreta
+- FUncion de masa
+- Función de prob. acumulada
+- Distribuciones 
+
+# CLASE 30/09 
+
+##### La estadística es la:
+- Recolección
+- Limpieza
+- Analisis
+- Interpretación
+de datos
+
+
+### CONCEPTOS
+
+- Población: EL universo de nuestro experimento
+- Muestrar: Parte de la población se divide en dos subconjuntos:
+-Probabilistica: Escoger al azar
+-Representativa: Proporciones de Subgrupos parecidas a la población
+
+- Estadistica Descriptiva 
+- Conjeturas (Analisis exploratorio de datos)
+- Estadistica inferencial
+
+# Ayudantia 01/10
+### Frecuencias en datos discrestos (notación)
+
+- $x_i$ : Dato (raw data)
+- $f_i$: Frecuencia absoluta (Numero de veces que se repite el dato)
+- $F_i$: Frecuencia acumulada (Suma de las $f_i$ hasta cierto dato)
+- $h_i$: Frecuencia relativa ($\frac{f_i}{N}$ donde $N$ es el total de datos).
+- $H_i$ : Frecuencia relativa acumulada (Suma de las $h_i$ hasta ese dato)
+
+# Medidas de disperción (de datos)
+
+ Definición: Una medida de disperción informa sobre que tan diferentes o similares son los datos entre si. 
+
+### Rango: $x_{max}-x_{min}=R$ 
+
+Se intepreta el "espacio" en el que se pueden mover los datos, aunque esta medida es muy relativa o subjetiva.
+
+### Rango intercuartílico: $R_I=P_{75}-P_{25}=Q_3-Q_1$ 
+
+Percentil: Se obtiene un dato $P_K$, desde cuyo dato se cuentan todos los datos hasta el dato minimo, considerando un K% de los tados. (tambien se puede ver como un intervalo $[x_{min},K]$). Cnsidere que el intervalo restante es el 100-K% de las observaciones ($]K,x_{max}]$).
+
+El rango intercualticilo obtiene, en cierta manera, la distribución de los datos en el centro.
+
+### Como calcular cualquier percentil 
+Sea un percentil $P_K$ perteneciente a un intervalo $[L_i,L_n]$ siendo el intervalo numero $i$ en una muestra de datos, $N$ el numero de datos totales, $F_{i-1}$ la frcuencia acumulada del intervalo anterior y $f_i$ la frecuencia de el intervalo actual.
+
+Usamos la siguiente formula:
+$$P_K=L_i+\frac{\frac{KN}{100}-F_{i-1}}{f_i}\cdot A_i$$
+
+### Varianza : $Var(x)=\frac{\sum_{i=1}^{n}(\bar{x}-x_i)²}{n}$ 
+Mide la distancia entre cada dato y el promedio. 
+
+### Desv. estandar : $\sigma=\sqrt{Var(x)}$ 
+
+
+### Coeficiente de variación: $\frac{\sigma}{\bar{x}}=C.V$
+
+Es una metrica independiente de que tan grandes o pequeños sean los datos 
+
+### Error estandar (para medidas absolutas): $\sqrt{n}\cdot \sigma$ 
+donde $n$ es el numero de experimentos y $\sigma$ es la desviación estandar de nuestra variable aleatoria
+
+## Ley de los grandes números
+
+##### Definición debil: $\lim_{h\to{\infty}}P_r(|\bar{x}-u|<\epsilon)=0$ ; $\forall{\epsilon}>0$ 
+
+##### Definición Fuerte: $P_r(\lim_{h\to{\infty}}{|\bar{x_n}-u}|)=0$
+
+En palabras, a medida que tomamos más muestras, la proporción experimental se acerca a la teórica casi con seguridad.
+
+control miercoles:
+
+distribución normal y exponencial
+teorema del limite central
+# Clase 16/10
+
+### ¿Cuando usar distribución normal o TCL?
+### Dist. normal
+Si conocemos la desv. estandar (o varianza) y la media, usamos la dist normal:
+
+Esto es $\frac{\bar x-\mu}{\frac{\sigma}{\sqrt{n}}}$~$N(0,1)$ 
+
+### TCL (para una muestra)
+Si conocemos la media, pero no la desv. estandar (o varianza) usamos teorema central del limite (tcl) en LA muestra:
+Esto es: $\frac{\bar x-\mu}{\frac{s}{\sqrt{n}}}$~$t_{n-1}$ 
+
+
+Parametros de población: $\mu$, $\sigma$ y $n$ (media, desv. estandar y la muestra aleatoria poblacional (o población total, respectivamente)
+note que $s$ es la desv estandar de la muestra dada 
+Normalmente son numeros fijos
+
+
+### Ejercicios: 
+
+
+#### Media muestral de sueldos
+
+"enunciado"
+
+en este caso, conocemos la desv. estandar y la media, por lo que usamos una distribución normal:
+
+$\Rightarrow\frac{\bar{x}-2500}{\frac{600}{\sqrt{64}}}$~$N(0,1)$ 
+luego, nos piden $P(\bar{x}<2350)$
+entonces, usando la "estandarización": 
+
+$\Rightarrow P(\bar{x}<2350)=P(\frac{\bar{x}-2500}{\frac{600}{\sqrt{64}}}-\frac{2350-2500}{\frac{600}{\sqrt{64}}})=P(\frac{\bar{x}-2500}{{75}}<-2)\approx{0.0228}$ (observando la tabla en canvas)
+
+#### Gasto promedio familiar en el feriado del 21 de mayo
+
+"enunciado"
+"a"
+"b"
+
+##### a) $P(\bar{x}>263.000)$
+
+en este caso, usamos $\frac{\bar{x}-250.000}{\frac{130.000}{\sqrt{150}}}=\frac{\bar{x}-250.000}{10.614}$~$t_{149}$ dado que $\mu=250.000;S=130.000;n=150$ 
+
+entonces $P(\bar{x}>263.000)=P(\frac{\bar{x}-250.000}{10.614}>\frac{263.000-250.000}{10.614})=P(\frac{\bar{x}-250.000}{10.614}>1.22)\approx{0.1}$ 
+
+##### b) $P(\frac{S²}{2}>41.65)=P(S²>83.3)$
+$=P(\frac{(61-1)S^2}{20.000²}>\frac{(61-1)\cdot{83.3}}{20.000²})=P(\chi²_{60}>1.2\cdot{10⁵})\approx{1}$ 
 
 
 
+### Distribución Muestral | Varianza muestral
+
+#### $\frac{(n-1)S²}{\sigma²}=\frac{\sum_{1=1}^{n}(x_i-\bar{x})²}{\sigma²}$~$\chi_{n-1}$ 
+
+$\chi_1,\chi_2,...,\chi_n$ vienen de una distribución normal
+
+
+
+### DIst. Continuas:
+
+- Normal
+- $T_2$
+- $\chi²$ 
+- Exponencial
+- General
+
+
+
+
+## Ejercicios Dist. Continuas y muestrales
+
+
+### Distribución del porcentaje compuesto en el combustible
+
+
+Notamos que la variable aleatoria es $X$: Porcentaje de compuesto por galon
+
+entonces, $X$~$N(33,9²)$ 
+
+#### a) Se interpreta como $P(35\leq{X}\leq{40})$ 
+
+como una variable aleatoria normal no puede integrarse, usamos $z=\frac{x-\mu}{\sigma};Z$~$N(0,1)$ 
+
+entonces, podemos interpretar la probabilidad que buscamos como:
+
+$$P(\frac{35-33}{9}\leq{z}\leq{\frac{40-33}{9}})\approx{P(0.22\leq{z}\leq{0.78})}$$
+luego, note que $P(0.22\leq{z}\leq{0.78})=P(z\leq{0.78})-P(z<22)=0.7823-0.5871=0.1952$ 
+
+#### b) Se intepreta como el valor que da el percentil 84.13
+
+Sea $z_0$ el valor que "genera" el percentil 84.13%=0.8413
+$$\Rightarrow P(z<z_0)=0.8413\Rightarrow z_0=1$$
+
+luego, $\frac{x-33}{9}=1\Rightarrow x=42$ 
+
+finalmente, el porcentaje de compuesto máximo que tiene el 84.13% de produccion de galones es de un 42% 
+
+
+### Distribución del gasto de los consumidores en un mall
+
+notamos que la variable aleatoria es:
+
+$X$:Gasto un domingo en un mall (en miles de pesos) $\Rightarrow{X}$~$N(65,40²)$
+
+#### a)
+
+#### b) Nos piden $P(X>120)$ 
+
+entonces, estandarizando usando $z=\frac{x-\mu}{\sigma}$:
+$$\Rightarrow P(X>120)=P(z>\frac{120-65}{40})=P(z>1.38)=1-P(z\leq{1.38})=1-0.9162=0.0838$$
+entonces, la probabilidad de que el gasto supere el monto dado es de un 8% aprox.
+
+#### c) Se interpreta como el percentil 30 si se invierte el orden de los datos, es decir, el percentil 70 de los datos en orden común.
+
+esto nos implica que $P(z<z_0)=0.7$, donde que $z_0=\frac{x_0-65}{40}$ y $x_o$ es el valor que "genera" al percentil 70 y $z_0$ es el valor estandarizado
+$\Rightarrow z_0=0.52$
+finalmente, de $\frac{x_0-65}{40}=0.52\Rightarrow{x_0=85.8}$ 
+
+### Tiempo entre llamadas a una empresa de charcutería
+
+Notamos que la variable aleatoria y su distribución son:
+$X$:TIempo entre llamadas
+$X$~$Exp(\lambda=10)$ 
+
+#### a) Se intepreta como $P(X<5)$ 
+
+$P(X<5)=\int_{0}^{5}\frac{1}{10}e^{-\frac{x}{10}}dx=1-e^{-\frac{1}{2}}\approx{0.39}$ 
+
+entonvces, la probabilidad de que transcurran menos de 5 minutos antes de recibir la primera llamada es de un 40% aprox
+
+#### b) Se intepreta como $P(X<k)=0.9$ 
+
+entonces, $P(Z<k)=\int_{0}^{k}\frac{1}{10}e^{-\frac{x}{10}}dx=1-e^{-\frac{k}{10}}=0.9$ 
+
+$\Rightarrow{k=-10ln(0.1)\approx{23.03}}$ 
+
+
+
+### Variabilidad en el contenido de carne de hamburgesas
+
+
+
+
+### Ventas diarias de un analgésico 
+
+#### datos: 
+- $\mu=367.800$ 
+- $\sigma²=62.450^2$ 
+- $n=30$ (tamaño de mi muestra)
+
+sea $\bar{X_n}$ el promedio de mi muestra, nos piden por:
+$$P(\bar{X_n}<350.000)$$
+y por T.C.L, $\bar{X_n}$~$N(\mu,\frac{\sigma²}{n})$ 
+
+entonces, estandarizando (dado a que sigue una dist. normal):
+$$\Rightarrow Z_n=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}$$
+donde $Z_n$~$N(0.1)$ 
+
+
+luego, $P(\bar{X_n}<350.000)=P(Z_n<\frac{350.000-367.800}{\frac{62.450}{\sqrt{30}}})=P(Z_n<-1.56)\approx{0.0594}$ 
+
+
+
+
+## Distribuciones muestrales ejercicios
+
+
+### Variabilidad en el contenido de carne de hamburgesas
+
+
+#### a) 
+##### Datos poblacionales: 
+- $\mu=114.29$ ; $Var=5.71²$ 
+##### Datos de la muestra:
+- $n=25$ ;$Var=11.43$ 
+
+notamos que la muestra de tamaño 25 sigue una distribución muestral de la varianza:
+
+es decir $\frac{(n-1)S²}{\sigma²}$~$\chi²_{n-1}$ 
+
+entonces, nos pidne por $P(S²\geq{8.664})$ , que estandarizando, queda:
+$$P(\frac{(n-1)S²}{\sigma²}\geq\frac{(n-1)8.664}{\sigma²})=P(\frac{24\cdot S²}{5.71}\geq\frac{24\cdot 8.664}{5.71})=P(\frac{24\cdot S²}{5.71}\geq36.4161)$$
+Luego, mirando la tabla (viendo el grado de libertad (numero de muestras) $v$ y el numero que se quiere comparar $36.4161$ )
+$$\Rightarrow P(\frac{24\cdot S²}{5.71}\geq36.4161)=0.05$$
+
+#### b) 
+El supuesto de normalidad es necesario porque sin esta, no se puede ocupar el teorema dado a que esta dado solo para variables aleatorias en una población que siguen una distribución normal.
+
+
+
+
+### Probabilidad de éxito en contactos telefónicos
+
+
+Sea $X$: Numero de llamadas exitosas
+$\Rightarrow{X}$~$Binom(100,p)$ donde $p=0.45$ 
+
+entonces, notemos que nos piden una proporcion de exitos, es decir, a todos los parametros, se les divide por el total de intentos (en este caso $N=100$)
+
+nos piden por $P(\bar{p}\leq{0.48})$ , que estandarizando queda:
+$$=P(\frac{\bar{p}-p}{\sqrt{\frac{pq}{N}}}\leq\frac{0.48-p}{\sqrt{\frac{pq}{N}}})$$
+donde $\bar{p}$ es la probabilidad de la muestra y $p$ es la probabilidad e extio de la población
+entonces:
+$$P(\frac{\bar{p}-p}{\sqrt{\frac{pq}{N}}}\leq\frac{0.48-p}{\sqrt{\frac{pq}{N}}})\approx P(\frac{\bar{p}-0.45}{0.05}\leq{0.6})=0.7257$$
+
+## Ejercicios de estimadores
+
+#### COnceptos:
+- Población (Parametro):$\theta$ 
+- Muestra (Variable aleatoria): $\bar{\theta}$ 
+- Error cuadratico medio ($E[(\theta-\bar{\theta²})]=Var(\bar{\theta})+E[\theta-\bar{\theta}]$) donde $E[\theta-\bar{\theta}]$ es un estimador sesgado y $Var(\bar\theta)$ es la eficiencia del estimador
+
+" No existen errores que sean 0"
 
 
 
